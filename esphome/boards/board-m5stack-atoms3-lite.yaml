@@ -16,6 +16,12 @@ uart:
   tx_pin: GPIO6
   rx_pin: GPIO5
 
+### modbus ###
+modbus:
+  id: modbus1
+  uart_id: mod_bus
+  send_wait_time: 200ms
+  
 # i2c for extra sensor
 i2c:
   - id: bus_a
