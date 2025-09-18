@@ -1,0 +1,102 @@
+substitutions:
+  in1_thermostat: IN1 thermostaat
+  booster_heater: Booster element
+  immersion_heater: Extern element
+  water_pump: Water pomp
+  three_way_valve: 3 weg klep
+  procon_version: Melcobems mini fw versie
+  heat_pump_frequency_master: Warmtepomp frequentie – Master  
+  temperature_setpoint_zone_1: Ingestelde temperatuur
+  temperature_setpoint_zone_2: Ingestelde temperatuur Z2
+  flow_temperature_setpoint_zone_1: Ingestelde aanvoer temperatuur
+  flow_temperature_setpoint_zone_2: Ingestelde aanvoer temperatuur Z2
+  legionella_temperature_setpoint: Ingestelde legionella temperatuur
+  DHW_temperature_drop: SWW temperatuur hysterese
+  room_temperature_zone_1: Kamer temperatuur
+  room_temperature_zone_2: Kamer temperatuur Z2
+  refrigerant_liquid_temperature: Koelmiddelvloeistof temperatuur
+  outdoor_ambient_temperature: Buiten temperatuur
+  flow_temperature: Aanvoer temperatuur
+  return_temperature: Retour temperatuur
+  tank_water_temperature: SWW boiler temperatuur
+  return_temperature_setpoint_zone_1: Ingestelde retour temperatuur
+  return_temperature_setpoint_zone_2: Ingestelde retour temperatuur Z2
+  boiler_flow_temperature: Boiler aanvoer temperatuur
+  boiler_return_temperature: Boiler retour temperatuur
+  heat_pump_run_time: Warmtepomp runtime
+  energy_used_heating: Energie gebruikt verwarmen
+  energy_used_cooling: Energie gebruikt koelen
+  energy_used_dhw: Energie gebruikt SWW
+  last_measured_total_energy_consumption: Laatst gemeten totale energie verbruikt
+  energy_produced_heating: Energy geproduceerd verwarmen
+  energy_produced_cooling: Energy geproduceerd koelen
+  energy_produced_dhw: Energy geproduceerd SWW
+  cop_heating: COP verwarmen
+  cop_cooling: COP koelen
+  cop_dhw: COP SWW
+  last_measured_total_energy_produced: Laatst gemeten totale energie geproduceerd
+  flow_rate: Flow
+  consumed_electric_power: Verbruikt elektrisch vermogen
+  produced_power: Geproduceerd thermisch vermogen
+  esp_home_version: Esphome versie
+  fault_code: Fout code
+  system_type_detected: Systeem type gedetecteerd
+  defrost: Ontdooien
+  residual_heat_removal: Afvoer van restwarmte
+  refrigerant_error_info: Koelmiddel fout info
+  seven_segment_display_error_code_digit_1: 7-Segment display fout code digit 1
+  seven_segment_display_error_code_digit_2: 7-Segment display fout code digit 2
+  heat_source_status: Status verwarmingsbron
+  model_profile_1: Model Profiel 1
+  operating_mode: Werkings mode
+  set_tank_water_temperature: Ingestelde boiler doel temperatuur
+  hc_thermostat_target_temperature_zone_1: Verw/Koelen doel temperatuur
+  hc_thermostat_target_temperature_zone_2: Verw/Koelen doel temperatuur Z2
+  thermostat_target_temperature_zone_1: Thermostaat doel temperatuur
+  thermostat_target_temperature_zone_2: Thermostaat doel temperatuur Z2
+  relay: Relais
+  operating_mode_dhw: SWW eco modus
+  force_dhw: Forceer SWW
+  set_holiday: Vakantie modus
+  cooling_on_prohibit_zone_1: Koelen verboden
+  cooling_on_prohibit_zone_2: Koelen verboden Z2
+  system_on_off: Systeem aan/uit
+  ac_mode_zone_1: A/C mode
+  ac_mode_zone_2: A/C mode Z2
+  hc_control_type: HC controle type
+  auto: Auto
+  initialize: Initialiseren
+  unknown: Onbekend
+  hours: uur
+  days: dagen
+  no_error: Geen fout
+  bad_communication_between_a1m_and_unit: Slechte communicatie tussen A1M en Unit
+  ata_unit_connected: ATA unit verbonden
+  atw_system_connected: ATW systeem verbonden
+  lossnay_system_connected: Lossnay systeem verbonden
+  standby: Standby
+  waiting_restart: Wachten herstart
+  normal: Normaal
+  prepared: Voorbereid
+  error_system: Fout (Systeem)
+  error_startup: Fout (Opstart)
+  maintenance_error: Onderhouds fout
+  heatpump: Warmtepomp
+  screw_in_heater: Externe heater
+  electric_heater: Interne heater
+  screw_in_heater_and_electric_heater: Externe heater and interne heater
+  dhw_boiler: SWW boiler
+  stop: Stop
+  none: Uit
+  hot_water: Warm water
+  heating: Verwarmen
+  cooling: Koelen
+  freeze_stat: Ontdooien
+  legionella: Legionella
+  heating_room: Verwarmen ruimte
+  heating_flow: Verwarmen flow
+  heating_curve: Verwarmen curve
+  cooling_room: Koelen ruimte
+  cooling_flow: Koelen flow
+  floor_dryup: Vloer drogen
+
