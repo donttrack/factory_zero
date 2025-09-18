@@ -2,12 +2,14 @@
 
 modbus_controller:
   - id: B23
-    ## ABB meter slaveadress 3
+    name: "ABB B23 Meter"
     address: 3
     modbus_id: modbus1
     setup_priority: -10
     update_interval: 50s
-    #timeout: 400ms
+    command_throttle: 200ms  # voorkomt overbelasting bij meerdere sensors
+    #timeout: 400ms  # optioneel, alleen nodig bij trage apparaten
+
     ## change parity frome even to none on the ABB B23 meter
     
 sensor:
