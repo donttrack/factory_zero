@@ -1,4 +1,10 @@
-Modbus RTU communication with ESP32/ESP32S3 and ttl to rs485 module, to use in home assistant / esphome for Mitsubishi Procon A1M mini
+Modbus RTU communication with ESP32/ESP32S3 and ttl to rs485 module, to use in home assistant / esphome for the Factory Zero Energy Module with
+
+- Mitsubishi Procon A1M mini
+- Mitsubischi Ecodan heatpump
+- Brink Flair 300 WTW
+- Tongdy CO2 Air quality transmitter
+- ABB B23 meter
 
 # Platforms
 Currently supported ESP32 platforms.
