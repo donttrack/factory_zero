@@ -18,6 +18,7 @@ ota:
 ### modbus ###
 modbus:
   id: modbus1
+  uart_id:
   send_wait_time: 200ms
 
 modbus_controller:
