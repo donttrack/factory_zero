@@ -14,7 +14,7 @@ Newer ESP configurations will be added and files updated.
 ```
 packages:
   remote_package:
-    url: https://github.com/fonske/Mitsubishi_procon
+    url: https://github.com/donttrack/factory_zero
     ref: main
     refresh: 0s
     files: [ esphome/labels/.procon-labels-en.yaml, 
