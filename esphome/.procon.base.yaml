@@ -22,7 +22,6 @@ ota:
 
 modbus_controller:
   - id: Ecodan
-    name: "Ecodan heatpump"
     ## Procon Modbus slaveaddress 1
     address: 1
     modbus_id: modbus1
