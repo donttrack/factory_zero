@@ -21,7 +21,7 @@ modbus:
   id: modbus1
   uart_id: mod_bus
   send_wait_time: 200ms
-  flow_control_pin: GPIO7  # Kies een vrije GPIO
+  flow_control_pin: GPIO7  
 
 # i2c for extra sensor
 i2c:
@@ -32,16 +32,16 @@ i2c:
 # Enable/Disable logging
 logger:
   logs:
-    modbus_controller.sensor: WARN
-    modbus_controller.output: WARN
-    modbus.number: WARN
-    esp32.preferences: WARN
-    sensor: WARN
-    text_sensor: WARN
-    dht.sensor: WARN
-    switch: WARN
-    button: WARN
-    number: WARN
+    modbus_controller.sensor: INFO
+    modbus_controller.output: INFO
+    modbus.number: INFO
+    esp32.preferences: INFO
+    sensor: INFO
+    text_sensor: INFO
+    dht.sensor: INFO
+    switch: INFO
+    button: INFO
+    number: INFO
   # baud_rate: 0  # <--- super important! for ESP8266
 
 wifi:
