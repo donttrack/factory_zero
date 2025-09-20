@@ -4,7 +4,7 @@ modbus_controller:
     address: 2
     modbus_id: modbus1
     update_interval: 100s
-    sensors:
+    sensor:
       - name: "Slave 2 Holding Reg 0"
         address: 0
         register_type: holding
@@ -2682,5 +2682,6 @@ modbus_controller:
         address: 0
         register_type: holding
         value_type: U_WORD
+
 
 
