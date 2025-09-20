@@ -1,4 +1,4 @@
-
+modbus_controller:
   - id: slave_2
     address: 2
     modbus_id: modbus1
@@ -2681,6 +2681,7 @@
         address: 0
         register_type: holding
         value_type: U_WORD
+
 
 
 
