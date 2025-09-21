@@ -395,46 +395,6 @@ modbus_controller:
     address: 99
     modbus_id: modbus1
     update_interval: 100s
-  - id: slave_100
-    address: 100
-    modbus_id: modbus1
-    update_interval: 100s
-  - id: slave_101
-    address: 101
-    modbus_id: modbus1
-    update_interval: 100s
-  - id: slave_102
-    address: 102
-    modbus_id: modbus1
-    update_interval: 100s
-  - id: slave_103
-    address: 103
-    modbus_id: modbus1
-    update_interval: 100s
-  - id: slave_104
-    address: 104
-    modbus_id: modbus1
-    update_interval: 100s
-  - id: slave_105
-    address: 105
-    modbus_id: modbus1
-    update_interval: 100s
-  - id: slave_106
-    address: 106
-    modbus_id: modbus1
-    update_interval: 100s
-  - id: slave_107
-    address: 107
-    modbus_id: modbus1
-    update_interval: 100s
-  - id: slave_108
-    address: 108
-    modbus_id: modbus1
-    update_interval: 100s
-  - id: slave_109
-    address: 109
-    modbus_id: modbus1
-    update_interval: 100s
 
 sensor:
   - platform: modbus_controller
@@ -1028,66 +988,6 @@ sensor:
   - platform: modbus_controller
     name: "Slave 99 Holding Reg 0"
     modbus_controller_id: slave_99
-    address: 0
-    register_type: holding
-    value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 100 Holding Reg 0"
-    modbus_controller_id: slave_100
-    address: 0
-    register_type: holding
-    value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 101 Holding Reg 0"
-    modbus_controller_id: slave_101
-    address: 0
-    register_type: holding
-    value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 102 Holding Reg 0"
-    modbus_controller_id: slave_102
-    address: 0
-    register_type: holding
-    value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 103 Holding Reg 0"
-    modbus_controller_id: slave_103
-    address: 0
-    register_type: holding
-    value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 104 Holding Reg 0"
-    modbus_controller_id: slave_104
-    address: 0
-    register_type: holding
-    value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 105 Holding Reg 0"
-    modbus_controller_id: slave_105
-    address: 0
-    register_type: holding
-    value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 106 Holding Reg 0"
-    modbus_controller_id: slave_106
-    address: 0
-    register_type: holding
-    value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 107 Holding Reg 0"
-    modbus_controller_id: slave_107
-    address: 0
-    register_type: holding
-    value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 108 Holding Reg 0"
-    modbus_controller_id: slave_108
-    address: 0
-    register_type: holding
-    value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 109 Holding Reg 0"
-    modbus_controller_id: slave_109
     address: 0
     register_type: holding
     value_type: U_WORD
