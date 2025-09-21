@@ -3,491 +3,1031 @@ modbus_controller:
     address: 1
     modbus_id: modbus1
     update_interval: 100s
+    command_throttle: 350ms
   - id: slave_2
     address: 2
     modbus_id: modbus1
     update_interval: 100s
+    command_throttle: 350ms
   - id: slave_3
     address: 3
     modbus_id: modbus1
     update_interval: 100s
+    command_throttle: 350ms
   - id: slave_4
     address: 4
     modbus_id: modbus1
     update_interval: 100s
+    command_throttle: 350ms
   - id: slave_5
     address: 5
     modbus_id: modbus1
     update_interval: 100s
+    command_throttle: 350ms
   - id: slave_6
     address: 6
     modbus_id: modbus1
     update_interval: 100s
+    command_throttle: 350ms
   - id: slave_7
     address: 7
     modbus_id: modbus1
     update_interval: 100s
+    command_throttle: 350ms
   - id: slave_8
     address: 8
     modbus_id: modbus1
     update_interval: 100s
+    command_throttle: 350ms
   - id: slave_9
     address: 9
     modbus_id: modbus1
     update_interval: 100s
+    command_throttle: 350ms
   - id: slave_10
     address: 10
     modbus_id: modbus1
     update_interval: 100s
+    command_throttle: 350ms
   - id: slave_11
     address: 11
     modbus_id: modbus1
     update_interval: 100s
+    command_throttle: 350ms
   - id: slave_12
     address: 12
     modbus_id: modbus1
     update_interval: 100s
+    command_throttle: 350ms
   - id: slave_13
     address: 13
     modbus_id: modbus1
     update_interval: 100s
+    command_throttle: 350ms
   - id: slave_14
     address: 14
     modbus_id: modbus1
     update_interval: 100s
+    command_throttle: 350ms
   - id: slave_15
     address: 15
     modbus_id: modbus1
     update_interval: 100s
+    command_throttle: 350ms
   - id: slave_16
     address: 16
     modbus_id: modbus1
     update_interval: 100s
+    command_throttle: 350ms
   - id: slave_17
     address: 17
     modbus_id: modbus1
     update_interval: 100s
+    command_throttle: 350ms
   - id: slave_18
     address: 18
     modbus_id: modbus1
     update_interval: 100s
+    command_throttle: 350ms
   - id: slave_19
     address: 19
     modbus_id: modbus1
     update_interval: 100s
+    command_throttle: 350ms
   - id: slave_20
     address: 20
     modbus_id: modbus1
     update_interval: 100s
+    command_throttle: 350ms
   - id: slave_21
     address: 21
     modbus_id: modbus1
     update_interval: 100s
+    command_throttle: 350ms
   - id: slave_22
     address: 22
     modbus_id: modbus1
     update_interval: 100s
+    command_throttle: 350ms
   - id: slave_23
     address: 23
     modbus_id: modbus1
     update_interval: 100s
+    command_throttle: 350ms
   - id: slave_24
     address: 24
     modbus_id: modbus1
     update_interval: 100s
+    command_throttle: 350ms
   - id: slave_25
     address: 25
     modbus_id: modbus1
     update_interval: 100s
+    command_throttle: 350ms
   - id: slave_26
     address: 26
     modbus_id: modbus1
     update_interval: 100s
+    command_throttle: 350ms
   - id: slave_27
     address: 27
     modbus_id: modbus1
     update_interval: 100s
+    command_throttle: 350ms
   - id: slave_28
     address: 28
     modbus_id: modbus1
     update_interval: 100s
+    command_throttle: 350ms
   - id: slave_29
     address: 29
     modbus_id: modbus1
     update_interval: 100s
+    command_throttle: 350ms
   - id: slave_30
     address: 30
     modbus_id: modbus1
     update_interval: 100s
+    command_throttle: 350ms
   - id: slave_31
     address: 31
     modbus_id: modbus1
     update_interval: 100s
+    command_throttle: 350ms
   - id: slave_32
     address: 32
     modbus_id: modbus1
     update_interval: 100s
+    command_throttle: 350ms
   - id: slave_33
     address: 33
     modbus_id: modbus1
     update_interval: 100s
+    command_throttle: 350ms
   - id: slave_34
     address: 34
     modbus_id: modbus1
     update_interval: 100s
+    command_throttle: 350ms
   - id: slave_35
     address: 35
     modbus_id: modbus1
     update_interval: 100s
+    command_throttle: 350ms
   - id: slave_36
     address: 36
     modbus_id: modbus1
     update_interval: 100s
+    command_throttle: 350ms
   - id: slave_37
     address: 37
     modbus_id: modbus1
     update_interval: 100s
+    command_throttle: 350ms
   - id: slave_38
     address: 38
     modbus_id: modbus1
     update_interval: 100s
+    command_throttle: 350ms
   - id: slave_39
     address: 39
     modbus_id: modbus1
     update_interval: 100s
+    command_throttle: 350ms
   - id: slave_40
     address: 40
     modbus_id: modbus1
     update_interval: 100s
+    command_throttle: 350ms
   - id: slave_41
     address: 41
     modbus_id: modbus1
     update_interval: 100s
+    command_throttle: 350ms
   - id: slave_42
     address: 42
     modbus_id: modbus1
     update_interval: 100s
+    command_throttle: 350ms
   - id: slave_43
     address: 43
     modbus_id: modbus1
     update_interval: 100s
+    command_throttle: 350ms
   - id: slave_44
     address: 44
     modbus_id: modbus1
     update_interval: 100s
+    command_throttle: 350ms
   - id: slave_45
     address: 45
     modbus_id: modbus1
     update_interval: 100s
+    command_throttle: 350ms
   - id: slave_46
     address: 46
     modbus_id: modbus1
     update_interval: 100s
+    command_throttle: 350ms
   - id: slave_47
     address: 47
     modbus_id: modbus1
     update_interval: 100s
+    command_throttle: 350ms
   - id: slave_48
     address: 48
     modbus_id: modbus1
     update_interval: 100s
+    command_throttle: 350ms
   - id: slave_49
     address: 49
     modbus_id: modbus1
     update_interval: 100s
+    command_throttle: 350ms
 
-sensor:
-  - platform: modbus_controller
-    name: "Slave 1 Holding Reg 0"
+modbus_sensor:
+  - name: "Slave 1 Holding Reg 0"
     modbus_controller_id: slave_1
     address: 0
     register_type: holding
     value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 2 Holding Reg 0"
+  - name: "Slave 1 Holding Reg 8"
+    modbus_controller_id: slave_1
+    address: 8
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 1 Holding Reg 100"
+    modbus_controller_id: slave_1
+    address: 100
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 2 Holding Reg 0"
     modbus_controller_id: slave_2
     address: 0
     register_type: holding
     value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 3 Holding Reg 0"
+  - name: "Slave 2 Holding Reg 8"
+    modbus_controller_id: slave_2
+    address: 8
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 2 Holding Reg 100"
+    modbus_controller_id: slave_2
+    address: 100
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 3 Holding Reg 0"
     modbus_controller_id: slave_3
     address: 0
     register_type: holding
     value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 4 Holding Reg 0"
+  - name: "Slave 3 Holding Reg 8"
+    modbus_controller_id: slave_3
+    address: 8
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 3 Holding Reg 100"
+    modbus_controller_id: slave_3
+    address: 100
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 4 Holding Reg 0"
     modbus_controller_id: slave_4
     address: 0
     register_type: holding
     value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 5 Holding Reg 0"
+  - name: "Slave 4 Holding Reg 8"
+    modbus_controller_id: slave_4
+    address: 8
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 4 Holding Reg 100"
+    modbus_controller_id: slave_4
+    address: 100
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 5 Holding Reg 0"
     modbus_controller_id: slave_5
     address: 0
     register_type: holding
     value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 6 Holding Reg 0"
+  - name: "Slave 5 Holding Reg 8"
+    modbus_controller_id: slave_5
+    address: 8
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 5 Holding Reg 100"
+    modbus_controller_id: slave_5
+    address: 100
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 6 Holding Reg 0"
     modbus_controller_id: slave_6
     address: 0
     register_type: holding
     value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 7 Holding Reg 0"
+  - name: "Slave 6 Holding Reg 8"
+    modbus_controller_id: slave_6
+    address: 8
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 6 Holding Reg 100"
+    modbus_controller_id: slave_6
+    address: 100
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 7 Holding Reg 0"
     modbus_controller_id: slave_7
     address: 0
     register_type: holding
     value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 8 Holding Reg 0"
+  - name: "Slave 7 Holding Reg 8"
+    modbus_controller_id: slave_7
+    address: 8
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 7 Holding Reg 100"
+    modbus_controller_id: slave_7
+    address: 100
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 8 Holding Reg 0"
     modbus_controller_id: slave_8
     address: 0
     register_type: holding
     value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 9 Holding Reg 0"
+  - name: "Slave 8 Holding Reg 8"
+    modbus_controller_id: slave_8
+    address: 8
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 8 Holding Reg 100"
+    modbus_controller_id: slave_8
+    address: 100
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 9 Holding Reg 0"
     modbus_controller_id: slave_9
     address: 0
     register_type: holding
     value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 10 Holding Reg 0"
+  - name: "Slave 9 Holding Reg 8"
+    modbus_controller_id: slave_9
+    address: 8
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 9 Holding Reg 100"
+    modbus_controller_id: slave_9
+    address: 100
+    register_type: holding
+    value_type: U_WORD
+  - name: "Tongdy Slave 9 Reg 1"
+    modbus_controller_id: slave_9
+    address: 1
+    register_type: holding
+    value_type: U_WORD
+  - name: "Tongdy Slave 9 Reg 2"
+    modbus_controller_id: slave_9
+    address: 2
+    register_type: holding
+    value_type: U_WORD
+  - name: "Tongdy Slave 9 Reg 3"
+    modbus_controller_id: slave_9
+    address: 3
+    register_type: holding
+    value_type: U_WORD
+  - name: "Tongdy Slave 9 Reg 4"
+    modbus_controller_id: slave_9
+    address: 4
+    register_type: holding
+    value_type: U_WORD
+  - name: "Tongdy Slave 9 Reg 5"
+    modbus_controller_id: slave_9
+    address: 5
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 10 Holding Reg 0"
     modbus_controller_id: slave_10
     address: 0
     register_type: holding
     value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 11 Holding Reg 0"
+  - name: "Slave 10 Holding Reg 8"
+    modbus_controller_id: slave_10
+    address: 8
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 10 Holding Reg 100"
+    modbus_controller_id: slave_10
+    address: 100
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 11 Holding Reg 0"
     modbus_controller_id: slave_11
     address: 0
     register_type: holding
     value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 12 Holding Reg 0"
+  - name: "Slave 11 Holding Reg 8"
+    modbus_controller_id: slave_11
+    address: 8
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 11 Holding Reg 100"
+    modbus_controller_id: slave_11
+    address: 100
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 12 Holding Reg 0"
     modbus_controller_id: slave_12
     address: 0
     register_type: holding
     value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 13 Holding Reg 0"
+  - name: "Slave 12 Holding Reg 8"
+    modbus_controller_id: slave_12
+    address: 8
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 12 Holding Reg 100"
+    modbus_controller_id: slave_12
+    address: 100
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 13 Holding Reg 0"
     modbus_controller_id: slave_13
     address: 0
     register_type: holding
     value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 14 Holding Reg 0"
+  - name: "Slave 13 Holding Reg 8"
+    modbus_controller_id: slave_13
+    address: 8
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 13 Holding Reg 100"
+    modbus_controller_id: slave_13
+    address: 100
+    register_type: holding
+    value_type: U_WORD
+  - name: "Brink Slave 13 Reg 10"
+    modbus_controller_id: slave_13
+    address: 10
+    register_type: holding
+    value_type: U_WORD
+  - name: "Brink Slave 13 Reg 11"
+    modbus_controller_id: slave_13
+    address: 11
+    register_type: holding
+    value_type: U_WORD
+  - name: "Brink Slave 13 Reg 12"
+    modbus_controller_id: slave_13
+    address: 12
+    register_type: holding
+    value_type: U_WORD
+  - name: "Brink Slave 13 Reg 13"
+    modbus_controller_id: slave_13
+    address: 13
+    register_type: holding
+    value_type: U_WORD
+  - name: "Brink Slave 13 Reg 14"
+    modbus_controller_id: slave_13
+    address: 14
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 14 Holding Reg 0"
     modbus_controller_id: slave_14
     address: 0
     register_type: holding
     value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 15 Holding Reg 0"
+  - name: "Slave 14 Holding Reg 8"
+    modbus_controller_id: slave_14
+    address: 8
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 14 Holding Reg 100"
+    modbus_controller_id: slave_14
+    address: 100
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 15 Holding Reg 0"
     modbus_controller_id: slave_15
     address: 0
     register_type: holding
     value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 16 Holding Reg 0"
+  - name: "Slave 15 Holding Reg 8"
+    modbus_controller_id: slave_15
+    address: 8
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 15 Holding Reg 100"
+    modbus_controller_id: slave_15
+    address: 100
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 16 Holding Reg 0"
     modbus_controller_id: slave_16
     address: 0
     register_type: holding
     value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 17 Holding Reg 0"
+  - name: "Slave 16 Holding Reg 8"
+    modbus_controller_id: slave_16
+    address: 8
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 16 Holding Reg 100"
+    modbus_controller_id: slave_16
+    address: 100
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 17 Holding Reg 0"
     modbus_controller_id: slave_17
     address: 0
     register_type: holding
     value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 18 Holding Reg 0"
+  - name: "Slave 17 Holding Reg 8"
+    modbus_controller_id: slave_17
+    address: 8
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 17 Holding Reg 100"
+    modbus_controller_id: slave_17
+    address: 100
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 18 Holding Reg 0"
     modbus_controller_id: slave_18
     address: 0
     register_type: holding
     value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 19 Holding Reg 0"
+  - name: "Slave 18 Holding Reg 8"
+    modbus_controller_id: slave_18
+    address: 8
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 18 Holding Reg 100"
+    modbus_controller_id: slave_18
+    address: 100
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 19 Holding Reg 0"
     modbus_controller_id: slave_19
     address: 0
     register_type: holding
     value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 20 Holding Reg 0"
+  - name: "Slave 19 Holding Reg 8"
+    modbus_controller_id: slave_19
+    address: 8
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 19 Holding Reg 100"
+    modbus_controller_id: slave_19
+    address: 100
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 20 Holding Reg 0"
     modbus_controller_id: slave_20
     address: 0
     register_type: holding
     value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 21 Holding Reg 0"
+  - name: "Slave 20 Holding Reg 8"
+    modbus_controller_id: slave_20
+    address: 8
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 20 Holding Reg 100"
+    modbus_controller_id: slave_20
+    address: 100
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 21 Holding Reg 0"
     modbus_controller_id: slave_21
     address: 0
     register_type: holding
     value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 22 Holding Reg 0"
+  - name: "Slave 21 Holding Reg 8"
+    modbus_controller_id: slave_21
+    address: 8
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 21 Holding Reg 100"
+    modbus_controller_id: slave_21
+    address: 100
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 22 Holding Reg 0"
     modbus_controller_id: slave_22
     address: 0
     register_type: holding
     value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 23 Holding Reg 0"
+  - name: "Slave 22 Holding Reg 8"
+    modbus_controller_id: slave_22
+    address: 8
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 22 Holding Reg 100"
+    modbus_controller_id: slave_22
+    address: 100
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 23 Holding Reg 0"
     modbus_controller_id: slave_23
     address: 0
     register_type: holding
     value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 24 Holding Reg 0"
+  - name: "Slave 23 Holding Reg 8"
+    modbus_controller_id: slave_23
+    address: 8
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 23 Holding Reg 100"
+    modbus_controller_id: slave_23
+    address: 100
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 24 Holding Reg 0"
     modbus_controller_id: slave_24
     address: 0
     register_type: holding
     value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 25 Holding Reg 0"
+  - name: "Slave 24 Holding Reg 8"
+    modbus_controller_id: slave_24
+    address: 8
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 24 Holding Reg 100"
+    modbus_controller_id: slave_24
+    address: 100
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 25 Holding Reg 0"
     modbus_controller_id: slave_25
     address: 0
     register_type: holding
     value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 26 Holding Reg 0"
+  - name: "Slave 25 Holding Reg 8"
+    modbus_controller_id: slave_25
+    address: 8
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 25 Holding Reg 100"
+    modbus_controller_id: slave_25
+    address: 100
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 26 Holding Reg 0"
     modbus_controller_id: slave_26
     address: 0
     register_type: holding
     value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 27 Holding Reg 0"
+  - name: "Slave 26 Holding Reg 8"
+    modbus_controller_id: slave_26
+    address: 8
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 26 Holding Reg 100"
+    modbus_controller_id: slave_26
+    address: 100
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 27 Holding Reg 0"
     modbus_controller_id: slave_27
     address: 0
     register_type: holding
     value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 28 Holding Reg 0"
+  - name: "Slave 27 Holding Reg 8"
+    modbus_controller_id: slave_27
+    address: 8
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 27 Holding Reg 100"
+    modbus_controller_id: slave_27
+    address: 100
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 28 Holding Reg 0"
     modbus_controller_id: slave_28
     address: 0
     register_type: holding
     value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 29 Holding Reg 0"
+  - name: "Slave 28 Holding Reg 8"
+    modbus_controller_id: slave_28
+    address: 8
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 28 Holding Reg 100"
+    modbus_controller_id: slave_28
+    address: 100
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 29 Holding Reg 0"
     modbus_controller_id: slave_29
     address: 0
     register_type: holding
     value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 30 Holding Reg 0"
+  - name: "Slave 29 Holding Reg 8"
+    modbus_controller_id: slave_29
+    address: 8
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 29 Holding Reg 100"
+    modbus_controller_id: slave_29
+    address: 100
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 30 Holding Reg 0"
     modbus_controller_id: slave_30
     address: 0
     register_type: holding
     value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 31 Holding Reg 0"
+  - name: "Slave 30 Holding Reg 8"
+    modbus_controller_id: slave_30
+    address: 8
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 30 Holding Reg 100"
+    modbus_controller_id: slave_30
+    address: 100
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 31 Holding Reg 0"
     modbus_controller_id: slave_31
     address: 0
     register_type: holding
     value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 32 Holding Reg 0"
+  - name: "Slave 31 Holding Reg 8"
+    modbus_controller_id: slave_31
+    address: 8
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 31 Holding Reg 100"
+    modbus_controller_id: slave_31
+    address: 100
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 32 Holding Reg 0"
     modbus_controller_id: slave_32
     address: 0
     register_type: holding
     value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 33 Holding Reg 0"
+  - name: "Slave 32 Holding Reg 8"
+    modbus_controller_id: slave_32
+    address: 8
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 32 Holding Reg 100"
+    modbus_controller_id: slave_32
+    address: 100
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 33 Holding Reg 0"
     modbus_controller_id: slave_33
     address: 0
     register_type: holding
     value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 34 Holding Reg 0"
+  - name: "Slave 33 Holding Reg 8"
+    modbus_controller_id: slave_33
+    address: 8
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 33 Holding Reg 100"
+    modbus_controller_id: slave_33
+    address: 100
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 34 Holding Reg 0"
     modbus_controller_id: slave_34
     address: 0
     register_type: holding
     value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 35 Holding Reg 0"
+  - name: "Slave 34 Holding Reg 8"
+    modbus_controller_id: slave_34
+    address: 8
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 34 Holding Reg 100"
+    modbus_controller_id: slave_34
+    address: 100
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 35 Holding Reg 0"
     modbus_controller_id: slave_35
     address: 0
     register_type: holding
     value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 36 Holding Reg 0"
+  - name: "Slave 35 Holding Reg 8"
+    modbus_controller_id: slave_35
+    address: 8
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 35 Holding Reg 100"
+    modbus_controller_id: slave_35
+    address: 100
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 36 Holding Reg 0"
     modbus_controller_id: slave_36
     address: 0
     register_type: holding
     value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 37 Holding Reg 0"
+  - name: "Slave 36 Holding Reg 8"
+    modbus_controller_id: slave_36
+    address: 8
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 36 Holding Reg 100"
+    modbus_controller_id: slave_36
+    address: 100
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 37 Holding Reg 0"
     modbus_controller_id: slave_37
     address: 0
     register_type: holding
     value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 38 Holding Reg 0"
+  - name: "Slave 37 Holding Reg 8"
+    modbus_controller_id: slave_37
+    address: 8
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 37 Holding Reg 100"
+    modbus_controller_id: slave_37
+    address: 100
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 38 Holding Reg 0"
     modbus_controller_id: slave_38
     address: 0
     register_type: holding
     value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 39 Holding Reg 0"
+  - name: "Slave 38 Holding Reg 8"
+    modbus_controller_id: slave_38
+    address: 8
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 38 Holding Reg 100"
+    modbus_controller_id: slave_38
+    address: 100
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 39 Holding Reg 0"
     modbus_controller_id: slave_39
     address: 0
     register_type: holding
     value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 40 Holding Reg 0"
+  - name: "Slave 39 Holding Reg 8"
+    modbus_controller_id: slave_39
+    address: 8
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 39 Holding Reg 100"
+    modbus_controller_id: slave_39
+    address: 100
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 40 Holding Reg 0"
     modbus_controller_id: slave_40
     address: 0
     register_type: holding
     value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 41 Holding Reg 0"
+  - name: "Slave 40 Holding Reg 8"
+    modbus_controller_id: slave_40
+    address: 8
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 40 Holding Reg 100"
+    modbus_controller_id: slave_40
+    address: 100
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 41 Holding Reg 0"
     modbus_controller_id: slave_41
     address: 0
     register_type: holding
     value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 42 Holding Reg 0"
+  - name: "Slave 41 Holding Reg 8"
+    modbus_controller_id: slave_41
+    address: 8
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 41 Holding Reg 100"
+    modbus_controller_id: slave_41
+    address: 100
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 42 Holding Reg 0"
     modbus_controller_id: slave_42
     address: 0
     register_type: holding
     value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 43 Holding Reg 0"
+  - name: "Slave 42 Holding Reg 8"
+    modbus_controller_id: slave_42
+    address: 8
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 42 Holding Reg 100"
+    modbus_controller_id: slave_42
+    address: 100
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 43 Holding Reg 0"
     modbus_controller_id: slave_43
     address: 0
     register_type: holding
     value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 44 Holding Reg 0"
+  - name: "Slave 43 Holding Reg 8"
+    modbus_controller_id: slave_43
+    address: 8
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 43 Holding Reg 100"
+    modbus_controller_id: slave_43
+    address: 100
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 44 Holding Reg 0"
     modbus_controller_id: slave_44
     address: 0
     register_type: holding
     value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 45 Holding Reg 0"
+  - name: "Slave 44 Holding Reg 8"
+    modbus_controller_id: slave_44
+    address: 8
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 44 Holding Reg 100"
+    modbus_controller_id: slave_44
+    address: 100
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 45 Holding Reg 0"
     modbus_controller_id: slave_45
     address: 0
     register_type: holding
     value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 46 Holding Reg 0"
+  - name: "Slave 45 Holding Reg 8"
+    modbus_controller_id: slave_45
+    address: 8
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 45 Holding Reg 100"
+    modbus_controller_id: slave_45
+    address: 100
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 46 Holding Reg 0"
     modbus_controller_id: slave_46
     address: 0
     register_type: holding
     value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 47 Holding Reg 0"
+  - name: "Slave 46 Holding Reg 8"
+    modbus_controller_id: slave_46
+    address: 8
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 46 Holding Reg 100"
+    modbus_controller_id: slave_46
+    address: 100
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 47 Holding Reg 0"
     modbus_controller_id: slave_47
     address: 0
     register_type: holding
     value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 48 Holding Reg 0"
+  - name: "Slave 47 Holding Reg 8"
+    modbus_controller_id: slave_47
+    address: 8
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 47 Holding Reg 100"
+    modbus_controller_id: slave_47
+    address: 100
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 48 Holding Reg 0"
     modbus_controller_id: slave_48
     address: 0
     register_type: holding
     value_type: U_WORD
-  - platform: modbus_controller
-    name: "Slave 49 Holding Reg 0"
+  - name: "Slave 48 Holding Reg 8"
+    modbus_controller_id: slave_48
+    address: 8
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 48 Holding Reg 100"
+    modbus_controller_id: slave_48
+    address: 100
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 49 Holding Reg 0"
     modbus_controller_id: slave_49
     address: 0
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 49 Holding Reg 8"
+    modbus_controller_id: slave_49
+    address: 8
+    register_type: holding
+    value_type: U_WORD
+  - name: "Slave 49 Holding Reg 100"
+    modbus_controller_id: slave_49
+    address: 100
     register_type: holding
     value_type: U_WORD
