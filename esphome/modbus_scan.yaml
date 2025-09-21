@@ -245,7 +245,7 @@ modbus_controller:
     update_interval: 100s
     command_throttle: 350ms
 
-modbus_sensor:
+sensor:
   - name: "Slave 1 Holding Reg 0"
     modbus_controller_id: slave_1
     address: 0
@@ -1031,3 +1031,4 @@ modbus_sensor:
     address: 100
     register_type: holding
     value_type: U_WORD
+
