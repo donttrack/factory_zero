@@ -2,979 +2,979 @@ modbus_controller:
   - id: slave_2
     address: 2
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_4
     address: 4
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_5
     address: 5
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_6
     address: 6
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_7
     address: 7
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_8
     address: 8
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_9
     address: 9
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_10
     address: 10
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_11
     address: 11
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_12
     address: 12
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_14
     address: 14
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_15
     address: 15
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_16
     address: 16
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_17
     address: 17
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_18
     address: 18
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_19
     address: 19
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_20
     address: 20
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_21
     address: 21
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_22
     address: 22
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_23
     address: 23
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_24
     address: 24
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_25
     address: 25
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_26
     address: 26
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_27
     address: 27
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_28
     address: 28
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_29
     address: 29
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_30
     address: 30
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_31
     address: 31
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_32
     address: 32
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_33
     address: 33
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_34
     address: 34
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_35
     address: 35
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_36
     address: 36
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_37
     address: 37
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_38
     address: 38
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_39
     address: 39
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_40
     address: 40
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_41
     address: 41
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_42
     address: 42
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_43
     address: 43
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_44
     address: 44
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_45
     address: 45
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_46
     address: 46
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_47
     address: 47
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_48
     address: 48
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_49
     address: 49
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_50
     address: 50
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_51
     address: 51
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_52
     address: 52
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_53
     address: 53
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_54
     address: 54
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_55
     address: 55
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_56
     address: 56
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_57
     address: 57
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_58
     address: 58
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_59
     address: 59
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_60
     address: 60
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_61
     address: 61
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_62
     address: 62
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_63
     address: 63
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_64
     address: 64
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_65
     address: 65
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_66
     address: 66
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_67
     address: 67
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_68
     address: 68
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_69
     address: 69
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_70
     address: 70
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_71
     address: 71
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_72
     address: 72
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_73
     address: 73
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_74
     address: 74
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_75
     address: 75
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_76
     address: 76
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_77
     address: 77
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_78
     address: 78
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_79
     address: 79
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_80
     address: 80
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_81
     address: 81
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_82
     address: 82
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_83
     address: 83
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_84
     address: 84
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_85
     address: 85
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_86
     address: 86
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_87
     address: 87
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_88
     address: 88
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_89
     address: 89
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_90
     address: 90
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_91
     address: 91
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_92
     address: 92
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_93
     address: 93
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_94
     address: 94
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_95
     address: 95
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_96
     address: 96
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_97
     address: 97
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_98
     address: 98
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_99
     address: 99
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_100
     address: 100
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_101
     address: 101
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_102
     address: 102
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_103
     address: 103
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_104
     address: 104
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_105
     address: 105
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_106
     address: 106
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_107
     address: 107
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_108
     address: 108
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_109
     address: 109
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_110
     address: 110
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_111
     address: 111
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_112
     address: 112
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_113
     address: 113
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_114
     address: 114
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_115
     address: 115
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_116
     address: 116
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_117
     address: 117
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_118
     address: 118
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_119
     address: 119
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_120
     address: 120
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_121
     address: 121
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_122
     address: 122
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_123
     address: 123
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_124
     address: 124
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_125
     address: 125
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_126
     address: 126
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_127
     address: 127
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_128
     address: 128
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_129
     address: 129
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_130
     address: 130
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_131
     address: 131
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_132
     address: 132
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_133
     address: 133
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_134
     address: 134
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_135
     address: 135
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_136
     address: 136
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_137
     address: 137
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_138
     address: 138
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_139
     address: 139
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_140
     address: 140
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_141
     address: 141
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_142
     address: 142
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_143
     address: 143
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_144
     address: 144
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_145
     address: 145
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_146
     address: 146
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_147
     address: 147
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_148
     address: 148
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_149
     address: 149
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_150
     address: 150
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_151
     address: 151
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_152
     address: 152
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_153
     address: 153
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_154
     address: 154
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_155
     address: 155
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_156
     address: 156
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_157
     address: 157
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_158
     address: 158
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_159
     address: 159
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_160
     address: 160
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_161
     address: 161
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_162
     address: 162
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_163
     address: 163
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_164
     address: 164
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_165
     address: 165
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_166
     address: 166
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_167
     address: 167
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_168
     address: 168
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_169
     address: 169
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_170
     address: 170
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_171
     address: 171
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_172
     address: 172
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_173
     address: 173
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_174
     address: 174
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_175
     address: 175
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_176
     address: 176
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_177
     address: 177
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_178
     address: 178
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_179
     address: 179
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_180
     address: 180
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_181
     address: 181
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_182
     address: 182
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_183
     address: 183
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_184
     address: 184
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_185
     address: 185
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_186
     address: 186
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_187
     address: 187
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_188
     address: 188
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_189
     address: 189
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_190
     address: 190
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_191
     address: 191
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_192
     address: 192
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_193
     address: 193
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_194
     address: 194
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_195
     address: 195
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_196
     address: 196
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_197
     address: 197
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_198
     address: 198
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_199
     address: 199
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_200
     address: 200
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_201
     address: 201
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_202
     address: 202
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_203
     address: 203
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_204
     address: 204
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_205
     address: 205
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_206
     address: 206
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_207
     address: 207
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_208
     address: 208
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_209
     address: 209
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_210
     address: 210
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_211
     address: 211
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_212
     address: 212
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_213
     address: 213
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_214
     address: 214
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_215
     address: 215
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_216
     address: 216
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_217
     address: 217
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_218
     address: 218
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_219
     address: 219
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_220
     address: 220
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_221
     address: 221
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_222
     address: 222
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_223
     address: 223
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_224
     address: 224
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_225
     address: 225
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_226
     address: 226
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_227
     address: 227
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_228
     address: 228
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_229
     address: 229
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_230
     address: 230
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_231
     address: 231
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_232
     address: 232
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_233
     address: 233
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_234
     address: 234
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_235
     address: 235
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_236
     address: 236
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_237
     address: 237
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_238
     address: 238
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_239
     address: 239
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_240
     address: 240
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_241
     address: 241
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_242
     address: 242
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_243
     address: 243
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_244
     address: 244
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_245
     address: 245
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_246
     address: 246
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
   - id: slave_247
     address: 247
     modbus_id: modbus1
-    update_interval: 10s
+    update_interval: 100s
 
 sensor:
   - platform: modbus_controller
