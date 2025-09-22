@@ -2,6 +2,17 @@ esphome:
   name: atom_s3_status_led
   friendly_name: Atom S3 Status LED
 
+  on_boot:
+    priority: -100
+    then:
+      - light.turn_on:
+          id: led
+          red: 1.0
+          green: 1.0
+          blue: 1.0
+          brightness: 1.0
+          effect: none
+
 logger:
 api:
   on_disconnect:
@@ -13,6 +24,8 @@ api:
           blue: 0.0
           brightness: 1.0
           effect: fast_pulse
+
+ota:
 
 wifi:
   ssid: "jouw_wifi_naam"
@@ -41,7 +54,7 @@ light:
   - platform: neopixelbus
     type: GRB
     variant: WS2812
-    pin: GPIO35
+    pin: GPIO38  # Veilig alternatief voor GPIO35
     num_leds: 1
     name: "Status LED"
     id: led
@@ -56,25 +69,13 @@ light:
           transition_length: 500ms
           update_interval: 1s
 
-on_boot:
-  priority: -100
-  then:
-    - light.turn_on:
-        id: led
-        red: 1.0
-        green: 1.0
-        blue: 1.0
-        brightness: 1.0
-        effect: none
-
 text_sensor:
+  - platform: template
+    name: "Operation Status"
+    id: status_operation
+
   - platform: copy
     source_id: status_operation
     id: status_operation_monitor
     internal: true
-    on_value:
-      then:
-        - lambda: |-
-            if (x == "heating") {
-              id(led).turn_on({
-                red: 1.0, green
+    on_value
