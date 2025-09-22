@@ -78,4 +78,4 @@ text_sensor:
     source_id: status_operation
     id: status_operation_monitor
     internal: true
-    on_value
+    on_value:
