@@ -8,3 +8,5 @@ modbus_controller:
     update_interval: 20s
     command_throttle: 200ms  # voorkomt overbelasting bij meerdere sensors
     #timeout: 400ms  # optioneel, alleen nodig bij trage apparaten
+    
+sensor:
