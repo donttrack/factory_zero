@@ -71,7 +71,7 @@ light:
     internal: true
     rgb_order: GRB
     pin: 27
-    num_leds: 4
+    num_leds: 1
     # RMT 0 channels will be occupied by IR
     rmt_channel: 1
     chipset: ws2812
