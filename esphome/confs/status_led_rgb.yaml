@@ -1,19 +1,8 @@
-##########################
-# ESP RGB Status LED
+esphome:
+  name: atom_s3_status_led
+  friendly_name: Atom S3 Status LED
 
-# all ok - white
-# app error - pulse red
-# app warning - pulse yellow
-# ap enabled - pulse white
-# on network disconnected - fast pulse red
-# api disconnected - fast pulse yellow
-# hp error - 
-# heating - orange
-# cooling - blue
-# dhw - purple
-
-# using experimental control for now
-# https://github.com/esphome/esphome/pull/5814
+logger:
 api:
   on_disconnect:
     then:
@@ -24,6 +13,31 @@ api:
           blue: 0.0
           brightness: 1.0
           effect: fast_pulse
+
+ota:
+
+wifi:
+  ssid: "jouw_wifi_naam"
+  password: "jouw_wifi_wachtwoord"
+  on_disconnect:
+    then:
+      - light.turn_on:
+          id: led
+          red: 1.0
+          green: 0.0
+          blue: 0.0
+          brightness: 1.0
+          effect: fast_pulse
+  ap:
+    on_enable:
+      then:
+        - light.turn_on:
+            id: led
+            red: 1.0
+            green: 1.0
+            blue: 1.0
+            brightness: 1.0
+            effect: slow_pulse
 
 light:
   - platform: neopixelbus
@@ -44,30 +58,6 @@ light:
           transition_length: 500ms
           update_interval: 1s
 
-text_sensor:
-  - platform: copy
-    source_id: status_operation
-    id: status_operation_monitor
-    internal: true
-    on_value:
-      then:
-        - lambda: |-
-            if (x == "heating") {
-              id(led).turn_on({
-                red: 1.0, green: 0.65, blue: 0.0, brightness: 1.0
-              });
-            } else if (x == "cooling") {
-              id(led).turn_on({
-                red: 0.0, green: 0.0, blue: 1.0, brightness: 1.0
-              });
-            } else if (x == "hotwater") {
-              id(led).turn_on({
-                red: 1.0, green: 0.0, blue: 1.0, brightness: 1.0
-              });
-            } else {
-              id(led).turn_off();
-            }
-
 on_boot:
   priority: -100
   then:
@@ -79,83 +69,6 @@ on_boot:
         brightness: 1.0
         effect: none
 
-  on_app_error:
-    then:
-    - light.turn_on:
-        id: led
-        red: 100%
-        green: 0%
-        blue: 0%
-        brightness: 100%
-        effect: slow_pulse
-  on_app_warning:
-    then:
-    - light.turn_on:
-        id: led
-        red: 100%
-        green: 100%
-        blue: 0%
-        brightness: 100%
-        effect: slow_pulse
-  on_wifi_ap_enabled:
-    then:
-    - light.turn_on:
-        id: led
-        red: 100%
-        green: 100%
-        blue: 100%
-        brightness: 100%
-        effect: slow_pulse
-  on_network_disconnected:
-    then:
-    - light.turn_on:
-        id: led
-        red: 100%
-        green: 0%
-        blue: 0%
-        brightness: 100%
-        effect: fast_pulse
-  on_api_disconnected:
-    then:
-    - light.turn_on:
-        id: led
-        red: 100%
-        green: 100%
-        blue: 0%
-        brightness: 100%
-        effect: fast_pulse
-  on_custom_status:
-    - trigger_id: heating
-      group: hp
-      then:
-        - light.turn_on:
-            id: led
-            red: 100%
-            green: 65%
-            blue: 0%
-            brightness: 100%
-            effect: None
-    - trigger_id: cooling
-      group: hp
-      then:
-        - light.turn_on:
-            id: led
-            red: 0%
-            green: 0%
-            blue: 100%
-            brightness: 100%
-            effect: None
-    - trigger_id: hotwater
-      group: hp
-      then:
-        - light.turn_on:
-            id: led
-            red: 100%
-            green: 0%
-            blue: 100%
-            brightness: 100%
-            effect: None
-
 text_sensor:
   - platform: copy
     source_id: status_operation
@@ -163,27 +76,7 @@ text_sensor:
     internal: true
     on_value:
       then:
-        - if:
-            condition:
-              lambda: return x == "${heating}";
-            then:
-              - status.push:
-                  trigger_id: heating
-        - if:
-            condition:
-              lambda: return x == "${cooling}";
-            then:
-              - status.push:
-                  trigger_id: cooling
-        - if:
-            condition:
-              lambda: return x == "${hotwater}";
-            then:
-              - status.push:
-                  trigger_id: hotwater
-        - if: 
-            condition:
-              - lambda: return ((x != "${heating}") && (x != "${cooling}") && (x != "${hotwater}"));
-            then:
-              - status.pop:
-                  group: "hp"
+        - lambda: |-
+            if (x == "heating") {
+              id(led).turn_on({
+                red: 1.0, green
