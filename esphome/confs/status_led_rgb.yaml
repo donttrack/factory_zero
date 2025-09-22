@@ -14,8 +14,6 @@ api:
           brightness: 1.0
           effect: fast_pulse
 
-ota:
-
 wifi:
   ssid: "jouw_wifi_naam"
   password: "jouw_wifi_wachtwoord"
