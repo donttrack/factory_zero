@@ -14,6 +14,17 @@
 
 # using experimental control for now
 # https://github.com/esphome/esphome/pull/5814
+api:
+  on_disconnect:
+    then:
+      - light.turn_on:
+          id: led
+          red: 1.0
+          green: 1.0
+          blue: 0.0
+          brightness: 1.0
+          effect: fast_pulse
+
 light:
   - platform: neopixelbus
     type: GRB
@@ -21,24 +32,53 @@ light:
     pin: GPIO35
     num_leds: 1
     name: "Status LED"
-    id: status_led
+    id: led
     method: ESP32_RMT
+    effects:
+      - pulse:
+          name: slow_pulse
+          transition_length: 1s
+          update_interval: 2s
+      - pulse:
+          name: fast_pulse
+          transition_length: 500ms
+          update_interval: 1s
 
-external_components:
-  - source: github://pr#5814
-    components: [ status_indicator, wifi ]
+text_sensor:
+  - platform: copy
+    source_id: status_operation
+    id: status_operation_monitor
+    internal: true
+    on_value:
+      then:
+        - lambda: |-
+            if (x == "heating") {
+              id(led).turn_on({
+                red: 1.0, green: 0.65, blue: 0.0, brightness: 1.0
+              });
+            } else if (x == "cooling") {
+              id(led).turn_on({
+                red: 0.0, green: 0.0, blue: 1.0, brightness: 1.0
+              });
+            } else if (x == "hotwater") {
+              id(led).turn_on({
+                red: 1.0, green: 0.0, blue: 1.0, brightness: 1.0
+              });
+            } else {
+              id(led).turn_off();
+            }
 
-status_indicator:
-  id: status
-  on_turn_off:
-    then:
+on_boot:
+  priority: -100
+  then:
     - light.turn_on:
         id: led
-        red: 100%
-        green: 100%
-        blue: 100%
-        brightness: 100%
+        red: 1.0
+        green: 1.0
+        blue: 1.0
+        brightness: 1.0
         effect: none
+
   on_app_error:
     then:
     - light.turn_on:
