@@ -64,17 +64,15 @@ ota:
   platform: esphome
 
 light:
-#G35=RGB WS2812C-2020
   - platform: esp32_rmt_led_strip
     name: Led
     id: led
     internal: true
     rgb_order: GRB
-    pin: 35
+    pin: GPIO35
     num_leds: 1
-    # RMT 0 channels will be occupied by IR
     chipset: ws2812
-    restore_mode: ALWAYS_ON  #OFF?
+    restore_mode: RESTORE_DEFAULT_OFF
 
 #G41=Button
 binary_sensor:
