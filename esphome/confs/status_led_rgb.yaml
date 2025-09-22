@@ -14,6 +14,15 @@
 
 # using experimental control for now
 # https://github.com/esphome/esphome/pull/5814
+light:
+  - platform: neopixelbus
+    type: GRB
+    variant: WS2812
+    pin: GPIO35
+    num_leds: 1
+    name: "Status LED"
+    id: status_led
+    method: ESP32_RMT
 
 external_components:
   - source: github://pr#5814
