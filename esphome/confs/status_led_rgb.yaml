@@ -79,3 +79,15 @@ text_sensor:
     id: status_operation_monitor
     internal: true
     on_value:
+      then:
+        - lambda: |-
+            if (x == "heating") {
+              id(led).turn_on({ red: 1.0, green: 0.65, blue: 0.0, brightness: 1.0 });
+            } else if (x == "cooling") {
+              id(led).turn_on({ red: 0.0, green: 0.0, blue: 1.0, brightness: 1.0 });
+            } else if (x == "hotwater") {
+              id(led).turn_on({ red: 1.0, green: 0.0, blue: 1.0, brightness: 1.0 });
+            } else {
+              id(led).turn_off();
+            }
+
