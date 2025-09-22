@@ -1,3 +1,8 @@
+substitutions:
+  restart_button: "Restart device"
+  led_brightness: "LED Brightness"
+  led_switch: "LED Aan/Uit"
+
 ###
 ## M5Stack atom S3 lite board, in combination with this base from m5stack:
 ## https://shop.m5stack.com/products/atomic-rs485-base
@@ -112,15 +117,15 @@ number:
     restore_value: yes
     unit_of_measurement: "%"
     on_value:
-    then:
-      - if:
-          condition:
-            light.is_on: led
-          then:
-            - light.turn_on:
-                id: led
-                brightness: !lambda |-
-                  return id(led_brightness).state / 100.0;
+      then:
+        - if:
+            condition:
+              light.is_on: led
+            then:
+              - light.turn_on:
+                  id: led
+                  brightness: !lambda |- 
+                    return id(led_brightness).state / 100.0;
 
 switch:
   - platform: template
