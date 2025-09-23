@@ -20,15 +20,18 @@ sensor:
     unit_of_measurement: "ppm"
     accuracy_decimals: 1
 
-  # Basis Temperatuur (regs 6+7)
+  # Temperatuur via reg 38 (U_WORD × 0.1)
   - platform: modbus_controller
     modbus_controller_id: Tongdy_TG9
     name: "TG9 Temperatuur"
     register_type: holding
-    address: 6
-    value_type: FP32
+    address: 38
+    value_type: U_WORD
     unit_of_measurement: "°C"
     accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+
 
   # Basis RV (regs 8+9)
   - platform: modbus_controller
