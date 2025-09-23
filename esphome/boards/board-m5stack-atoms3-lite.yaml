@@ -57,11 +57,11 @@ logger:
 captive_portal:
 
 # Enable Web server.
-web_server:
-  port: 80
+#web_server:
+ # port: 80
 
-ota:
-  platform: esphome
+#ota:
+#  platform: esphome
 
 light:
   - platform: esp32_rmt_led_strip
