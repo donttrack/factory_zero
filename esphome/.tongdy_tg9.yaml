@@ -9,14 +9,6 @@ modbus_controller:
     command_throttle: 200ms  # voorkomt overbelasting bij meerdere sensors
     #timeout: 400ms  # optioneel, alleen nodig bij trage apparaten
     
-modbus:
-  send_wait_time: 300ms
-
-modbus_controller:
-  - id: Tongdy_TG9
-    address: 12
-    update_interval: 10s
-
 sensor:
   # Temperatuur - blijft zoals hij is
   - platform: modbus_controller
