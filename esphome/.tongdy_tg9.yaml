@@ -10,7 +10,7 @@ modbus_controller:
     #timeout: 400ms  # optioneel, alleen nodig bij trage apparaten
     
 sensor:
-  # Temperatuur - blijft zoals hij is
+  # Temperatuur (reg 38, U_WORD × 0.1) – reeds stabiel
   - platform: modbus_controller
     modbus_controller_id: Tongdy_TG9
     name: "TG9 Temperatuur"
@@ -19,6 +19,18 @@ sensor:
     value_type: U_WORD
     unit_of_measurement: "°C"
     accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+
+  # CO₂ (reg 22, U_WORD × 0.1) – in-duct waarde
+  - platform: modbus_controller
+    modbus_controller_id: Tongdy_TG9
+    name: "TG9 CO₂"
+    register_type: holding
+    address: 22
+    value_type: U_WORD
+    unit_of_measurement: "ppm"
+    accuracy_decimals: 0
     filters:
       - multiply: 0.1
 
