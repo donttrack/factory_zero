@@ -17,5 +17,6 @@ sensor:
     address: 18
     value_type: U_WORD
     accuracy_decimals: 1
-    multiply: 0.1
+    filters:
+    -  multiply: 0.1
     unit_of_measurement: "%"
