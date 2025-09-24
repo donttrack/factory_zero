@@ -11,7 +11,7 @@ modbus_controller:
 
 sensor:
   - platform: modbus_controller
-    modbus_controller_id: tg9_sensor
+    modbus_controller_id: Tongdy_TG9
     name: "TG9 Relative Humidity"
     register_type: holding
     address: 18
