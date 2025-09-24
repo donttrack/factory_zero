@@ -18,5 +18,5 @@ sensor:
     value_type: U_WORD
     accuracy_decimals: 1
     filters:
-    -  multiply: 0.1
+    -  multiply: 0.001
     unit_of_measurement: "%"
