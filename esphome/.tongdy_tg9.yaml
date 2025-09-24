@@ -148,4 +148,38 @@ sensor:
     unit_of_measurement: "%"
     accuracy_decimals: 1
 
+  # Relatieve vochtigheid - gemiddelde
+  - platform: modbus_controller
+    modbus_controller_id: Tongdy_TG9
+    name: "TG9 RV gem"
+    register_type: holding
+    address: 39
+    value_type: U_WORD
+    unit_of_measurement: "%"
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.01
 
+  # Relatieve vochtigheid - actueel 1
+    - platform: modbus_controller
+      modbus_controller_id: Tongdy_TG9
+      name: "TG9 RV actueel 40"
+      register_type: holding
+      address: 40
+      value_type: U_WORD
+      unit_of_measurement: "%"
+      accuracy_decimals: 1
+      filters:
+        - multiply: 0.001
+
+  # Relatieve vochtigheid - actueel 2
+    - platform: modbus_controller
+      modbus_controller_id: Tongdy_TG9
+      name: "TG9 RV actueel 41"
+      register_type: holding
+      address: 41
+      value_type: U_WORD
+      unit_of_measurement: "%"
+      accuracy_decimals: 1
+      filters:
+        - multiply: 0.001
