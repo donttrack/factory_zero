@@ -46,44 +46,44 @@ sensor:
     filters:
       - multiply: 0.001
 
-# Kandidaten rond temperatuur
-- platform: modbus_controller
-  modbus_controller_id: Tongdy_TG9
-  name: "RV raw 36"
-  register_type: holding
-  address: 36
-  value_type: U_WORD
-  unit_of_measurement: "raw"
+  # Kandidaten rond temperatuur
+  - platform: modbus_controller
+    modbus_controller_id: Tongdy_TG9
+    name: "RV raw 36"
+    register_type: holding
+    address: 36
+    value_type: U_WORD
+    unit_of_measurement: "raw"
 
-- platform: modbus_controller
-  modbus_controller_id: Tongdy_TG9
-  name: "RV raw 37"
-  register_type: holding
-  address: 37
-  value_type: U_WORD
-  unit_of_measurement: "raw"
+  - platform: modbus_controller
+    modbus_controller_id: Tongdy_TG9
+    name: "RV raw 37"
+    register_type: holding
+    address: 37
+    value_type: U_WORD
+    unit_of_measurement: "raw"
 
-- platform: modbus_controller
-  modbus_controller_id: Tongdy_TG9
-  name: "RV raw 39"
-  register_type: holding
-  address: 39
-  value_type: U_WORD
-  unit_of_measurement: "raw"
+  - platform: modbus_controller
+    modbus_controller_id: Tongdy_TG9
+    name: "RV raw 39"
+    register_type: holding
+    address: 39
+    value_type: U_WORD
+    unit_of_measurement: "raw"
 
-# Kandidaten rond CO₂
-- platform: modbus_controller
-  modbus_controller_id: Tongdy_TG9
-  name: "RV raw 23"
-  register_type: holding
-  address: 23
-  value_type: U_WORD
-  unit_of_measurement: "raw"
+  # Kandidaten rond CO₂
+  - platform: modbus_controller
+    modbus_controller_id: Tongdy_TG9
+    name: "RV raw 23"
+    register_type: holding
+    address: 23
+    value_type: U_WORD
+    unit_of_measurement: "raw"
 
-- platform: modbus_controller
-  modbus_controller_id: Tongdy_TG9
-  name: "RV raw 24"
-  register_type: holding
-  address: 24
-  value_type: U_WORD
-  unit_of_measurement: "raw"
+  - platform: modbus_controller
+    modbus_controller_id: Tongdy_TG9
+    name: "RV raw 24"
+    register_type: holding
+    address: 24
+    value_type: U_WORD
+    unit_of_measurement: "raw"
