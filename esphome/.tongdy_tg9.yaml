@@ -12,6 +12,18 @@ modbus_controller:
 sensor:
   - platform: modbus_controller
     modbus_controller_id: Tongdy_TG9
+    name: "TG9 Temperatuur"
+    register_type: holding
+    address: 38
+    value_type: U_WORD
+    unit_of_measurement: "°C"
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1
+
+
+  - platform: modbus_controller
+    modbus_controller_id: Tongdy_TG9
     name: "TG9 Relative Humidity"
     register_type: holding
     address: 18
