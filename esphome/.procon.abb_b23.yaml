@@ -5,7 +5,7 @@ modbus_controller:
     address: 3
     modbus_id: modbus1
     setup_priority: -10
-    update_interval: 50s
+    update_interval: 30s
     command_throttle: 350ms  # voorkomt overbelasting bij meerdere sensors
     #timeout: 400ms  # optioneel, alleen nodig bij trage apparaten
 
