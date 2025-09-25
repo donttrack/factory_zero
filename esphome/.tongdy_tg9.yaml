@@ -88,3 +88,102 @@ sensor:
     filters:
       - multiply: 0.1
 
+    # raw scan registers 30-45 (geen schaal) — maakt duidelijk welke raw waarden veranderen
+  - platform: modbus_controller
+    modbus_controller_id: Tongdy_TG9
+    name: "TG9 raw 30"
+    register_type: holding
+    address: 30
+    value_type: U_WORD
+  - platform: modbus_controller
+    modbus_controller_id: Tongdy_TG9
+    name: "TG9 raw 31"
+    register_type: holding
+    address: 31
+    value_type: U_WORD
+  - platform: modbus_controller
+    modbus_controller_id: Tongdy_TG9
+    name: "TG9 raw 32"
+    register_type: holding
+    address: 32
+    value_type: U_WORD
+  - platform: modbus_controller
+    modbus_controller_id: Tongdy_TG9
+    name: "TG9 raw 33"
+    register_type: holding
+    address: 33
+    value_type: U_WORD
+  - platform: modbus_controller
+    modbus_controller_id: Tongdy_TG9
+    name: "TG9 raw 34"
+    register_type: holding
+    address: 34
+    value_type: U_WORD
+  - platform: modbus_controller
+    modbus_controller_id: Tongdy_TG9
+    name: "TG9 raw 35"
+    register_type: holding
+    address: 35
+    value_type: U_WORD
+  - platform: modbus_controller
+    modbus_controller_id: Tongdy_TG9
+    name: "TG9 raw 36"
+    register_type: holding
+    address: 36
+    value_type: U_WORD
+  - platform: modbus_controller
+    modbus_controller_id: Tongdy_TG9
+    name: "TG9 raw 37"
+    register_type: holding
+    address: 37
+    value_type: U_WORD
+  - platform: modbus_controller
+    modbus_controller_id: Tongdy_TG9
+    name: "TG9 raw 38"
+    register_type: holding
+    address: 38
+    value_type: U_WORD
+  - platform: modbus_controller
+    modbus_controller_id: Tongdy_TG9
+    name: "TG9 raw 39"
+    register_type: holding
+    address: 39
+    value_type: U_WORD
+  - platform: modbus_controller
+    modbus_controller_id: Tongdy_TG9
+    name: "TG9 raw 40"
+    register_type: holding
+    address: 40
+    value_type: U_WORD
+  - platform: modbus_controller
+    modbus_controller_id: Tongdy_TG9
+    name: "TG9 raw 41"
+    register_type: holding
+    address: 41
+    value_type: U_WORD
+  - platform: modbus_controller
+    modbus_controller_id: Tongdy_TG9
+    name: "TG9 raw 42"
+    register_type: holding
+    address: 42
+    value_type: U_WORD
+  - platform: modbus_controller
+    modbus_controller_id: Tongdy_TG9
+    name: "TG9 raw 43"
+    register_type: holding
+    address: 43
+    value_type: U_WORD
+  - platform: modbus_controller
+    modbus_controller_id: Tongdy_TG9
+    name: "TG9 raw 44"
+    register_type: holding
+    address: 44
+    value_type: U_WORD
+  - platform: modbus_controller
+    modbus_controller_id: Tongdy_TG9
+    name: "TG9 raw 45"
+    register_type: holding
+    address: 45
+    value_type: U_WORD
+
+
