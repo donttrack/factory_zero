@@ -6,7 +6,7 @@ modbus_controller:
     modbus_id: modbus1
     setup_priority: -10
     update_interval: 50s
-    command_throttle: 200ms  # voorkomt overbelasting bij meerdere sensors
+    command_throttle: 350ms  # voorkomt overbelasting bij meerdere sensors
     #timeout: 400ms  # optioneel, alleen nodig bij trage apparaten
 
     ## change parity frome even to none on the ABB B23 meter
