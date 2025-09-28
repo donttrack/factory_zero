@@ -12,17 +12,22 @@ modbus_controller:
 sensor:
 - platform: modbus_controller
   modbus_controller_id: Tongdy_TG9
+  name: "TG9 raw 44"
+  register_type: holding
+  address: 44
+  value_type: U_WORD
+
+- platform: modbus_controller
+  modbus_controller_id: Tongdy_TG9
   name: "TG9 raw 45"
   register_type: holding
   address: 45
   value_type: U_WORD
 
+# tijdelijke test (geen multiply)
 - platform: modbus_controller
   modbus_controller_id: Tongdy_TG9
-  name: "TG9 CO2 test 45 x0.01"
+  name: "TG9 CO2 test 45 raw"
   register_type: holding
   address: 45
   value_type: U_WORD
-  unit_of_measurement: "ppm"
-  filters:
-    - multiply: 0.01
