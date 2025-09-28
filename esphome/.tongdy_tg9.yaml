@@ -10,7 +10,6 @@ modbus_controller:
     # timeout: 400ms  # optioneel bij trage apparaten
 
 sensor:
- # debug: alleen low/high 16-bit van 44 bewaren (optioneel)
 - platform: modbus_controller
   modbus_controller_id: Tongdy_TG9
   name: "TG9 raw 44"
@@ -18,14 +17,18 @@ sensor:
   address: 44
   value_type: U_WORD
 
-# productie: gecombineerde 32-bit (unsigned dword met word-swap)
 - platform: modbus_controller
   modbus_controller_id: Tongdy_TG9
-  name: "TG9 CO₂ (candidate) U_DWORD_R @44"
+  name: "TG9 raw 45"
+  register_type: holding
+  address: 45
+  value_type: U_WORD
+
+- platform: modbus_controller
+  modbus_controller_id: Tongdy_TG9
+  name: "TG9 CO2 test U_DWORD_R @44 no multiply"
   register_type: holding
   address: 44
   value_type: U_DWORD_R
-  unit_of_measurement: "ppm"
+  unit_of_measurement: "raw"
   accuracy_decimals: 0
-  filters:
-    - multiply: 0.01   # probeer ×0.01 eerst; pas aan naar ×0.1 of ×1 als nodig
