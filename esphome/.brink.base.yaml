@@ -608,7 +608,7 @@ select:
     register_count: 1
     value_type: U_WORD
     optionsmap:
-      0: "Auto"
-      1: "Laag"
-      2: "Midden"
-      3: "Hoog"
+      "Auto": 0
+      "Laag": 1
+      "Midden": 2
+      "Hoog": 3
