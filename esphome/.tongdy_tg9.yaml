@@ -12,7 +12,7 @@ modbus_controller:
 sensor:
   - platform: modbus_controller
     modbus_controller_id: Tongdy_TG9
-    name: "TG9 Temperatuur 10"
+    name: "TG9 Temperatuur"
     address: 10         # als fabrikant 1-based telt
     register_type: read
     value_type: S_WORD
