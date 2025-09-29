@@ -599,7 +599,7 @@ number:
     mode: slider
     icon: mdi:home-export-outline
 
-    select:
+select:
   - platform: modbus_controller
     name: "Brink Ventilatiestand"
     id: brink_stand
