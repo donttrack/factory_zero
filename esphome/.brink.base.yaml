@@ -46,17 +46,6 @@ sensor:
 #    filters:
 #    - filter_out: NAN
 #    - offset: 0.0
-  - platform: modbus_controller
-    name: "Brink Ventilatiestand"
-    id: brink_stand
-    register_type: holding
-    address: 1  # Register 40002
-    value_type: U_WORD
-    optionsmap:
-      0: "Auto"
-      1: "Laag"
-      2: "Midden"
-      3: "Hoog"
 
   - id: brink_temp_to_inside
     name: ${brink_temp_to_inside}
