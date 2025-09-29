@@ -40,3 +40,14 @@ sensor:
     value_type: U_WORD      # unsigned 16-bit
     unit_of_measurement: "ppm"
     accuracy_decimals: 0
+
+  - platform: modbus_controller
+    modbus_controller_id: Tongdy_TG9
+    name: "TG9 VOC"
+    address: 9
+    register_type: read       # function 4
+    value_type: U_WORD        # unsigned 16-bit
+    unit_of_measurement: "ppb"
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.1         # omdat de waarde met factor 10 geschaald is
