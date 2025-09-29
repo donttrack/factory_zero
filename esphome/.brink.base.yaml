@@ -609,3 +609,17 @@ number:
     max_value: 15
     mode: slider
     icon: mdi:home-export-outline
+
+    select:
+  - platform: modbus_controller
+    name: "Brink Ventilatiestand"
+    id: brink_stand
+    register_type: holding
+    address: 1  # Register 40002
+    value_type: U_WORD
+    optionsmap:
+      0: "Auto"
+      1: "Laag"
+      2: "Midden"
+      3: "Hoog"
+
