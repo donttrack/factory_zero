@@ -12,17 +12,6 @@ modbus_controller:
 sensor:
   - platform: modbus_controller
     modbus_controller_id: Tongdy_TG9
-    name: "TG9 Temperatuur 9"
-    address: 9         # als fabrikant 1-based telt
-    register_type: read
-    value_type: S_WORD
-    unit_of_measurement: "°C"
-    accuracy_decimals: 1
-    filters:
-      - multiply: 0.1
-
-  - platform: modbus_controller
-    modbus_controller_id: Tongdy_TG9
     name: "TG9 Temperatuur 10"
     address: 10         # als fabrikant 1-based telt
     register_type: read
@@ -34,7 +23,7 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: Tongdy_TG9
-    name: "Relatieve Vochtigheid"
+    name: "TG9 Relatieve Vochtigheid"
     address: 11
     register_type: read      # function 4
     value_type: U_WORD       # unsigned 16-bit
@@ -42,3 +31,12 @@ sensor:
     accuracy_decimals: 1
     filters:
       - multiply: 0.1        # waarde is x10 geschaald
+
+  - platform: modbus_controller
+    modbus_controller_id: Tongdy_TG9
+    name: "TG9 CO₂ Concentratie"
+    address: 8
+    register_type: read     # function 4
+    value_type: U_WORD      # unsigned 16-bit
+    unit_of_measurement: "ppm"
+    accuracy_decimals: 0
