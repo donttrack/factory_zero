@@ -601,19 +601,6 @@ number:
 
 select:
   - platform: modbus_controller
-    name: "Brink Ventilatiestand"
-    id: brink_stand
-    modbus_controller_id: brink
-    address: 1  # Register 40002
-    register_count: 1
-    value_type: U_WORD
-    optionsmap:
-      "Auto": 0
-      "Laag": 1
-      "Midden": 2
-      "Hoog": 3
-
-  - platform: modbus_controller
     name: "Brink Bypass Mode"
     id: brink_bypass_mode
     modbus_controller_id: brink
