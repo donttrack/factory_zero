@@ -10,6 +10,20 @@ modbus_controller:
     setup_priority: -10
     update_interval: 10s
 
+script:
+###  On reboot or powerloss of the esp, set the command to Modbus Step instead of Device LCD which is the default.
+  - id: on_boot
+    then:
+      - lambda: |-
+          auto new_value = 1;
+
+          esphome::modbus_controller::ModbusController *controller = id(${name});
+          auto set_value_cmd = esphome::modbus_controller::ModbusCommandItem::create_write_single_command(
+            controller, 8000, new_value);
+
+          delay(20) ;
+          controller->queue_command(set_value_cmd);
+
 sensor:
   - id: brink_temp_to_inside
     name: ${brink_temp_to_inside}
