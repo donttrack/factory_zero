@@ -252,7 +252,7 @@ sensor:
   - id: brink_current_filter_days
     name: ${brink_current_filter_days}
     platform: modbus_controller
-    modbus_controller_id: ${name}
+    modbus_controller_id: brink
     icon: mdi:clock-start
     address: 4115
     unit_of_measurement: ${days}
