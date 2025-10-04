@@ -277,7 +277,7 @@ sensor:
   - id: brink_filter_m3_h
     name: ${brink_filter_m3_h}
     platform: modbus_controller
-    modbus_controller_id: ${name}
+    modbus_controller_id: brink
     icon: mdi:clock-start
     address: 4116
     unit_of_measurement: "m3/h"
@@ -289,7 +289,7 @@ sensor:
   - id: brink_device_type
     name: ${brink_device_type}
     platform: modbus_controller
-    modbus_controller_id: ${name}
+    modbus_controller_id: brink
     icon: mdi:penguin
     address: 4004
     unit_of_measurement: ""
@@ -300,7 +300,7 @@ text_sensor:
   - id: brink_status
     name: ${brink_status}
     platform: modbus_controller
-    modbus_controller_id: ${name}
+    modbus_controller_id: brink
     register_type: read
     address: 4020
     raw_encode: NONE
@@ -332,7 +332,7 @@ text_sensor:
   - id: brink_bypass_status
     name: ${brink_bypass_status}
     platform: modbus_controller
-    modbus_controller_id: ${name}
+    modbus_controller_id: brink
     register_type: read
     address: 4050
     raw_encode: NONE
@@ -355,7 +355,7 @@ text_sensor:
   - id: brink_frost_status
     name: ${brink_frost_status}
     platform: modbus_controller
-    modbus_controller_id: ${name}
+    modbus_controller_id: brink
     register_type: read
     address: 4070
     raw_encode: NONE
@@ -390,7 +390,7 @@ text_sensor:
   - id: brink_filter_status
     name: ${brink_filter_status}
     platform: modbus_controller
-    modbus_controller_id: ${name}
+    modbus_controller_id: brink
     register_type: read
     address: 4100
     raw_encode: NONE
@@ -410,7 +410,7 @@ select:
   - id: brink_modbus_control_mode
     name: Modbus Control Mode
     platform: modbus_controller
-    modbus_controller_id: ${name} 
+    modbus_controller_id: brink 
     address: 8000
     value_type: S_WORD
     optimistic: true
@@ -459,7 +459,7 @@ select:
   - id: brink_bypass_mode
     name: Bypass Mode
     platform: modbus_controller
-    modbus_controller_id: ${name}  
+    modbus_controller_id: brink 
     address: 6100
     value_type: S_WORD
     skip_updates: 20
@@ -515,7 +515,7 @@ switch:
   - id: brink_bypass_boost
     name: Bypass Boost
     platform: modbus_controller
-    modbus_controller_id: ${name}
+    modbus_controller_id: brink
     register_type: holding
     address: 6104
     bitmask: 1
@@ -525,7 +525,7 @@ switch:
   - id: brink_reset_filter
     name: Reset Filter
     platform: modbus_controller
-    modbus_controller_id: ${name}
+    modbus_controller_id: brink
     register_type: holding  
     address: 8010
     bitmask: 1
@@ -593,7 +593,7 @@ number:
   - id: brink_bypass_boost_switch_position
     name: ${brink_bypass_boost_switch_position}
     platform: modbus_controller
-    modbus_controller_id: ${name}  
+    modbus_controller_id: brink  
     address: 6105
     value_type: S_WORD      
     min_value: 0
@@ -604,7 +604,7 @@ number:
   - id: brink_modbus_flow_step
     name: ${brink_modbus_flow_step}
     platform: modbus_controller
-    modbus_controller_id: ${name}
+    modbus_controller_id: brink
     register_type: holding
     address: 8001
     value_type: S_WORD      
@@ -616,7 +616,7 @@ number:
   - id: brink_imbalance_intake
     name: ${brink_imbalance_intake}
     platform: modbus_controller
-    modbus_controller_id: ${name}
+    modbus_controller_id: brink
     address: 6035
     unit_of_measurement: "%"
     value_type: S_WORD   
@@ -640,7 +640,7 @@ number:
   - id: brink_bypass_from_dwelling ## van binnen naar buitenuitblaas, default 24 °C
     name: ${brink_bypass_from_dwelling}
     platform: modbus_controller
-    modbus_controller_id: ${name}
+    modbus_controller_id: brink
     address: 6101
     device_class: temperature
     unit_of_measurement: "°C"
@@ -655,7 +655,7 @@ number:
   - id: brink_bypass_from_outside ## van buiten naar binnen aanzuig, default 10 °C
     name: ${brink_bypass_from_outside}
     platform: modbus_controller
-    modbus_controller_id: ${name}
+    modbus_controller_id: brink
     address: 6102
     device_class: temperature
     unit_of_measurement: "°C"
@@ -670,7 +670,7 @@ number:
   - id: brink_bypass_hysteresis ## default 2 °C
     name: ${brink_bypass_hysteresis}
     platform: modbus_controller
-    modbus_controller_id: ${name}
+    modbus_controller_id: brink
     address: 6103
     unit_of_measurement: "°C"
     device_class: temperature
@@ -686,7 +686,7 @@ number:
   - id: brink_frost_control_temperature ## default 0 °C
     name: ${brink_frost_control_temperature}
     platform: modbus_controller
-    modbus_controller_id: ${name}
+    modbus_controller_id: brink
     address: 6110
     unit_of_measurement: "°C"
     device_class: temperature
@@ -701,7 +701,7 @@ number:
   - id: brink_frost_minimum_inlet_temperature  ## default 10 °C
     name: ${brink_frost_minimum_inlet_temperature}
     platform: modbus_controller
-    modbus_controller_id: ${name}
+    modbus_controller_id: brink
     address: 6111
     device_class: temperature
     unit_of_measurement: "°C"
@@ -716,7 +716,7 @@ number:
   - id: brink_imbalance_exhaust  ## default 0
     name: ${brink_imbalance_exhaust}
     platform: modbus_controller
-    modbus_controller_id: ${name}
+    modbus_controller_id: brink
     address: 6036
     unit_of_measurement: "%"
     value_type: S_WORD      
@@ -729,7 +729,7 @@ number:
   - id: brink_filter_change_days
     name:  ${brink_filter_change_days}
     platform: modbus_controller
-    modbus_controller_id: ${name}
+    modbus_controller_id: brink
     register_type: holding
     address: 6120
     unit_of_measurement: ""
