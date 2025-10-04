@@ -510,7 +510,6 @@ select:
               auto set_value_cmd = esphome::modbus_controller::ModbusCommandItem::create_write_single_command(
                 controller, 6100, requested_mode);
               delay(20) ;
-              controller->queue_command(set_value_cmd); 
 
 switch:
   - id: brink_bypass_boost
@@ -739,17 +738,4 @@ number:
     max_value: 365
     mode: slider
     icon: mdi:timer-sync-outline
-
-select:
-  - platform: modbus_controller
-    name: "Brink Bypass Mode"
-    id: brink_bypass_mode
-    modbus_controller_id: brink
-    address: 6100         # schrijf-register voor bypass mode
-    register_count: 1
-    value_type: U_WORD
-    optionsmap:
-      "Auto": 0
-      "Open": 3
-      "Closed": 4
 
