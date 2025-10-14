@@ -14,33 +14,27 @@ climate:
     min_cooling_run_time: 60s
     min_idle_time: 30s
 
-    # Wanneer HA een nieuwe target temperature instelt
     on_control:
       - number.set:
           id: hc_thermostat_target_temperature_zone_1
           value: !lambda |-
-            // Gebruik de getter i.p.v. x.target_temperature
             if (x.get_target_temperature().has_value()) {
               return x.get_target_temperature().value();
             } else {
-              // fallback: huidige waarde behouden
               return id(hc_thermostat_target_temperature_zone_1).state;
             }
 
-    # Acties bij verwarmen
     heat_action:
       - select.set:
           id: ac_mode_zone_1
-          option: "${heating_room}"
+          option: heating_room
       - switch.turn_on: system_on_off
 
-    # Acties bij koelen
     cool_action:
       - select.set:
           id: ac_mode_zone_1
-          option: "${cooling_room}"
+          option: cooling_room
       - switch.turn_on: system_on_off
 
-    # Idle (uit)
     idle_action:
       - switch.turn_off: system_on_off
