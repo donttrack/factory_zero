@@ -19,11 +19,11 @@ climate:
           level: DEBUG
           tag: climate
     ## remove cool_action if not used
-    #cool_action:
-    #  - logger.log:
-    #      format: "Cooling"
-    #      level: DEBUG
-    #      tag: climate
+    cool_action:
+      - logger.log:
+          format: "Cooling"
+          level: DEBUG
+          tag: climate
     idle_action:
       - logger.log:
           format: "Idle"
