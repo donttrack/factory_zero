@@ -33,8 +33,9 @@ climate:
     cool_action:
       - select.set:
           id: ac_mode_zone_1
-          option: cooling_room
+          option: cooling_flow   # <-- hier aangepast
       - switch.turn_on: system_on_off
+
 
     idle_action:
       - switch.turn_off: system_on_off
