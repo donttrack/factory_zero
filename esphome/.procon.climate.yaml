@@ -16,7 +16,7 @@ climate:
 
     on_control:
       - number.set:
-          id: hc_thermostat_target_temperature_zone_1
+          id: h_c_thermostat_target_temperature
           value: !lambda |-
             if (x.get_target_temperature().has_value()) {
               return x.get_target_temperature().value();
