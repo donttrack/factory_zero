@@ -52,24 +52,24 @@ sensor:
     accuracy_decimals: 0
     on_value:
       then:
-      - if:
-          condition:
-            lambda: return x == 2;
-          then:
-            - climate.control:
-                id: ecodan_climate
-                mode: "HEAT"
-      - if:
-          condition:
-            lambda: return x == 3;
-          then:
-            - climate.control:
-                id: ecodan_climate
-                mode: "COOL"
-      - if:
-          condition:
-            lambda: return x == 0;
-          then:
-            - climate.control:
-                id: ecodan_climate
-                mode: "OFF"
+        - if:
+            condition:
+              lambda: return x == 2;
+            then:
+              - climate.control:
+                  id: ecodan_climate
+                  mode: "HEAT"
+        - if:
+            condition:
+              lambda: return x == 3;
+            then:
+              - climate.control:
+                  id: ecodan_climate
+                  mode: "COOL"
+        - if:
+            condition:
+              lambda: return x == 0;
+            then:
+              - climate.control:
+                  id: ecodan_climate
+                  mode: "OFF"
