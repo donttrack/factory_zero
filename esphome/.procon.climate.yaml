@@ -8,10 +8,6 @@ climate:
       max_temperature: 45  # Keeping original range to support both heating and cooling
       temperature_step: 0.5
     
-    supported_modes:
-      - CLIMATE_MODE_OFF
-      - CLIMATE_MODE_HEAT
-      - CLIMATE_MODE_COOL
     default_mode: CLIMATE_MODE_HEAT
     
     min_heating_off_time: 300s  # 5 minutes for compressor protection
