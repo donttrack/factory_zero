@@ -17,12 +17,12 @@ climate:
 
     on_control:
       - number.set:
-          id: ecodan_h_c_thermostat_target_temperature
+          id: h_c_thermostat_target_temperature
           value: !lambda |-
             if (x.get_target_temperature().has_value()) {
               return x.get_target_temperature().value();
             } else {
-              return id(ecodan_h_c_thermostat_target_temperature).state;
+              return id(h_c_thermostat_target_temperature).state;
             }
     heat_action:
       - select.set:
