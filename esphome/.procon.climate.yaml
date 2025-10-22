@@ -3,29 +3,30 @@ climate:
     name: "${name} Climate"
     id: ${name}_climate
     sensor: room_temperature_zone_1
-    visual:
-      min_temperature: 10  # Keeping original range to support both heating and cooling
-      max_temperature: 45  # Keeping original range to support both heating and cooling
-      temperature_step: 0.5
-    
-presets:
-  - name: Heat
-    default_target_temperature: 18
-    mode: CLIMATE_MODE_HEAT
-  - name: Cool
-    default_target_temperature: 18
-    mode: CLIMATE_MODE_COOL
-  - name: Off
-    mode: CLIMATE_MODE_OFF
 
-default_preset: Heat
-    
-    min_heating_off_time: 300s  # 5 minutes for compressor protection
-    min_heating_run_time: 300s  # 5 minutes for efficiency
-    min_cooling_off_time: 300s  # 5 minutes for compressor protection
-    min_cooling_run_time: 300s  # 5 minutes for efficiency
-    min_idle_time: 180s        # 3 minutes between mode changes
-    
+    visual:
+      min_temperature: 10
+      max_temperature: 45
+      temperature_step: 0.5
+
+    presets:
+      - name: Heat
+        default_target_temperature: 18
+        mode: CLIMATE_MODE_HEAT
+      - name: Cool
+        default_target_temperature: 18
+        mode: CLIMATE_MODE_COOL
+      - name: Off
+        mode: CLIMATE_MODE_OFF
+
+    default_preset: Heat
+
+    min_heating_off_time: 300s
+    min_heating_run_time: 300s
+    min_cooling_off_time: 300s
+    min_cooling_run_time: 300s
+    min_idle_time: 180s
+
     on_control:
       - number.set:
           id: hc_thermostat_target_temperature_zone_1
@@ -45,7 +46,7 @@ default_preset: Heat
     cool_action:
       - select.set:
           id: ac_mode_zone_1
-          option: cooling_flow  # Kept as per your specification
+          option: cooling_flow
       - switch.turn_on: system_on_off
 
     idle_action:
