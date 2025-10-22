@@ -1,31 +1,61 @@
 climate:
   - platform: thermostat
-    name: "Ecodan Climate"
-    id: Ecodan_climate
+    name: "${name} Climate"
+    id: ${name}_climate
+    sensor: room_temperature_zone_1
+
     visual:
       min_temperature: 10.0
       max_temperature: 45.0
       temperature_step: 0.5
-    sensor: room_temperature_zone_1
+
     min_heating_off_time: 60s
     min_heating_run_time: 60s
-    ## remove min_cool_time if not used
-    min_cooling_off_time: 60s
-    min_cooling_run_time: 60s
     min_idle_time: 30s
+
+    on_control:
+      - number.set:
+          id: hc_thermostat_target_temperature_zone_1
+          value: !lambda |-
+            if (x.get_target_temperature().has_value()) {
+              return x.get_target_temperature().value();
+            } else {
+              return id(hc_thermostat_target_temperature_zone_1).state;
+            }
+
     heat_action:
-      - logger.log:
-          format: "Heating"
-          level: DEBUG
-          tag: climate
-    ## remove cool_action if not used
+      - select.set:
+          id: ac_mode_zone_1
+          option: heating_room
+      - switch.turn_on: system_on_off
+
     cool_action:
-      - logger.log:
-          format: "Cooling"
-          level: DEBUG
-          tag: climate
+      - select.set:
+          id: ac_mode_zone_1
+          option: cooling_flow
+      - switch.turn_on: system_on_off
+
     idle_action:
-      - logger.log:
-          format: "Idle"
-          level: DEBUG
-          tag: climate
+      - switch.turn_off: system_on_off
+
+
+sensor:
+  - platform: modbus_controller
+    modbus_controller_id: Ecodan
+    id: operating_mode_raw
+    name: "Operating Mode Raw"
+    address: 26
+    register_type: holding
+    value_type: U_WORD
+    accuracy_decimals: 0
+    on_value:
+      then:
+        - lambda: |-
+            if (x == 2) {
+              id(${name}_climate).set_mode(CLIMATE_MODE_HEAT);
+            } else if (x == 3) {
+              id(${name}_climate).set_mode(CLIMATE_MODE_COOL);
+            } else {
+              id(${name}_climate).set_mode(CLIMATE_MODE_OFF);
+            }
+
