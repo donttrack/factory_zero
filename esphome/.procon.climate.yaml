@@ -9,18 +9,6 @@ climate:
       max_temperature: 45
       temperature_step: 0.5
 
-    presets:
-      - name: Heat
-        default_target_temperature: 18
-        mode: CLIMATE_MODE_HEAT
-      - name: Cool
-        default_target_temperature: 18
-        mode: CLIMATE_MODE_COOL
-      - name: Off
-        mode: CLIMATE_MODE_OFF
-
-    default_preset: Heat
-
     min_heating_off_time: 300s
     min_heating_run_time: 300s
     min_cooling_off_time: 300s
