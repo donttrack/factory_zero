@@ -10,10 +10,10 @@ climate:
     
 presets:
   - name: Heat
-    default_target_temperature: 21
+    default_target_temperature: 18
     mode: CLIMATE_MODE_HEAT
   - name: Cool
-    default_target_temperature: 23
+    default_target_temperature: 18
     mode: CLIMATE_MODE_COOL
   - name: Off
     mode: CLIMATE_MODE_OFF
