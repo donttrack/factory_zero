@@ -1,7 +1,7 @@
 climate:
   - platform: thermostat
-    name: "${name} Climate"
-    id: ${name}_climate
+    name: "Ecodan Climate"
+    id: ecodan_climate
     sensor: room_temperature_zone_1
 
     visual:
