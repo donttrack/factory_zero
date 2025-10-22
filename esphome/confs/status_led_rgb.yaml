@@ -107,34 +107,3 @@ status_indicator:
             brightness: 100%
             effect: None
 
-text_sensor:
-  - platform: copy
-    source_id: status_operation
-    id: status_operation_monitor
-    internal: true
-    on_value:
-      then:
-        - if:
-            condition:
-              lambda: return x == "${heating}";
-            then:
-              - status.push:
-                  trigger_id: heating
-        - if:
-            condition:
-              lambda: return x == "${cooling}";
-            then:
-              - status.push:
-                  trigger_id: cooling
-        - if:
-            condition:
-              lambda: return x == "${hotwater}";
-            then:
-              - status.push:
-                  trigger_id: hotwater
-        - if: 
-            condition:
-              - lambda: return ((x != "${heating}") && (x != "${cooling}") && (x != "${hotwater}"));
-            then:
-              - status.pop:
-                  group: "hp"
