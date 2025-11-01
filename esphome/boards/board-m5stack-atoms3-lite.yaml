@@ -8,8 +8,9 @@ substitutions:
 ## https://shop.m5stack.com/products/atomic-rs485-base
 ## NOTE: there are other RS485 boards from m5stack, these are not tested (like the tail-rs485)
 #
+
 esp32:
-  board: esp32-s3-devkitc-1
+  variant: esp32s3
   framework:
     type: arduino
 
