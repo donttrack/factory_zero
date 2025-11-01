@@ -10,8 +10,7 @@ substitutions:
 #
 esp32:
   board: esp32-s3-devkitc-1
-  framework:
-    type: arduino, espidf
+  framework: arduino, espidf
 
 # uart for modbus rtu  NOT_TESTED_YET
 uart:
