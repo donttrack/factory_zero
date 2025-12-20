@@ -12,18 +12,11 @@
 # cooling - blue
 # dhw - purple
 
-# using experimental control for now
-# https://github.com/esphome/esphome/pull/5814
-
-external_components:
-  - source: github://pr#5814
-    components: [ status_indicator, wifi ]
-
 status_indicator:
-  id: status
-  on_turn_off:
+  id:  status
+  on_turn_off: 
     then:
-    - light.turn_on:
+    - light.turn_on: 
         id: led
         red: 100%
         green: 100%
@@ -31,15 +24,15 @@ status_indicator:
         brightness: 100%
         effect: none
   on_app_error:
-    then:
+    then: 
     - light.turn_on:
         id: led
         red: 100%
-        green: 0%
+        green:  0%
         blue: 0%
         brightness: 100%
         effect: slow_pulse
-  on_app_warning:
+  on_app_warning: 
     then:
     - light.turn_on:
         id: led
@@ -52,13 +45,13 @@ status_indicator:
     then:
     - light.turn_on:
         id: led
-        red: 100%
+        red:  100%
         green: 100%
         blue: 100%
         brightness: 100%
         effect: slow_pulse
   on_network_disconnected:
-    then:
+    then: 
     - light.turn_on:
         id: led
         red: 100%
@@ -66,10 +59,10 @@ status_indicator:
         blue: 0%
         brightness: 100%
         effect: fast_pulse
-  on_api_disconnected:
+  on_api_disconnected: 
     then:
-    - light.turn_on:
-        id: led
+    - light. turn_on:
+        id:  led
         red: 100%
         green: 100%
         blue: 0%
@@ -77,18 +70,18 @@ status_indicator:
         effect: fast_pulse
   on_custom_status:
     - trigger_id: heating
-      group: hp
+      group:  hp
       then:
         - light.turn_on:
             id: led
-            red: 100%
+            red:  100%
             green: 65%
             blue: 0%
             brightness: 100%
             effect: None
     - trigger_id: cooling
       group: hp
-      then:
+      then: 
         - light.turn_on:
             id: led
             red: 0%
@@ -106,4 +99,3 @@ status_indicator:
             blue: 100%
             brightness: 100%
             effect: None
-
