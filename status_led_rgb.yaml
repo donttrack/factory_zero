@@ -1,0 +1,33 @@
+esphome:
+  name: status-led-rgb
+  friendly_name: Status LED RGB
+
+esp32:
+  board: esp32-s3-devkitc-1
+  framework:
+    type: arduino
+
+logger:
+
+api:
+  encryption:
+    key: !secret api_encryption_key
+
+ota:
+  - platform: esphome
+    password: !secret ota_password
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+status_indicator:
+  led: status_led_pin
+
+output:
+  - platform: ledc
+    pin: GPIO48
+    frequency: 1000 Hz
+    id: status_led_pin
+    min_power: 0.0
+    max_power: 1.0
