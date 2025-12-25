@@ -10,7 +10,7 @@ modbus_controller:
     #timeout: 400ms  # optioneel, alleen nodig bij trage apparaten
 
     ## change parity frome even to none on the ABB B23 meter
-    
+
 sensor:
 ## 1 Total Energy (kWh) B23
   - platform: modbus_controller
@@ -25,7 +25,7 @@ sensor:
     state_class: "total_increasing"
     filters:
       - multiply: 0.01
-      
+
   - platform: modbus_controller
     modbus_controller_id: B23
     name: "B23 Export energy total"
@@ -41,18 +41,31 @@ sensor:
 
 ## 2 Total energy per phase
 ## Active import energy (kWh) B23
-- platform: modbus_controller
-  modbus_controller_id: B23
-  name: "B23 Import energy L1"
-  address: 0x5100
-  register_type: holding
-  value_type: U_DWORD
-  device_class: energy
-  unit_of_measurement: "kWh"
-  accuracy_decimals: 2
-  state_class: total_increasing
-  filters:
-    - multiply: 0.01
+  - platform: modbus_controller
+    modbus_controller_id: B23
+    name: "B23 Import energy L1"
+    address: 0x5460
+    register_type: holding
+    value_type: U_QWORD
+    device_class: energy
+    unit_of_measurement: "kWh"
+    accuracy_decimals: 2
+    state_class: "total_increasing"
+    filters:
+      - multiply: 0.01
+      - lambda: |-
+          static float last_value = NAN;
+          const float min_val = 0.0;  // Minimale onderwaarde
+          const float max_increase = 1000.0;  // Maximale toename per update (pas dit aan)
+          if (isnan(last_value)) {
+            last_value = x;
+          }
+          if (x < last_value || (x - last_value) > max_increase) {
+            return last_value;  // Gebruik de vorige waarde als de nieuwe waarde onwaarschijnlijk is
+          } else {
+            last_value = x;  // Update de laatste waarde
+            return x;
+          }
       
   - platform: modbus_controller
     modbus_controller_id: B23
@@ -119,7 +132,7 @@ sensor:
     state_class: "total_increasing"
     filters:
       - multiply: 0.01
-      
+
   - platform: modbus_controller
     modbus_controller_id: B23
     name: "B23 Export energy L2"
@@ -132,7 +145,7 @@ sensor:
     state_class: "total_increasing"
     filters:
       - multiply: 0.01
-      
+
   - platform: modbus_controller
     modbus_controller_id: B23
     name: "B23 Export energy L3"
