@@ -18,6 +18,7 @@ esp32:
 uart:
   id: mod_bus
   baud_rate: 9600
+  parity: NONE
   stop_bits: 1
   tx_pin: GPIO6
   rx_pin: GPIO5
