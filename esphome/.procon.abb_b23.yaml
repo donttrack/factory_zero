@@ -2,7 +2,7 @@
 
 modbus_controller:
   - id: B23
-    address: 247
+    address: 3
     modbus_id: modbus1
     setup_priority: -10
     update_interval: 30s
