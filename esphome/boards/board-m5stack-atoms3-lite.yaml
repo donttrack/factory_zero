@@ -73,7 +73,7 @@ light:
     id: led
     internal: true
     rgb_order: GRB
-    pin: GPIO35
+    pin: GPIO21
     num_leds: 1
     chipset: ws2812
     restore_mode: RESTORE_DEFAULT_OFF
