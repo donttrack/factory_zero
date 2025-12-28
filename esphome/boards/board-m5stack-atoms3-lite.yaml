@@ -84,7 +84,7 @@ binary_sensor:
     name: Buttonw
     id: g41button
     pin:
-      number: GPIO39
+      number: GPIO41
       inverted: true
       mode:
         input: true
