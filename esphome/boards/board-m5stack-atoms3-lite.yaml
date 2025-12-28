@@ -20,17 +20,23 @@ esp32:
 # No flow control pin needed - automatic direction switching
 uart:
   id: mod_bus
-  tx_pin: GPIO5
-  rx_pin: GPIO6
+  tx_pin: 43
+  rx_pin: 44
   baud_rate: 9600
   stop_bits: 1
+  rs485:
+    enable_pin: 5
 
-# Modbus Controller
-# No flow_control_pin needed - Atomic RS485 Base switches automatically
 modbus:
   id: modbus1
   uart_id: mod_bus
   send_wait_time: 200ms
+
+
+
+
+# Modbus Controller
+# No flow_control_pin needed - Atomic RS485 Base switches automatically
 
 # i2c for extra sensor
 i2c:
