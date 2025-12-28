@@ -20,8 +20,8 @@ esp32:
 # No flow control pin needed - automatic direction switching
 uart:
   id: mod_bus
-  tx_pin: GPIO6
-  rx_pin: GPIO5
+  tx_pin: GPIO5
+  rx_pin: GPIO6
   baud_rate: 9600
   stop_bits: 1
 
