@@ -14,20 +14,23 @@ esp32:
   framework:
     type: arduino
 
-# uart for modbus rtu  NOT_TESTED_YET
+# UART configuration for RS485
+# AtomS3 Lite with Atomic RS485 Base
+# TX = GPIO5, RX = GPIO6
+# No flow control pin needed - automatic direction switching
 uart:
   id: mod_bus
-  baud_rate: 9600
-  stop_bits: 1
   tx_pin: GPIO6
   rx_pin: GPIO5
+  baud_rate: 9600
+  stop_bits: 1
 
-### modbus ###
+# Modbus Controller
+# No flow_control_pin needed - Atomic RS485 Base switches automatically
 modbus:
   id: modbus1
   uart_id: mod_bus
   send_wait_time: 200ms
-  flow_control_pin: GPIO7  
 
 # i2c for extra sensor
 i2c:
