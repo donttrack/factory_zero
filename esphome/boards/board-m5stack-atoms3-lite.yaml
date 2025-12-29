@@ -21,11 +21,9 @@ esp32:
 ## Configure UART
 uart:
   - id: mod_bus
-    tx_pin:
-      number: GPIO5
+    tx_pin: GPIO5
       ignore_pin_validation_error: true
-    rx_pin:
-      number: GPIO6
+    rx_pin: GPIO6
       ignore_pin_validation_error: true
     baud_rate: 9600
     data_bits: 8
