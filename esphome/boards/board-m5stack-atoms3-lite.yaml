@@ -26,7 +26,7 @@ uart:
       ignore_pin_validation_error: true
     rx_pin:
       number: GPIO6
-      ignore_pin_validation_error: t
+      ignore_pin_validation_error: true
     baud_rate: 9600
     data_bits: 8
     stop_bits: 1
