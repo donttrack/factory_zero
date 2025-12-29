@@ -44,9 +44,12 @@ i2c:
 
 # Enable/Disable logging
 logger:
+  level: DEBUG
   logs:
+    modbus_controller: DEBUG
     modbus_controller.sensor: DEBUG
     modbus_controller.output: DEBUG
+    modbus_controller.number: DEBUG
     modbus.number: DEBUG
     esp32.preferences: INFO
     sensor: INFO
