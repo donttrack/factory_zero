@@ -8,7 +8,6 @@ modbus_controller:
     update_interval: 30s
     command_throttle: 350ms  # voorkomt overbelasting bij meerdere sensors
     #timeout: 400ms  # optioneel, alleen nodig bij trage apparaten
-    debug: true
 
     ## change parity frome even to none on the ABB B23 meter
 sensor:
