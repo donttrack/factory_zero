@@ -82,14 +82,14 @@ ota:
   platform: esphome
 
 light:
-  - platform: esp32_rmt_led_strip
-    name: Led
+  - platform: neopixelbus
     id: led
+    name: "LED"
     internal: true
-    rgb_order: GRB
-    pin: GPIO35
+    pin: 35
     num_leds: 1
-    chipset: ws2812
+    type: GRB
+    variant: WS2812
     restore_mode: RESTORE_DEFAULT_OFF
 
 #G41=Button
