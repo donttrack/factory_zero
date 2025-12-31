@@ -1,11 +1,12 @@
 #### ABB B23 3phase kWh Meter ####
 
-#modbus_controller:
-#  - id: B23
-#    address: 3
-#    modbus_id: modbus1
-#    setup_priority: -10
-#    update_interval: 30s
+modbus_controller:
+  - id: B23
+    address: 3
+    modbus_id: modbus1
+    setup_priority: -10
+    update_interval: 30s
+    command_throttle: 350ms
 #    command_throttle: 350ms  # voorkomt overbelasting bij meerdere sensors
     #timeout: 400ms  # optioneel, alleen nodig bij trage apparaten
 
@@ -13,7 +14,7 @@
 sensor:
 ## 1 Total Energy (kWh) B23
   - platform: modbus_controller
-    modbus_controller_id: bus
+    modbus_controller_id: B23
     name: "B23 Import energy total"
     address: 0x5000
     register_type: holding
@@ -26,7 +27,7 @@ sensor:
       - multiply: 0.01
 
   - platform: modbus_controller
-    modbus_controller_id: bus
+    modbus_controller_id: B23
     name: "B23 Export energy total"
     address: 0x5004
     register_type: holding
@@ -41,7 +42,7 @@ sensor:
 ## 2 Total energy per phase
 ## Active import energy (kWh) B23
   - platform: modbus_controller
-    modbus_controller_id: bus
+    modbus_controller_id: B23
     name: "B23 Import energy L1"
     address: 0x5460
     register_type: holding
@@ -67,7 +68,7 @@ sensor:
           }
       
   - platform: modbus_controller
-    modbus_controller_id: bus
+    modbus_controller_id: B23
     name: "B23 Import energy L2"
     address: 0x5464
     register_type: holding
@@ -93,7 +94,7 @@ sensor:
           }
 
   - platform: modbus_controller
-    modbus_controller_id: bus
+    modbus_controller_id: B23
     name: "B23 Import energy L3"
     address: 0x5468
     register_type: holding
@@ -120,7 +121,7 @@ sensor:
 
 ## Active export energy (kWh) B23
   - platform: modbus_controller
-    modbus_controller_id: bus
+    modbus_controller_id: B23
     name: "B23 Export energy L1"
     address: 0x546C
     register_type: holding
@@ -133,7 +134,7 @@ sensor:
       - multiply: 0.01
 
   - platform: modbus_controller
-    modbus_controller_id: bus
+    modbus_controller_id: B23
     name: "B23 Export energy L2"
     address: 0x5470
     register_type: holding
@@ -146,7 +147,7 @@ sensor:
       - multiply: 0.01
 
   - platform: modbus_controller
-    modbus_controller_id: bus
+    modbus_controller_id: B23
     name: "B23 Export energy L3"
     address: 0x5474
     register_type: holding
@@ -161,7 +162,7 @@ sensor:
 ## 3 Instantaneous values
 ## 3.1 Voltage (V) B23
   - platform: modbus_controller
-    modbus_controller_id: bus
+    modbus_controller_id: B23
     name: "B23 Voltage L1-N"
     address: 0x5B00
     register_type: holding
@@ -172,7 +173,7 @@ sensor:
     filters:
       - multiply: 0.1
   - platform: modbus_controller
-    modbus_controller_id: bus
+    modbus_controller_id: B23
     name: "B23 Voltage L2-N"
     address: 0x5B02
     register_type: holding
@@ -183,7 +184,7 @@ sensor:
     filters:
       - multiply: 0.1
   - platform: modbus_controller
-    modbus_controller_id: bus
+    modbus_controller_id: B23
     name: "B23 Voltage L3-N"
     address: 0x5B04
     register_type: holding
@@ -196,7 +197,7 @@ sensor:
 
 ## 3.2 Current (A) B23
   - platform: modbus_controller
-    modbus_controller_id: bus
+    modbus_controller_id: B23
     name: "B23 Current L1"
     address: 0x5B0C
     register_type: holding
@@ -207,7 +208,7 @@ sensor:
     filters:
       - multiply: 0.01
   - platform: modbus_controller
-    modbus_controller_id: bus
+    modbus_controller_id: B23
     name: "B23 Current L2"
     address: 0x5B0E
     register_type: holding
@@ -218,7 +219,7 @@ sensor:
     filters:
       - multiply: 0.01
   - platform: modbus_controller
-    modbus_controller_id: bus
+    modbus_controller_id: B23
     name: "B23 Current L3"
     address: 0x5B10
     register_type: holding
@@ -231,7 +232,7 @@ sensor:
 
 ## 3.3 Active Power (Watt) B23
   - platform: modbus_controller
-    modbus_controller_id: bus
+    modbus_controller_id: B23
     name: "B23 Power total"
     address: 0x5B14
     register_type: holding
@@ -242,7 +243,7 @@ sensor:
     filters:
       - multiply: 0.01
   - platform: modbus_controller
-    modbus_controller_id: bus
+    modbus_controller_id: B23
     name: "B23 Power L1"
     address: 0x5B16
     register_type: holding
@@ -253,7 +254,7 @@ sensor:
     filters:
       - multiply: 0.01
   - platform: modbus_controller
-    modbus_controller_id: bus
+    modbus_controller_id: B23
     name: "B23 Power L2"
     address: 0x5B18
     register_type: holding
@@ -264,7 +265,7 @@ sensor:
     filters:
       - multiply: 0.01
   - platform: modbus_controller
-    modbus_controller_id: bus
+    modbus_controller_id: B23
     name: "B23 Power L3"
     address: 0x5B1A
     register_type: holding
@@ -277,7 +278,7 @@ sensor:
 
 ## 3.4 Frequency (Hz) B23
   - platform: modbus_controller
-    modbus_controller_id: bus
+    modbus_controller_id: B23
     name: "B23 Frequency"
     address: 0x5B2C
     register_type: holding
@@ -290,7 +291,7 @@ sensor:
 
 ## 3.5 Power factor (-) B23
   - platform: modbus_controller
-    modbus_controller_id: bus
+    modbus_controller_id: B23
     name: "B23 Power factor total"
     address: 0x5B3A
     register_type: holding
