@@ -11,7 +11,7 @@
 
 sensor:
   - platform: modbus_controller
-    modbus_controller_id: bus
+    modbus_controller_id: tg9
     name: "TG9 Temperatuur"
     address: 10         # als fabrikant 1-based telt
     register_type: read
@@ -22,7 +22,7 @@ sensor:
       - multiply: 0.1
 
   - platform: modbus_controller
-    modbus_controller_id: bus
+    modbus_controller_id: tg9
     name: "TG9 Relatieve Vochtigheid"
     address: 11
     register_type: read      # function 4
@@ -33,7 +33,7 @@ sensor:
       - multiply: 0.1        # waarde is x10 geschaald
 
   - platform: modbus_controller
-    modbus_controller_id: bus
+    modbus_controller_id: tg9
     name: "TG9 CO₂ Concentratie"
     address: 8
     register_type: read     # function 4
@@ -42,7 +42,7 @@ sensor:
     accuracy_decimals: 0
 
   - platform: modbus_controller
-    modbus_controller_id: bus
+    modbus_controller_id: tg9
     name: "TG9 VOC"
     address: 9
     register_type: read       # function 4
