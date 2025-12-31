@@ -1,12 +1,12 @@
 #### Tongdy TG Air quality transmitter ####
 
-#modbus_controller:
-#  - id: Tongdy_TG9
-#    address: 12
-#    modbus_id: modbus1
-#    setup_priority: -10
-#    update_interval: 10s
-#    command_throttle: 350ms
+modbus_controller:
+  - id: tg9
+    address: 12
+    modbus_id: modbus1
+    setup_priority: -10
+    update_interval: 12s
+    command_throttle: 350ms
     # timeout: 400ms  # optioneel bij trage apparaten
 
 sensor:
