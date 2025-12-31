@@ -151,4 +151,3 @@ switch:
     turn_off_action:
       - light.turn_off:
           id: led
-
