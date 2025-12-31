@@ -1,101 +1,120 @@
-##########################
-# ESP RGB Status LED
+esphome:
+  name: atom_s3_status
+  friendly_name: Atom S3 Status LED
 
-# all ok - white
-# app error - pulse red
-# app warning - pulse yellow
-# ap enabled - pulse white
-# on network disconnected - fast pulse red
-# api disconnected - fast pulse yellow
-# hp error - 
-# heating - orange
-# cooling - blue
-# dhw - purple
-
-status_indicator:
-  id:  status
-  on_turn_off: 
+  on_error:
     then:
-    - light.turn_on: 
+      - light.turn_on:
+          id: led
+          red: 100%
+          green: 0%
+          blue: 0%
+          brightness: 100%
+          effect: slow_pulse
+
+on_boot:
+  priority: -10
+  then:
+    - light.turn_on:
         id: led
         red: 100%
         green: 100%
         blue: 100%
         brightness: 100%
         effect: none
-  on_app_error:
-    then: 
-    - light.turn_on:
-        id: led
-        red: 100%
-        green:  0%
-        blue: 0%
-        brightness: 100%
-        effect: slow_pulse
-  on_app_warning: 
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  on_connect:
     then:
-    - light.turn_on:
-        id: led
-        red: 100%
-        green: 100%
-        blue: 0%
-        brightness: 100%
-        effect: slow_pulse
-  on_wifi_ap_enabled:
+      - light.turn_on:
+          id: led
+          red: 100%
+          green: 100%
+          blue: 100%
+          effect: none
+
+  on_disconnect:
     then:
-    - light.turn_on:
-        id: led
-        red:  100%
-        green: 100%
-        blue: 100%
-        brightness: 100%
-        effect: slow_pulse
-  on_network_disconnected:
-    then: 
-    - light.turn_on:
-        id: led
-        red: 100%
-        green: 0%
-        blue: 0%
-        brightness: 100%
-        effect: fast_pulse
-  on_api_disconnected: 
-    then:
-    - light. turn_on:
-        id:  led
-        red: 100%
-        green: 100%
-        blue: 0%
-        brightness: 100%
-        effect: fast_pulse
-  on_custom_status:
-    - trigger_id: heating
-      group:  hp
-      then:
-        - light.turn_on:
-            id: led
-            red:  100%
-            green: 65%
-            blue: 0%
-            brightness: 100%
-            effect: None
-    - trigger_id: cooling
-      group: hp
-      then: 
-        - light.turn_on:
-            id: led
-            red: 0%
-            green: 0%
-            blue: 100%
-            brightness: 100%
-            effect: None
-    - trigger_id: hotwater
-      group: hp
+      - light.turn_on:
+          id: led
+          red: 100%
+          green: 0%
+          blue: 0%
+          effect: fast_pulse
+
+  ap:
+    ssid: "fallback"
+    on_start:
       then:
         - light.turn_on:
             id: led
             red: 100%
-            green: 0%
+            green: 100%
             blue: 100%
-            brightness: 100%
-            effect: None
+            effect: slow_pulse
+
+api:
+  on_disconnect:
+    then:
+      - light.turn_on:
+          id: led
+          red: 100%
+          green: 100%
+          blue: 0%
+          effect: fast_pulse
+
+logger:
+
+light:
+  - platform: neopixelbus
+    id: led
+    internal: true
+    pin: 35
+    num_leds: 1
+    type: GRB
+    variant: WS2812
+    restore_mode: RESTORE_DEFAULT_OFF
+
+    effects:
+      - pulse:
+          name: slow_pulse
+          transition_length: 1s
+          update_interval: 1s
+      - pulse:
+          name: fast_pulse
+          transition_length: 0.3s
+          update_interval: 0.3s
+
+script:
+  - id: heating
+    then:
+      - light.turn_on:
+          id: led
+          red: 100%
+          green: 65%
+          blue: 0%
+          brightness: 100%
+          effect: none
+
+  - id: cooling
+    then:
+      - light.turn_on:
+          id: led
+          red: 0%
+          green: 0%
+          blue: 100%
+          brightness: 100%
+          effect: none
+
+  - id: hotwater
+    then:
+      - light.turn_on:
+          id: led
+          red: 100%
+          green: 0%
+          blue: 100%
+          brightness: 100%
+          effect: none
