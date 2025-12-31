@@ -12,16 +12,16 @@ esphome:
           brightness: 100%
           effect: slow_pulse
 
-on_boot:
-  priority: -10
-  then:
-    - light.turn_on:
-        id: led
-        red: 100%
-        green: 100%
-        blue: 100%
-        brightness: 100%
-        effect: none
+  on_boot:
+    priority: -10
+    then:
+      - light.turn_on:
+          id: led
+          red: 100%
+          green: 100%
+          blue: 100%
+          brightness: 100%
+          effect: none
 
 wifi:
   ssid: !secret wifi_ssid
