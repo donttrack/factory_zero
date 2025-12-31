@@ -548,7 +548,7 @@ switch:
     on_turn_on:
       then:
         - lambda: |-
-            esphome::modbus_controller::ModbusController *controller = id(brink);
+            esphome::modbus_controller::ModbusController *controller = id(bus);
             auto set_value_cmd = esphome::modbus_controller::ModbusCommandItem::create_write_single_command(
               controller, 8003, 1);
             delay(20) ;
@@ -556,7 +556,7 @@ switch:
     on_turn_off:
       then:
         - lambda: |-
-            esphome::modbus_controller::ModbusController *controller = id(brink);
+            esphome::modbus_controller::ModbusController *controller = id(bus);
             auto set_value_cmd = esphome::modbus_controller::ModbusCommandItem::create_write_single_command(
               controller, 8003, 2);
             delay(20) ;
