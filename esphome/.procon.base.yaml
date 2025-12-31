@@ -20,15 +20,15 @@ ota:
 #  uart_id: mod_bus
 #  send_wait_time: 200ms
 
-modbus_controller:
-  - id: Ecodan
-    ## Procon Modbus slaveaddress 1
-    address: 1
-    modbus_id: modbus1
-    command_throttle: 350ms
-    setup_priority: -10
-    update_interval: 10s
-    offline_skip_updates: 2
+#modbus_controller:
+#  - id: Ecodan
+#    ## Procon Modbus slaveaddress 1
+#    address: 1
+#    modbus_id: modbus1
+#    command_throttle: 350ms
+#    setup_priority: -10
+#    update_interval: 10s
+#    offline_skip_updates: 2
 
 binary_sensor:
   - platform: modbus_controller
