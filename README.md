@@ -30,8 +30,6 @@ packages:
       # esphome/.procon.base.yaml
       #
       ## Boards:
-      # esphome/boards/board-esp32.yaml
-      # esphome/boards/board-esp32S3.yaml
       # esphome/boards/board-m5stack-atom.yaml
       #
       ## Zone 2, If you have 2 zones on the heatpump enable this:
@@ -54,10 +52,7 @@ packages:
 #packages:
 #  substitutions: !include labels/.procon-labels-nl.yaml
 #  device_base1:  !include .procon.base.yaml
-##  device_base2:  !include boards/board-esp32.yaml
-##  device_base2:  !include boards/board-esp32S3.yaml
 ##  device_base2:  !include boards/board-m5stack-atom.yaml
-#  device_base2:  !include boards/board-m5stack-atoms3-disp.yaml
 #  device_base3:  !include .procon.climate.yaml
 ```
 
