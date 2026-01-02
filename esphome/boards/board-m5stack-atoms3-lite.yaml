@@ -83,7 +83,7 @@ ota:
   platform: esphome
 
 light:
-  - platform: neopixelbus
+  - platform: esp32_rmt_led_strip
     id: led
     name: "LED"
     internal: true
