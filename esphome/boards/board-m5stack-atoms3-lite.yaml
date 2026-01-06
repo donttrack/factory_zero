@@ -12,7 +12,7 @@ esp32:
   board: esp32-s3-devkitc-1
   framework:
     #type: arduino
-    type: esp-idf # For testing 
+    type: esp-idf # For testing # succesvol getest met ESPHome versie 2025.12.4 
 
 # uart for modbus rtu
 uart:
