@@ -29,16 +29,6 @@ modbus:
   send_wait_time: 200ms
   #flow_control_pin: GPIO7  
 
-modbus_controller:
-  - id: bus
-    ## Procon Modbus slaveaddress 1
-    address: 1
-    modbus_id: modbus1
-    command_throttle: 350ms
-    setup_priority: -10
-    update_interval: 10s
-    offline_skip_updates: 2
-
 # i2c for extra sensor
 i2c:
   - id: bus_a
