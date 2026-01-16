@@ -7,54 +7,113 @@ Modbus RTU communication with ESP32/ESP32S3 and ttl to rs485 module, to use in h
 - ABB B23 meter
 
 # Platforms
-Currently supported ESP32 platforms.
-Newer ESP configurations will be added and files updated.
+# Currently supported ESP32 platforms.
 
-```
+substitutions:
+  name: ecodan
+  friendlyName: Ecodan heatpump
+  esp_ip: "ESP Host IP"
+  esp_ssid: "WiFi Network Name"
+  wifi_signal_db: "WiFi Signal (dB)"
+  wifi_signal_proc: "WiFi Signal (%)"
+  ssid: "SSID"
+  brink_speed_supply_fan: "Supply Fan Speed"
+  brink_speed_exhaust_fan: "Exhaust Fan Speed"
+  timezone: "Europe/Amsterdam"
+  heating_room: "heating_room"
+  heating_flow: "heating_flow"
+  heating_curve: "heating_curve"
+  cooling_room: "cooling_room"
+  cooling_flow: "cooling_flow"
+  floor_dryup: "floor_dryup"
+
+esphome:
+  name: ${name}
+  friendly_name: ${friendlyName}
+
+ota:
+  - platform: esphome
+  # password: !secret heatpump_ota_password
+
+api:
+  reboot_timeout: 0s
+  # encryption:
+  #   key: !secret heatpump_encryption_key
+
+# -------------------------------------------------------------------
+# Language & Board Notes
+# Supported languages: en, nl
+# Uploading wrong firmware may brick the device.
+# -------------------------------------------------------------------
+
 packages:
   remote_package:
     url: https://github.com/donttrack/factory_zero
     ref: main
     refresh: 0s
-    files: [ esphome/labels/.procon-labels-en.yaml, 
-             esphome/.procon.base.yaml, 
-             esphome/boards/board-esp32.yaml 
-           ]
-      ## Language Packs:
-      # esphome/.procon.finder.yaml
-      # esphome/labels/.procon-labels-en.yaml
-      # esphome/labels/.procon-labels-nl.yaml
-      #
-      ## Base:
-      # esphome/.procon.base.yaml
-      #
-      ## Boards:
-      # esphome/boards/board-m5stack-atom.yaml
-      #
-      ## Zone 2, If you have 2 zones on the heatpump enable this:
-      # esphome/.procon.zone2.yaml
-      #
-      ## Climate sensor, only heating (curve, room, flow) is supported at the moment with zone_1:
-      # esphome/.procon.climate.yaml
-      ## you need to add extra code homeassistant/automations_climate.yaml your automation.yaml in HA directory
-      ##
-      ## Measuring power and energy
-      ## EASTRON 3ph SDM, If you have a 3phase Eastron kWh meter on the heatpump enable this:
-      # esphome/.procon.sdm.yaml
-      ## set parity to none on the kWh meter. Baudrate to 9600
-      ## FINDER 1ph 7E 64 8 230 0210. If you have 2 of these kWh meters on the heatpump enable this:
-      # esphome/.procon.finder.yaml
-      ## set parity to none on the kWh meter. Baudrate to 9600
-      ##
+    files:
+      - esphome/labels/.procon-labels-en.yaml
+      - esphome/.procon.base.yaml
+      - esphome/boards/board-m5stack-atoms3-lite.yaml
+      - esphome/confs/wifi.yaml
+      - esphome/.procon.abb_b23.yaml
+      # - esphome/.procon.climate.yaml
+      - esphome/labels/brink-labels-nl.yaml
+      - esphome/.brink.base.yaml
+      - esphome/brink-300.yaml
+      - esphome/.tongdy_tg9.yaml
+      # - esphome/modbus_scan.yaml
+      # - esphome/confs/status_led_rgb.yaml
 
-## for developing/testing, uncomment local includes and comment out remote_package part.
-#packages:
-#  substitutions: !include labels/.procon-labels-nl.yaml
-#  device_base1:  !include .procon.base.yaml
-##  device_base2:  !include boards/board-m5stack-atom.yaml
-#  device_base3:  !include .procon.climate.yaml
-```
+    # -------------------------------------------------------------------
+    # Optional packages (uncomment if needed)
+    #
+    # Language Packs:
+    # - esphome/.procon.finder.yaml
+    # - esphome/labels/.procon-labels-en.yaml
+    # - esphome/labels/.procon-labels-nl.yaml
+    #
+    #
+    # Zone 2 (dual-zone heatpump):
+    # - esphome/.procon.zone2.yaml
+    #
+    # Climate sensor (heating only: curve, room, flow):
+    # - esphome/.procon.climate.yaml
+    #   Requires extra HA automation code in homeassistant/automations_climate.yaml
 
-# Translations
-Currently supported languages are en, nl.
-In order to change language, edit the line files: `esphome/procon.yaml`
+  
+# -------------------------------------------------------------------
+# Local development/testing (use instead of remote_package)
+# -------------------------------------------------------------------
+# packages:
+#   substitutions: !include labels/.procon-labels-nl.yaml
+#   device_base1:  !include .procon.base.yaml
+#   # device_base2: !include boards/board-esp32.yaml
+#   # device_base2: !include boards/board-esp32S3.yaml
+#   # device_base2: !include boards/board-m5stack-atom.yaml
+#   device_base2:  !include boards/board-m5stack-atoms3-disp.yaml
+#   device_base3:  !include .procon.climate.yaml
+
+# -------------------------------------------------------------------
+# WiFi Configuration
+# -------------------------------------------------------------------
+# wifi:
+#   ssid: !secret wifi_ssid
+#   password: !secret wifi_password
+#   fast_connect: on
+#
+#   # Static IP example:
+#   # manual_ip:
+#   #   static_ip: 192.168.xx.zz
+#   #   gateway: 192.168.xx.1
+#   #   subnet: 255.255.255.0
+#
+#   # For non-.local domains:
+#   # domain: .local
+
+# -------------------------------------------------------------------
+# Optional API encryption key
+# -------------------------------------------------------------------
+# api:
+#   encryption:
+#     key: !secret procon_api_key
