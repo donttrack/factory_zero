@@ -7,9 +7,7 @@ Modbus RTU communication with ESP32/ESP32S3 and ttl to rs485 module, to use in h
 - ABB B23 meter
 
 # Platforms
-Currently supported ESP32 platforms.
-By default ESP32 (MH-ET-LIVE) is used. If you want to use Lilygo T7-S3 ESP32S3, edit the line files: [ ]
-Newer ESP configurations will be added and files updated.
+Currently supported ESP32 S3 lite platforms.
 
 ```
 substitutions:
