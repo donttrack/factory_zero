@@ -87,10 +87,11 @@ button:
 switch:
   - platform: template
     id: ecodan_led_switch
-    name: ${led_switch}
+    name: LED Aan/Uit
     optimistic: true
     restore_mode: RESTORE_DEFAULT_ON
-    lambda: return id(ecodan_led_switch).state;
+    lambda: |-
+      return id(ecodan_led_switch).state;
     turn_on_action:
       - light.turn_on:
           id: led
