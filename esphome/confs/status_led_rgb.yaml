@@ -120,3 +120,45 @@ script:
           blue: 100%
           brightness: 100%
           effect: none
+
+number:
+  - platform: template
+    id: led_brightness
+    name: LED Brightness
+    icon: mdi:toggle-switch-variant
+    mode: slider
+    entity_category: config
+    optimistic: true
+    min_value: 0
+    max_value: 100
+    step: 10
+    initial_value: 70
+    restore_value: true
+    unit_of_measurement: "%"
+    on_value:
+      then:
+        - if:
+            condition:
+              light.is_on:
+                id: status_led
+            then:
+              - light.turn_on:
+                  id: status_led
+                  brightness: !lambda 'return x / 100.0;'
+
+switch:
+  - platform: template
+    id: ecodan_led_switch
+    name: ${led_switch}
+    optimistic: true
+    restore_mode: RESTORE_DEFAULT_ON 
+    lambda: return id(ecodan_led_switch).state;
+    turn_on_action:
+      - light.turn_on:
+          id: status_led
+          brightness: !lambda |-
+            // output value must be in range 0 - 1.0
+            return id(led_brightness).state / 100.0;
+    turn_off_action:
+      - light.turn_off:
+          id: status_led
