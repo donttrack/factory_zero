@@ -1,3 +1,28 @@
+############################################
+#  STATUS LED – ATOM S3 LITE (GPIO 35)
+############################################
+light:
+  - platform: esp32_rmt_led_strip
+    id: led
+    name: Status LED
+    internal: true
+    pin: 35
+    num_leds: 1
+    chipset: ws2812
+    rgb_order: grb
+    restore_mode: RESTORE_DEFAULT_OFF
+
+    effects:
+      - pulse:
+          name: slow_pulse
+          transition_length: 1s
+          update_interval: 1s
+      - pulse:
+          name: fast_pulse
+          transition_length: 0.3s
+          update_interval: 0.3s
+
+
 esphome:
   name: atom_s3_status
   friendly_name: Atom S3 Status LED
