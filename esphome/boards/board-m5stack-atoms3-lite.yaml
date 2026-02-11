@@ -87,7 +87,7 @@ button:
 number:
   - platform: template
     id: led_brightness
-    name: ${led_brightness}
+    name: LED Brightness
     icon: mdi:toggle-switch-variant
     mode: slider
     entity_category: config
@@ -96,19 +96,18 @@ number:
     max_value: 100
     step: 10
     initial_value: 70
-    restore_value: yes
+    restore_value: true
     unit_of_measurement: "%"
     on_value:
       then:
         - if:
             condition:
-              light.is_on: status_led
+              light.is_on:
+                id: status_led
             then:
               - light.turn_on:
                   id: status_led
-                  brightness: !lambda |- 
-                    return id(led_brightness).state / 100.0;
-
+                  brightness: !lambda 'return x / 100.0;'
 switch:
   - platform: template
     id: ecodan_led_switch
