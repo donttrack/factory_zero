@@ -486,7 +486,7 @@ select:
                 return;
               }
 
-              std::string current_mode_str = id(brink_bypass_mode).state;
+              std::string current_mode_str = id(brink_bypass_mode).current_option();
               std::string requested_mode_str = x;  // 'x' is the requested mode value
 
               // Convert strings to integers using the options map
