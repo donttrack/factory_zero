@@ -286,7 +286,7 @@ sensor:
   - id: brink_filter_m3_h
     name: ${brink_filter_m3_h}
     platform: modbus_controller
-    modbus_controller_id: bus
+    modbus_controller_id: brink
     icon: mdi:clock-start
     address: 4116
     unit_of_measurement: "m3/h"
