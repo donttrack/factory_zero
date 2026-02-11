@@ -50,15 +50,6 @@ logger:
     number: INFO
   # baud_rate: 0  # <--- super important! for ESP8266
 
-#wifi:
-  #ap:
-  #  ssid: "${name}"
-  #  password: "configesp"
-wifi:
-  ap:
-    ssid: "${name}"
-    password: "configesp"
-
 captive_portal:
 
 # Enable Web server.
