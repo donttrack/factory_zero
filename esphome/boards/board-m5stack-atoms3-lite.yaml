@@ -83,3 +83,19 @@ button:
   - platform: restart
     id: restart_button
     name: ${restart_button}
+
+switch:
+  - platform: template
+    id: ecodan_led_switch
+    name: ${led_switch}
+    optimistic: true
+    restore_mode: RESTORE_DEFAULT_ON
+    lambda: return id(ecodan_led_switch).state;
+    turn_on_action:
+      - light.turn_on:
+          id: led
+          brightness: !lambda 'return id(led_brightness).state / 100.0;'
+    turn_off_action:
+      - light.turn_off:
+          id: led
+
