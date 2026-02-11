@@ -62,16 +62,15 @@ ota:
 ############################################
 #  STATUS LED – ATOM S3 LITE (GPIO 35)
 ############################################
-
 light:
   - platform: esp32_rmt_led_strip
     id: led
-    name: "Status LED"
+    name: Status LED
     internal: true
     pin: 35
     num_leds: 1
-    type: GRB
-    variant: WS2812
+    chipset: ws2812
+    rgb_order: grb
     restore_mode: RESTORE_DEFAULT_OFF
 
     effects:
@@ -79,7 +78,6 @@ light:
           name: slow_pulse
           transition_length: 1s
           update_interval: 1s
-
       - pulse:
           name: fast_pulse
           transition_length: 0.3s
