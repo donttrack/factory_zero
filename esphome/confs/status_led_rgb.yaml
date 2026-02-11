@@ -55,17 +55,6 @@ wifi:
           blue: 0%
           effect: fast_pulse
 
-  ap:
-    ssid: "fallback"
-    on_start:
-      then:
-        - light.turn_on:
-            id: led
-            red: 100%
-            green: 100%
-            blue: 100%
-            effect: slow_pulse
-
 api:
   on_client_disconnected:
     then:
