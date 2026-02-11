@@ -5,8 +5,8 @@ esphome:
   comment: Mitsubishi heatpump
 
 # Enable Home Assistant API
-api:
-  reboot_timeout: 0s
+#api:
+#  reboot_timeout: 0s
 
 #update for esphome 2024.6.0
 # OTA:
