@@ -64,7 +64,7 @@ ota:
 ############################################
 
 light:
-  - platform: neopixelbus
+  - platform: esp32_rmt_led_strip
     id: led
     name: "Status LED"
     internal: true
