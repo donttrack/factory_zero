@@ -47,7 +47,7 @@ wifi:
             effect: slow_pulse
 
 api:
-  on_disconnect:
+  on_client_disconnected:
     then:
       - light.turn_on:
           id: led
