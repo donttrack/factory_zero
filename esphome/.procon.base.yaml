@@ -25,12 +25,10 @@ modbus_controller:
     ## Procon Modbus slaveaddress 1
     address: 1
     modbus_id: modbus1
-    command_throttle: 350ms
+    command_throttle: 50ms
     setup_priority: -10
-    update_interval: 16s
+    update_interval: 30s
     offline_skip_updates: 2
-    start_address: 0
-    register_count: 250
 
 binary_sensor:
   - platform: modbus_controller
