@@ -29,6 +29,8 @@ modbus_controller:
     setup_priority: -10
     update_interval: 16s
     offline_skip_updates: 2
+    start_address: 0
+    register_count: 250
 
 binary_sensor:
   - platform: modbus_controller
