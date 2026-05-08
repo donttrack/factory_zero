@@ -1,16 +1,15 @@
 #### ABB B23 3phase kWh Meter ####
-
 modbus_controller:
   - id: B23
     address: 3
     modbus_id: modbus1
     setup_priority: -10
-    update_interval: 14s
-    command_throttle: 350ms
-#    command_throttle: 350ms  # voorkomt overbelasting bij meerdere sensors
-    #timeout: 400ms  # optioneel, alleen nodig bij trage apparaten
+    update_interval: 30s          # verhoogd van 14s — zelfde als brink_base
+    command_throttle: 500ms       # verhoogd van 350ms — zelfde als brink_base
+    offline_skip_updates: 3       # sla updates over als meter niet reageert
 
-    ## change parity frome even to none on the ABB B23 meter
+    ## Wijzig parity van even naar none op de ABB B23 meter
+
 sensor:
 ## 1 Total Energy (kWh) B23
   - platform: modbus_controller
@@ -19,10 +18,10 @@ sensor:
     address: 0x5000
     register_type: holding
     value_type: U_QWORD
-    device_class: "energy"
+    device_class: energy
     unit_of_measurement: "kWh"
     accuracy_decimals: 2
-    state_class: "total_increasing"
+    state_class: total_increasing
     filters:
       - multiply: 0.01
 
@@ -35,7 +34,7 @@ sensor:
     device_class: energy
     unit_of_measurement: "kWh"
     accuracy_decimals: 2
-    state_class: "total_increasing"
+    state_class: total_increasing
     filters:
       - multiply: 0.01
 
@@ -50,23 +49,26 @@ sensor:
     device_class: energy
     unit_of_measurement: "kWh"
     accuracy_decimals: 2
-    state_class: "total_increasing"
+    state_class: total_increasing
     filters:
       - multiply: 0.01
       - lambda: |-
+          // Spike-filter: verwerp waarden die meer dan 1000 kWh in één update stijgen.
+          // Let op: daling NIET blokkeren — bij total_increasing geeft HA zelf al een waarschuwing,
+          // maar het blokkeren van dalingen verbergt een echte meter-reset.
           static float last_value = NAN;
-          const float min_val = 0.0;  // Minimale onderwaarde
-          const float max_increase = 1000.0;  // Maximale toename per update (pas dit aan)
+          const float max_increase = 1000.0;
           if (isnan(last_value)) {
             last_value = x;
-          }
-          if (x < last_value || (x - last_value) > max_increase) {
-            return last_value;  // Gebruik de vorige waarde als de nieuwe waarde onwaarschijnlijk is
-          } else {
-            last_value = x;  // Update de laatste waarde
             return x;
           }
-      
+          if ((x - last_value) > max_increase) {
+            ESP_LOGW("B23", "Spike gedetecteerd L1 import: %.2f -> %.2f, waarde verworpen", last_value, x);
+            return last_value;
+          }
+          last_value = x;
+          return x;
+
   - platform: modbus_controller
     modbus_controller_id: B23
     name: "B23 Import energy L2"
@@ -76,22 +78,22 @@ sensor:
     device_class: energy
     unit_of_measurement: "kWh"
     accuracy_decimals: 2
-    state_class: "total_increasing"
+    state_class: total_increasing
     filters:
       - multiply: 0.01
       - lambda: |-
           static float last_value = NAN;
-          const float min_val = 0.0;  // Minimale onderwaarde
-          const float max_increase = 1000.0;  // Maximale toename per update (pas dit aan)
+          const float max_increase = 1000.0;
           if (isnan(last_value)) {
             last_value = x;
-          }
-          if (x < last_value || (x - last_value) > max_increase) {
-            return last_value;  // Gebruik de vorige waarde als de nieuwe waarde onwaarschijnlijk is
-          } else {
-            last_value = x;  // Update de laatste waarde
             return x;
           }
+          if ((x - last_value) > max_increase) {
+            ESP_LOGW("B23", "Spike gedetecteerd L2 import: %.2f -> %.2f, waarde verworpen", last_value, x);
+            return last_value;
+          }
+          last_value = x;
+          return x;
 
   - platform: modbus_controller
     modbus_controller_id: B23
@@ -102,22 +104,22 @@ sensor:
     device_class: energy
     unit_of_measurement: "kWh"
     accuracy_decimals: 2
-    state_class: "total_increasing"
+    state_class: total_increasing
     filters:
       - multiply: 0.01
       - lambda: |-
           static float last_value = NAN;
-          const float min_val = 0.0;  // Minimale onderwaarde
-          const float max_increase = 1000.0;  // Maximale toename per update (pas dit aan)
+          const float max_increase = 1000.0;
           if (isnan(last_value)) {
             last_value = x;
-          }
-          if (x < last_value || (x - last_value) > max_increase) {
-            return last_value;  // Gebruik de vorige waarde als de nieuwe waarde onwaarschijnlijk is
-          } else {
-            last_value = x;  // Update de laatste waarde
             return x;
           }
+          if ((x - last_value) > max_increase) {
+            ESP_LOGW("B23", "Spike gedetecteerd L3 import: %.2f -> %.2f, waarde verworpen", last_value, x);
+            return last_value;
+          }
+          last_value = x;
+          return x;
 
 ## Active export energy (kWh) B23
   - platform: modbus_controller
@@ -129,9 +131,22 @@ sensor:
     device_class: energy
     unit_of_measurement: "kWh"
     accuracy_decimals: 2
-    state_class: "total_increasing"
+    state_class: total_increasing
     filters:
       - multiply: 0.01
+      - lambda: |-
+          static float last_value = NAN;
+          const float max_increase = 1000.0;
+          if (isnan(last_value)) {
+            last_value = x;
+            return x;
+          }
+          if ((x - last_value) > max_increase) {
+            ESP_LOGW("B23", "Spike gedetecteerd L1 export: %.2f -> %.2f, waarde verworpen", last_value, x);
+            return last_value;
+          }
+          last_value = x;
+          return x;
 
   - platform: modbus_controller
     modbus_controller_id: B23
@@ -142,9 +157,22 @@ sensor:
     device_class: energy
     unit_of_measurement: "kWh"
     accuracy_decimals: 2
-    state_class: "total_increasing"
+    state_class: total_increasing
     filters:
       - multiply: 0.01
+      - lambda: |-
+          static float last_value = NAN;
+          const float max_increase = 1000.0;
+          if (isnan(last_value)) {
+            last_value = x;
+            return x;
+          }
+          if ((x - last_value) > max_increase) {
+            ESP_LOGW("B23", "Spike gedetecteerd L2 export: %.2f -> %.2f, waarde verworpen", last_value, x);
+            return last_value;
+          }
+          last_value = x;
+          return x;
 
   - platform: modbus_controller
     modbus_controller_id: B23
@@ -155,9 +183,22 @@ sensor:
     device_class: energy
     unit_of_measurement: "kWh"
     accuracy_decimals: 2
-    state_class: "total_increasing"
+    state_class: total_increasing
     filters:
       - multiply: 0.01
+      - lambda: |-
+          static float last_value = NAN;
+          const float max_increase = 1000.0;
+          if (isnan(last_value)) {
+            last_value = x;
+            return x;
+          }
+          if ((x - last_value) > max_increase) {
+            ESP_LOGW("B23", "Spike gedetecteerd L3 export: %.2f -> %.2f, waarde verworpen", last_value, x);
+            return last_value;
+          }
+          last_value = x;
+          return x;
 
 ## 3 Instantaneous values
 ## 3.1 Voltage (V) B23
@@ -170,8 +211,10 @@ sensor:
     accuracy_decimals: 1
     device_class: voltage
     unit_of_measurement: "V"
+    state_class: measurement      # toegevoegd
     filters:
       - multiply: 0.1
+
   - platform: modbus_controller
     modbus_controller_id: B23
     name: "B23 Voltage L2-N"
@@ -181,8 +224,10 @@ sensor:
     accuracy_decimals: 1
     device_class: voltage
     unit_of_measurement: "V"
+    state_class: measurement      # toegevoegd
     filters:
       - multiply: 0.1
+
   - platform: modbus_controller
     modbus_controller_id: B23
     name: "B23 Voltage L3-N"
@@ -192,6 +237,7 @@ sensor:
     accuracy_decimals: 1
     device_class: voltage
     unit_of_measurement: "V"
+    state_class: measurement      # toegevoegd
     filters:
       - multiply: 0.1
 
@@ -205,8 +251,10 @@ sensor:
     accuracy_decimals: 2
     device_class: current
     unit_of_measurement: "A"
+    state_class: measurement      # toegevoegd
     filters:
       - multiply: 0.01
+
   - platform: modbus_controller
     modbus_controller_id: B23
     name: "B23 Current L2"
@@ -216,8 +264,10 @@ sensor:
     accuracy_decimals: 2
     device_class: current
     unit_of_measurement: "A"
+    state_class: measurement      # toegevoegd
     filters:
       - multiply: 0.01
+
   - platform: modbus_controller
     modbus_controller_id: B23
     name: "B23 Current L3"
@@ -227,10 +277,11 @@ sensor:
     accuracy_decimals: 2
     device_class: current
     unit_of_measurement: "A"
+    state_class: measurement      # toegevoegd
     filters:
       - multiply: 0.01
 
-## 3.3 Active Power (Watt) B23
+## 3.3 Active Power (W) B23
   - platform: modbus_controller
     modbus_controller_id: B23
     name: "B23 Power total"
@@ -240,8 +291,10 @@ sensor:
     accuracy_decimals: 2
     device_class: power
     unit_of_measurement: "W"
+    state_class: measurement      # toegevoegd
     filters:
       - multiply: 0.01
+
   - platform: modbus_controller
     modbus_controller_id: B23
     name: "B23 Power L1"
@@ -251,8 +304,10 @@ sensor:
     accuracy_decimals: 2
     device_class: power
     unit_of_measurement: "W"
+    state_class: measurement      # toegevoegd
     filters:
       - multiply: 0.01
+
   - platform: modbus_controller
     modbus_controller_id: B23
     name: "B23 Power L2"
@@ -262,8 +317,10 @@ sensor:
     accuracy_decimals: 2
     device_class: power
     unit_of_measurement: "W"
+    state_class: measurement      # toegevoegd
     filters:
       - multiply: 0.01
+
   - platform: modbus_controller
     modbus_controller_id: B23
     name: "B23 Power L3"
@@ -273,6 +330,7 @@ sensor:
     accuracy_decimals: 2
     device_class: power
     unit_of_measurement: "W"
+    state_class: measurement      # toegevoegd
     filters:
       - multiply: 0.01
 
@@ -286,6 +344,7 @@ sensor:
     accuracy_decimals: 2
     device_class: frequency
     unit_of_measurement: "Hz"
+    state_class: measurement      # toegevoegd
     filters:
       - multiply: 0.01
 
@@ -298,5 +357,7 @@ sensor:
     value_type: U_WORD
     accuracy_decimals: 3
     device_class: power_factor
+    unit_of_measurement: ""       # toegevoegd — vereist door HA bij device_class: power_factor
+    state_class: measurement      # toegevoegd
     filters:
       - multiply: 0.001
