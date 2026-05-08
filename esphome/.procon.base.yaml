@@ -29,7 +29,6 @@ modbus_controller:
     setup_priority: -10
     update_interval: 60s
     offline_skip_updates: 3
-    response_timeout: 700ms
 
 binary_sensor:
   - platform: modbus_controller
