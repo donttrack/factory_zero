@@ -1,14 +1,14 @@
 ###  Settings Brink Flair (no need to change normally)
 ###  menu 14-Communication: TypeBus=Modbus, Slave Address=20, Baudrate=19200, Parity=Even
-
 modbus_controller:
-  - id: brink 
+  - id: brink
     ## Brink Modbus slaveaddress 13
-    address: 13 
+    address: 13
     modbus_id: modbus1
-    command_throttle: 300ms
+    command_throttle: 500ms      # verhoogd van 300ms — vermindert CRC-fouten bij veel sensors
     setup_priority: -10
-    update_interval: 10s
+    update_interval: 30s         # verhoogd van 10s — minder bus-belasting
+    offline_skip_updates: 3      # sla updates over als device niet reageert
 
 # Sync time
 time:
@@ -24,13 +24,10 @@ script:
   - id: on_boot
     then:
       - lambda: |-
-          auto new_value = 1;
-
           esphome::modbus_controller::ModbusController *controller = id(brink);
           auto set_value_cmd = esphome::modbus_controller::ModbusCommandItem::create_write_single_command(
-            controller, 8000, new_value);
-
-          delay(20) ;
+            controller, 8000, 1);
+          // delay() verwijderd — queue_command is asynchroon en blokkeert de event loop niet
           controller->queue_command(set_value_cmd);
 
 sensor:
@@ -57,7 +54,7 @@ sensor:
     address: 4037
     device_class: humidity
     unit_of_measurement: "%"
-    value_type: U_WORD  
+    value_type: U_WORD
     accuracy_decimals: 0
     state_class: measurement
 
@@ -69,7 +66,10 @@ sensor:
         (243.5+id(brink_temp_to_inside).state)))/(17.67-log(id(brink_humidity_to_inside).state/100)-
         ((17.67*id(brink_temp_to_inside).state)/(243.5+id(brink_temp_to_inside).state))));
     unit_of_measurement: °C
-    update_interval: 15s
+    device_class: temperature
+    state_class: measurement
+    accuracy_decimals: 1
+    update_interval: 30s         # gelijk aan modbus update_interval
     icon: 'mdi:thermometer-water'
 
   - id: brink_temp_to_outside
@@ -95,7 +95,7 @@ sensor:
     address: 4047
     device_class: humidity
     unit_of_measurement: "%"
-    value_type: U_WORD  
+    value_type: U_WORD
     accuracy_decimals: 0
     state_class: measurement
 
@@ -122,12 +122,11 @@ sensor:
     address: 4023
     device_class: atmospheric_pressure
     unit_of_measurement: "Pa"
-    value_type: S_WORD  
+    value_type: S_WORD
     accuracy_decimals: 0
     state_class: measurement
-    filters:
-      - multiply: 1.0
-    
+    # multiply: 1.0 verwijderd — heeft geen effect
+
   - id: brink_exhaust_pressure
     name: ${brink_exhaust_pressure}
     platform: modbus_controller
@@ -137,11 +136,10 @@ sensor:
     address: 4024
     device_class: atmospheric_pressure
     unit_of_measurement: "Pa"
-    value_type: S_WORD  
+    value_type: S_WORD
     accuracy_decimals: 0
     state_class: measurement
-    filters:
-      - multiply: 1.0
+    # multiply: 1.0 verwijderd — heeft geen effect
 
   - id: brink_setpoint_inlet_volume
     name: ${brink_setpoint_inlet_volume}
@@ -154,8 +152,7 @@ sensor:
     value_type: U_WORD
     accuracy_decimals: 0
     state_class: measurement
-    filters:
-      - multiply: 1.0
+    # multiply: 1.0 verwijderd — heeft geen effect
 
   - id: brink_current_inlet_volume
     name: ${brink_current_inlet_volume}
@@ -168,28 +165,29 @@ sensor:
     value_type: U_WORD
     accuracy_decimals: 0
     state_class: measurement
-    filters:
-      - multiply: 1.0
+    # multiply: 1.0 verwijderd — heeft geen effect
 
-  - platform: modbus_controller
-    modbus_controller_id: brink
-    id: brink_rpm_supply_fan
+  - id: brink_rpm_supply_fan
     name: ${brink_speed_supply_fan}
+    platform: modbus_controller
+    modbus_controller_id: brink
     register_type: read
     address: 4034
     unit_of_measurement: "RPM"
-    value_type: U_WORD  
+    value_type: U_WORD
     accuracy_decimals: 0
-  
-  - platform: modbus_controller
-    modbus_controller_id: brink
-    id: brink_rpm_supply_fan_exhaust_fan
+    state_class: measurement  # toegevoegd
+
+  - id: brink_rpm_supply_fan_exhaust_fan
     name: ${brink_speed_exhaust_fan}
+    platform: modbus_controller
+    modbus_controller_id: brink
     register_type: read
     address: 4044
     unit_of_measurement: "RPM"
-    value_type: U_WORD  
+    value_type: U_WORD
     accuracy_decimals: 0
+    state_class: measurement  # toegevoegd
 
   - id: brink_setpoint_outlet_volume
     name: ${brink_setpoint_outlet_volume}
@@ -202,8 +200,7 @@ sensor:
     value_type: U_WORD
     accuracy_decimals: 0
     state_class: measurement
-    filters:
-      - multiply: 1.0
+    # multiply: 1.0 verwijderd — heeft geen effect
 
   - id: brink_current_outlet_volume
     name: ${brink_current_outlet_volume}
@@ -216,8 +213,7 @@ sensor:
     value_type: U_WORD
     accuracy_decimals: 0
     state_class: measurement
-    filters:
-      - multiply: 1.0
+    # multiply: 1.0 verwijderd — heeft geen effect
 
   - id: brink_frost_heater_power
     name: ${brink_frost_heater_power}
@@ -230,8 +226,7 @@ sensor:
     value_type: U_WORD
     accuracy_decimals: 1
     state_class: measurement
-    filters:
-      - multiply: 1.0
+    # multiply: 1.0 verwijderd — heeft geen effect
 
   - id: brink_frost_fan_reduction
     name: ${brink_frost_fan_reduction}
@@ -244,8 +239,7 @@ sensor:
     value_type: U_WORD
     accuracy_decimals: 1
     state_class: measurement
-    filters:
-      - multiply: 1.0
+    # multiply: 1.0 verwijderd — heeft geen effect
 
   - id: brink_current_filter_hours
     name: ${brink_current_filter_hours}
@@ -257,6 +251,7 @@ sensor:
     register_type: read
     value_type: U_WORD
     accuracy_decimals: 0
+    skip_updates: 6              # 1x per ~3 minuten is voldoende voor uren-teller
 
   - id: brink_current_filter_days
     name: ${brink_current_filter_days}
@@ -268,6 +263,7 @@ sensor:
     register_type: read
     value_type: U_WORD
     accuracy_decimals: 0
+    skip_updates: 6
     filters:
       - multiply: 0.041667
     on_value:
@@ -293,7 +289,7 @@ sensor:
     register_type: read
     value_type: U_DWORD
     accuracy_decimals: 0
-    state_class: total
+    state_class: total_increasing  # was: total — teller stijgt alleen maar, geen last_reset nodig
 
   - id: brink_device_type
     name: ${brink_device_type}
@@ -304,6 +300,7 @@ sensor:
     unit_of_measurement: ""
     register_type: read
     value_type: U_WORD
+    skip_updates: 100            # apparaattype verandert nooit — zelden ophalen
 
 text_sensor:
   - id: brink_status
@@ -317,27 +314,28 @@ text_sensor:
     skip_updates: 20
     lambda: |-
       uint16_t int_mode = (data[item->offset] << 8) + data[item->offset+1];
-      ESP_LOGD("main","Parsed operation mode int : %d", int_mode);
+      ESP_LOGD("main", "Parsed operation mode int: %d", int_mode);
       std::string mode_str;
       switch (int_mode) {
         case 0:  mode_str = "Standby"; break;
-        case 1:  mode_str = "Bootloader"; break;        
+        case 1:  mode_str = "Bootloader"; break;
         case 2:  mode_str = "Non Blocking Error"; break;
         case 3:  mode_str = "Blocking Error"; break;
         case 4:  mode_str = "Manual"; break;
         case 5:  mode_str = "Holiday"; break;
         case 6:  mode_str = "Night ventilation"; break;
         case 7:  mode_str = "Party"; break;
-        case 8:  mode_str = "Bypass Boost"; break; 
-        case 9:  mode_str = "Normal Boost"; break; 
-        case 10:  mode_str = "Auto CO2"; break; 
-        case 11:  mode_str = "Auto eBus"; break; 
-        case 12:  mode_str = "Auto Modbus"; break; 
-        case 13:  mode_str = "Auto Lan/ Wlan portal"; break; 
-        case 14:  mode_str = "Auto Lan/ Wlan local"; break;                                                         
+        case 8:  mode_str = "Bypass Boost"; break;
+        case 9:  mode_str = "Normal Boost"; break;
+        case 10: mode_str = "Auto CO2"; break;
+        case 11: mode_str = "Auto eBus"; break;
+        case 12: mode_str = "Auto Modbus"; break;
+        case 13: mode_str = "Auto Lan/ Wlan portal"; break;
+        case 14: mode_str = "Auto Lan/ Wlan local"; break;
+        default: mode_str = "${unknown}"; break;
       }
       return mode_str;
-  
+
   - id: brink_bypass_status
     name: ${brink_bypass_status}
     platform: modbus_controller
@@ -351,14 +349,14 @@ text_sensor:
       uint16_t int_mode = (data[item->offset] << 8) + data[item->offset+1];
       std::string mode_str;
       switch (int_mode) {
-        case 0:  mode_str = "${initialize}"; break;
-        case 1:  mode_str = "${opening}"; break;
-        case 2:  mode_str = "${closing}"; break;
-        case 3:  mode_str = "${open}"; break;
-        case 4:  mode_str = "${closed}"; break;
-        case 255:  mode_str = "${error}"; break;
-        default: mode_str = "${unknown}"; break;
-       }
+        case 0:   mode_str = "${initialize}"; break;
+        case 1:   mode_str = "${opening}"; break;
+        case 2:   mode_str = "${closing}"; break;
+        case 3:   mode_str = "${open}"; break;
+        case 4:   mode_str = "${closed}"; break;
+        case 255: mode_str = "${error}"; break;
+        default:  mode_str = "${unknown}"; break;
+      }
       return mode_str;
 
   - id: brink_frost_status
@@ -372,7 +370,7 @@ text_sensor:
     skip_updates: 20
     lambda: |-
       uint16_t int_mode = (data[item->offset] << 8) + data[item->offset+1];
-      ESP_LOGD("main","Parsed operation mode int : %d", int_mode);
+      ESP_LOGD("main", "Parsed frost mode int: %d", int_mode);
       std::string mode_str;
       switch (int_mode) {
         case 0:  mode_str = "Initialize"; break;
@@ -385,15 +383,15 @@ text_sensor:
         case 7:  mode_str = "Heating"; break;
         case 8:  mode_str = "Wait for Free Heater"; break;
         case 9:  mode_str = "FanControl Start Delay"; break;
-        case 10:  mode_str = "FanControl Wait Delay"; break;
-        case 11:  mode_str = "FanControl"; break;
-        case 12:  mode_str = "Fan Off Delay"; break;
-        case 13:  mode_str = "Fan Off"; break;
-        case 14:  mode_str = "Fan Restarting"; break;
-        case 15:  mode_str = "Error"; break;
-        case 16:  mode_str = "Test modus"; break;
+        case 10: mode_str = "FanControl Wait Delay"; break;
+        case 11: mode_str = "FanControl"; break;
+        case 12: mode_str = "Fan Off Delay"; break;
+        case 13: mode_str = "Fan Off"; break;
+        case 14: mode_str = "Fan Restarting"; break;
+        case 15: mode_str = "Error"; break;
+        case 16: mode_str = "Test modus"; break;
         default: mode_str = "${unknown}"; break;
-       }
+      }
       return mode_str;
 
   - id: brink_filter_status
@@ -407,11 +405,12 @@ text_sensor:
     skip_updates: 20
     lambda: |-
       uint16_t int_mode = (data[item->offset] << 8) + data[item->offset+1];
-      ESP_LOGD("main","Parsed operation mode int : %d", int_mode);
+      ESP_LOGD("main", "Parsed filter status int: %d", int_mode);
       std::string mode_str;
       switch (int_mode) {
         case 0:  mode_str = "${not_dirty}"; break;
-        case 1:  mode_str = "${dirty}";
+        case 1:  mode_str = "${dirty}"; break;
+        default: mode_str = "${unknown}"; break;  // default toegevoegd
       }
       return mode_str;
 
@@ -419,56 +418,20 @@ select:
   - id: brink_modbus_control_mode
     name: Modbus Control Mode
     platform: modbus_controller
-    modbus_controller_id: brink 
+    modbus_controller_id: brink
     address: 8000
     value_type: S_WORD
     optimistic: true
     skip_updates: 20
     optionsmap:
-      "Device LCD": 0      
+      "Device LCD": 0
       "Modbus Step": 1
       "Modbus Flow": 2
-#    on_value:
-#        then:
-#          - lambda: |-
-#              std::string current_mode_str = id(brink_modbus_control_mode).state;
-#              std::string requested_mode_str = x;  // 'x' is the requested mode value
-#
-#              // Convert strings to integers using the options map
-#              int current_mode = 0;
-#              if (current_mode_str == "Device LCD") {
-#                current_mode = 0;
-#              } else if (current_mode_str == "Modbus Step") {
-#                current_mode = 1;
-#              } else if (current_mode_str == "Modbus Flow") {
-#                current_mode = 2;
-#              }
-#
-#              int requested_mode = 0;
-#              if (requested_mode_str == "Device LCD") {
-#                requested_mode = 0;
-#              } else if (requested_mode_str == "Modbus Step") {
-#                requested_mode = 1;
-#              } else if (requested_mode_str == "Modbus Flow") {
-#                requested_mode = 2;
-#              }
-#
-#              if (current_mode == requested_mode) {
-#                ESP_LOGI("control mode", "Control mode already set, no switching needed.");
-#                return;  // Prevent switching if the mode is already active
-#              }
-#
-#              ESP_LOGI("Control mode", "Control mode to: %d", requested_mode);
-#              esphome::modbus_controller::ModbusController *controller = id(${name});
-#              auto set_value_cmd = esphome::modbus_controller::ModbusCommandItem::create_write_single_command(
-#                controller, 8000, requested_mode);
-#              delay(20) ;
-#              controller->queue_command(set_value_cmd); 
 
   - id: brink_bypass_mode
     name: Bypass Mode
     platform: modbus_controller
-    modbus_controller_id: brink 
+    modbus_controller_id: brink
     address: 6100
     value_type: S_WORD
     skip_updates: 20
@@ -477,48 +440,38 @@ select:
       ${closed}: 1
       ${open}: 2
     on_value:
-        then:
-          - lambda: |-
-              // Add any other conditions to prevent switching, such as external states
-              int volume = id(brink_current_inlet_volume).state;
-              if (volume > 200) {
-                ESP_LOGI("bypass", "switching is blocked. Inlet volume > 220 m3/h. Value: %d m3/h", volume);
-                return;
-              }
+      then:
+        - lambda: |-
+            int volume = id(brink_current_inlet_volume).state;
+            if (volume > 200) {
+              ESP_LOGI("bypass", "Switching blocked: inlet volume > 200 m3/h (value: %d m3/h)", volume);
+              return;
+            }
 
-              std::string current_mode_str = id(brink_bypass_mode).current_option();
-              std::string requested_mode_str = x;  // 'x' is the requested mode value
+            std::string current_mode_str = id(brink_bypass_mode).current_option();
+            std::string requested_mode_str = x;
 
-              // Convert strings to integers using the options map
-              int current_mode = 0;
-              if (current_mode_str == "${auto}") {
-                current_mode = 0;
-              } else if (current_mode_str == "${closed}") {
-                current_mode = 1;
-              } else if (current_mode_str == "${open}") {
-                current_mode = 2;
-              }
+            int current_mode = 0;
+            if (current_mode_str == "${auto}")        { current_mode = 0; }
+            else if (current_mode_str == "${closed}") { current_mode = 1; }
+            else if (current_mode_str == "${open}")   { current_mode = 2; }
 
-              int requested_mode = 0;
-              if (requested_mode_str == "${auto}") {
-                requested_mode = 0;
-              } else if (requested_mode_str == "${closed}") {
-                requested_mode = 1;
-              } else if (requested_mode_str == "${open}") {
-                requested_mode = 2;
-              }
+            int requested_mode = 0;
+            if (requested_mode_str == "${auto}")        { requested_mode = 0; }
+            else if (requested_mode_str == "${closed}") { requested_mode = 1; }
+            else if (requested_mode_str == "${open}")   { requested_mode = 2; }
 
-              if (current_mode == requested_mode) {
-                ESP_LOGI("bypass", "Bypass mode already set, no switching needed.");
-                return;  // Prevent switching if the mode is already active
-              }
+            if (current_mode == requested_mode) {
+              ESP_LOGI("bypass", "Bypass mode already set, no switching needed.");
+              return;
+            }
 
-
-              ESP_LOGI("bypass", "Switching bypass mode to: %d", requested_mode);
-              esphome::modbus_controller::ModbusController *controller = id(brink);
-              auto set_value_cmd = esphome::modbus_controller::ModbusCommandItem::create_write_single_command(
-                controller, 6100, requested_mode);
-              delay(20) ;
+            ESP_LOGI("bypass", "Switching bypass mode to: %d", requested_mode);
+            esphome::modbus_controller::ModbusController *controller = id(brink);
+            auto set_value_cmd = esphome::modbus_controller::ModbusCommandItem::create_write_single_command(
+              controller, 6100, requested_mode);
+            // delay() verwijderd — queue_command is asynchroon
+            controller->queue_command(set_value_cmd);  // BUG FIX: ontbrak in origineel
 
 switch:
   - id: brink_bypass_boost
@@ -535,7 +488,7 @@ switch:
     name: Reset Filter
     platform: modbus_controller
     modbus_controller_id: brink
-    register_type: holding  
+    register_type: holding
     address: 8010
     bitmask: 1
     icon: mdi:toggle-switch
@@ -551,15 +504,15 @@ switch:
             esphome::modbus_controller::ModbusController *controller = id(brink);
             auto set_value_cmd = esphome::modbus_controller::ModbusCommandItem::create_write_single_command(
               controller, 8003, 1);
-            delay(20) ;
-            controller->queue_command(set_value_cmd);    
+            // delay() verwijderd — queue_command is asynchroon
+            controller->queue_command(set_value_cmd);
     on_turn_off:
       then:
         - lambda: |-
             esphome::modbus_controller::ModbusController *controller = id(brink);
             auto set_value_cmd = esphome::modbus_controller::ModbusCommandItem::create_write_single_command(
               controller, 8003, 2);
-            delay(20) ;
+            // delay() verwijderd — queue_command is asynchroon
             controller->queue_command(set_value_cmd);
 
 button:
@@ -577,34 +530,16 @@ button:
               char str[22];
               time_t currTime = id(brink_sntp_time).now().timestamp;
               strftime(str, sizeof(str), "%a %d %b %H:%M", localtime(&currTime));
-              return  { str };
-
-
-## temporarely test button for Step modbus mode after reboot or powerloss
-#  - id: brink_step_modbus
-#    name: Set Modbus Control Mode - Switch
-#    platform: template
-#    on_press:
-#      then:
-#        - lambda: |-
-#            auto new_value = 1;
-#
-#            esphome::modbus_controller::ModbusController *controller = id(${name});
-#            auto set_value_cmd = esphome::modbus_controller::ModbusCommandItem::create_write_single_command(
-#              controller, 8000, new_value);
-#
-#            delay(20) ;
-#            controller->queue_command(set_value_cmd);
-#            ESP_LOGI("ModbusLambda", "Brink Modbus Step set");
+              return { str };
 
 number:
   # If the bypass boost function is activated, the bypass opens and the fan will run at this preset setting.
   - id: brink_bypass_boost_switch_position
     name: ${brink_bypass_boost_switch_position}
     platform: modbus_controller
-    modbus_controller_id: brink  
+    modbus_controller_id: brink
     address: 6105
-    value_type: S_WORD      
+    value_type: S_WORD
     min_value: 0
     max_value: 3
     mode: slider
@@ -616,20 +551,20 @@ number:
     modbus_controller_id: brink
     register_type: holding
     address: 8001
-    value_type: S_WORD      
+    value_type: S_WORD
     min_value: 0
     max_value: 3
     mode: slider
     icon: mdi:fan
- 
+
   - id: brink_imbalance_intake
     name: ${brink_imbalance_intake}
     platform: modbus_controller
     modbus_controller_id: brink
     address: 6035
     unit_of_measurement: "%"
-    value_type: S_WORD   
-    multiply: 10    
+    value_type: S_WORD
+    multiply: 10
     min_value: -15
     max_value: 15
     mode: slider
@@ -641,12 +576,12 @@ number:
 ##  ▪ de binnentemperatuur uit woning is hoger dan 24°C ( instelbaar tussen 15°C en 35°C )
 
 ##  BYPASS DICHT
-##  ▪ De buitentemperatuur is lager dan 10° (instelbaar tussen 7°C en 15°C) C OF
+##  ▪ De buitentemperatuur is lager dan 10°C (instelbaar tussen 7°C en 15°C) OF
 ##  ▪ de buitentemperatuur is hoger dan de binnentemperatuur uit de woning OF
 ##  ▪ de temperatuur uit de woning is lager dan de ingestelde temperatuur
 ##    minus de ingestelde temperatuur bij de hysterese
 
-  - id: brink_bypass_from_dwelling ## van binnen naar buitenuitblaas, default 24 °C
+  - id: brink_bypass_from_dwelling  ## van binnen naar buiten uitblaas, default 24 °C
     name: ${brink_bypass_from_dwelling}
     platform: modbus_controller
     modbus_controller_id: brink
@@ -661,7 +596,7 @@ number:
     mode: slider
     icon: mdi:home-export-outline
 
-  - id: brink_bypass_from_outside ## van buiten naar binnen aanzuig, default 10 °C
+  - id: brink_bypass_from_outside  ## van buiten naar binnen aanzuig, default 10 °C
     name: ${brink_bypass_from_outside}
     platform: modbus_controller
     modbus_controller_id: brink
@@ -676,7 +611,7 @@ number:
     mode: slider
     icon: mdi:home-import-outline
 
-  - id: brink_bypass_hysteresis ## default 2 °C
+  - id: brink_bypass_hysteresis  ## default 2 °C
     name: ${brink_bypass_hysteresis}
     platform: modbus_controller
     modbus_controller_id: brink
@@ -692,14 +627,14 @@ number:
     icon: mdi:home-edit-outline
 
 ### Vorstbeveiliging
-  - id: brink_frost_control_temperature ## default 0 °C
+  - id: brink_frost_control_temperature  ## default 0 °C
     name: ${brink_frost_control_temperature}
     platform: modbus_controller
     modbus_controller_id: brink
     address: 6110
     unit_of_measurement: "°C"
     device_class: temperature
-    value_type: S_WORD      
+    value_type: S_WORD
     min_value: -1.5
     max_value: 1.5
     step: 0.5
@@ -714,7 +649,7 @@ number:
     address: 6111
     device_class: temperature
     unit_of_measurement: "°C"
-    value_type: S_WORD      
+    value_type: S_WORD
     min_value: 7
     max_value: 17
     step: 0.5
@@ -728,23 +663,22 @@ number:
     modbus_controller_id: brink
     address: 6036
     unit_of_measurement: "%"
-    value_type: S_WORD      
-    multiply: 10 
+    value_type: S_WORD
+    multiply: 10
     min_value: -15
     max_value: 15
     mode: slider
     icon: mdi:home-export-outline
 
   - id: brink_filter_change_days
-    name:  ${brink_filter_change_days}
+    name: ${brink_filter_change_days}
     platform: modbus_controller
     modbus_controller_id: brink
     register_type: holding
     address: 6120
     unit_of_measurement: ""
-    value_type: S_WORD      
+    value_type: S_WORD
     min_value: 0
     max_value: 365
     mode: slider
     icon: mdi:timer-sync-outline
-
