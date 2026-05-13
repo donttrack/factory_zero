@@ -933,7 +933,7 @@ number:
     multiply: 100
     entity_category: config
 
-    ## H/C Thermostat Target Temperature – Zone 1 (signed) (FC6: 32, MA: 40033)
+    ## H⁄C Thermostat Target Temperature – Zone 1 (signed) (FC6: 32, MA: 40033)
   - platform: modbus_controller
     modbus_controller_id: Ecodan
     id: hc_thermostat_target_temperature_zone_1
@@ -1013,7 +1013,7 @@ switch:
     bitmask: 1
     entity_category: config
 
-    ## System ON/OFF (FC1: 1, MA: 00002)
+    ## System ON⁄OFF (FC1: 1, MA: 00002)
   - platform: modbus_controller
     modbus_controller_id: Ecodan
     id: system_on_off
@@ -1024,7 +1024,7 @@ switch:
     icon: mdi:power
 
 select:
-    ## A/C mode – Zone 1 (FC6: 28, 40029)
+    ## A⁄C mode – Zone 1 (FC6: 28, 40029)
   - platform: modbus_controller
     modbus_controller_id: Ecodan
     id: ac_mode_zone_1
