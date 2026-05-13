@@ -1,5 +1,5 @@
 number:
-# Maximum value for Flair 300 is 300m3/h
+# Maximum value for Flair 300 is 300m3⁄h
   - id: brink_modbus_flow_rate
     name: ${brink_modbus_flow_rate}
     platform: modbus_controller
