@@ -1024,7 +1024,7 @@ switch:
     icon: mdi:power
 
 select:
-    ## A⁄C mode – Zone 1 (FC6: 28, 40029)
+    ## ecodan A⁄C mode – Zone 1 (FC6: 28, 40029)
   - platform: modbus_controller
     modbus_controller_id: Ecodan
     id: ac_mode_zone_1
