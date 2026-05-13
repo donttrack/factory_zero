@@ -4,7 +4,7 @@ modbus_controller:
     address: 3
     modbus_id: modbus1
     setup_priority: -10
-    update_interval: 30s          # verhoogd van 14s — zelfde als brink_base
+    update_interval: 33s          # verhoogd van 14s — zelfde als brink_base
     command_throttle: 500ms       # verhoogd van 350ms — zelfde als brink_base
     offline_skip_updates: 3       # sla updates over als meter niet reageert
 
