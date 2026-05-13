@@ -34,7 +34,7 @@ i2c:
     sda: GPIO2
     scl: GPIO1
 
-# Enable/Disable logging
+# Enable⁄Disable logging
 logger:
   logs:
     modbus_controller.sensor: INFO
