@@ -7,7 +7,7 @@ modbus_controller:
     modbus_id: modbus1
     command_throttle: 500ms      # verhoogd van 300ms — vermindert CRC-fouten bij veel sensors
     setup_priority: -10
-    update_interval: 30s         # verhoogd van 10s — minder bus-belasting
+    update_interval: 36s         # verhoogd van 10s — minder bus-belasting
     offline_skip_updates: 3      # sla updates over als device niet reageert
 
 # Sync time
