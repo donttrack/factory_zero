@@ -285,7 +285,7 @@ sensor:
     modbus_controller_id: brink
     icon: mdi:clock-start
     address: 4116
-    unit_of_measurement: "m3/h"
+    unit_of_measurement: "m3⁄h"
     register_type: read
     value_type: U_DWORD
     accuracy_decimals: 0
