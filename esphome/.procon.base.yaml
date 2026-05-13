@@ -953,7 +953,6 @@ number:
     #      id: ${name}_climate
     #      target_temperature: !lambda "return x;"
 
-
     ## Thermostat Target Temperature – Zone 1 (signed) (FC6: 54, MA: 40055)
   - platform: modbus_controller
     modbus_controller_id: Ecodan
@@ -1013,7 +1012,6 @@ switch:
     address: 41
     bitmask: 1
     entity_category: config
-
 
     ## System ON/OFF (FC1: 1, MA: 00002)
   - platform: modbus_controller
