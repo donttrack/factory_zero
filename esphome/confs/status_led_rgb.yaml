@@ -129,7 +129,7 @@ number:
 switch:
   - platform: template
     id: ecodan_led_switch
-    name: LED Aan/Uit
+    name: LED Aan⁄Uit
     optimistic: true
     restore_mode: RESTORE_DEFAULT_ON
     # lambda verwijderd — optimistic: true houdt state zelf bij
