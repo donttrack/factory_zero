@@ -1,7 +1,6 @@
 ############################################
 #  STATUS LED – ATOM S3 LITE (GPIO 35)
 ############################################
-
 light:
   - platform: esp32_rmt_led_strip
     id: led
@@ -12,17 +11,15 @@ light:
     chipset: ws2812
     rgb_order: grb
     restore_mode: RESTORE_DEFAULT_OFF
-
     effects:
       - pulse:
           name: slow_pulse
           transition_length: 1s
-          update_interval: 1s
+          update_interval: 2s
       - pulse:
           name: fast_pulse
           transition_length: 0.3s
-          update_interval: 0.3s
-
+          update_interval: 0.6s
 
 esphome:
   on_boot:
@@ -33,7 +30,7 @@ esphome:
           red: 100%
           green: 100%
           blue: 100%
-          brightness: 100%
+          brightness: !lambda 'return id(led_brightness).state / 100.0;'
           effect: none
 
 wifi:
@@ -44,8 +41,8 @@ wifi:
           red: 100%
           green: 100%
           blue: 100%
+          brightness: !lambda 'return id(led_brightness).state / 100.0;'
           effect: none
-
   on_disconnect:
     then:
       - light.turn_on:
@@ -53,55 +50,62 @@ wifi:
           red: 100%
           green: 0%
           blue: 0%
+          brightness: 100%   # altijd zichtbaar, ongeacht led_brightness
           effect: fast_pulse
 
 api:
   on_client_disconnected:
     then:
-      - light.turn_on:
-          id: led
-          red: 100%
-          green: 100%
-          blue: 0%
-          effect: fast_pulse
+      - delay: 10s           # wacht even — voorkomt knipperen bij korte HA-restart
+      - if:
+          condition:
+            not:
+              api.connected:
+          then:
+            - light.turn_on:
+                id: led
+                red: 100%
+                green: 100%
+                blue: 0%
+                brightness: 100%   # altijd zichtbaar bij fout
+                effect: fast_pulse
 
 script:
-  - id: heating
+  - id: led_heating
     then:
       - light.turn_on:
           id: led
           red: 100%
           green: 65%
           blue: 0%
-          brightness: 100%
+          brightness: !lambda 'return id(led_brightness).state / 100.0;'
           effect: none
 
-  - id: cooling
+  - id: led_cooling
     then:
       - light.turn_on:
           id: led
           red: 0%
           green: 0%
           blue: 100%
-          brightness: 100%
+          brightness: !lambda 'return id(led_brightness).state / 100.0;'
           effect: none
 
-  - id: hotwater
+  - id: led_hotwater
     then:
       - light.turn_on:
           id: led
           red: 100%
           green: 0%
           blue: 100%
-          brightness: 100%
+          brightness: !lambda 'return id(led_brightness).state / 100.0;'
           effect: none
-
 
 number:
   - platform: template
     id: led_brightness
     name: LED Brightness
-    icon: mdi:toggle-switch-variant
+    icon: mdi:brightness-6
     mode: slider
     entity_category: config
     optimistic: true
@@ -128,8 +132,7 @@ switch:
     name: LED Aan/Uit
     optimistic: true
     restore_mode: RESTORE_DEFAULT_ON
-    lambda: |-
-      return id(ecodan_led_switch).state;
+    # lambda verwijderd — optimistic: true houdt state zelf bij
     turn_on_action:
       - light.turn_on:
           id: led
