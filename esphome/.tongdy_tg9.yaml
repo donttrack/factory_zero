@@ -5,7 +5,7 @@ modbus_controller:
     address: 12
     modbus_id: modbus1
     setup_priority: -10
-    update_interval: 12s
+    update_interval: 27s
     command_throttle: 350ms
     # timeout: 400ms  # optioneel bij trage apparaten
 
