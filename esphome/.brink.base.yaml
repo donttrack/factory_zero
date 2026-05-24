@@ -302,6 +302,19 @@ sensor:
     value_type: U_WORD
     skip_updates: 100            # apparaattype verandert nooit — zelden ophalen
 
+  - id: brink_bypass_position
+    name: ${brink_bypass_position}
+    platform: modbus_controller
+    modbus_controller_id: ${name}
+    register_type: read
+    address: 4051
+    value_type: U_WORD
+    unit_of_measurement: "%"
+    accuracy_decimals: 0
+    icon: mdi:valve
+    state_class: measurement
+
+
 text_sensor:
   - id: brink_status
     name: ${brink_status}
