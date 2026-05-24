@@ -639,18 +639,6 @@ number:
     mode: slider
     icon: mdi:home-edit-outline
 
-  - id: brink_bypass_position
-    name: ${brink_bypass_position}
-    platform: modbus_controller
-    modbus_controller_id: ${name}
-    register_type: read
-    address: 4051
-    value_type: U_WORD
-    unit_of_measurement: "%"
-    accuracy_decimals: 0
-    icon: mdi:valve
-    state_class: measurement
-
 ### Vorstbeveiliging
   - id: brink_frost_control_temperature  ## default 0 °C
     name: ${brink_frost_control_temperature}
