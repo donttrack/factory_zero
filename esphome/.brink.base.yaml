@@ -427,6 +427,41 @@ text_sensor:
       }
       return mode_str;
 
+  - platform: template
+    id: brink_flow_direction_status
+    name: "Flow Direction Status"
+    icon: mdi:swap-horizontal-bold
+    lambda: |-
+      float inlet = id(brink_current_inlet_volume).state;     // 4032
+      float outlet = id(brink_current_outlet_volume).state;   // 4042
+      float t_in = id(brink_temp_to_inside).state;            // 4036
+      float t_out = id(brink_temp_to_outside).state;          // 4046
+      float p_in = id(brink_supply_pressure).state;           // 4023
+      float p_out = id(brink_exhaust_pressure).state;         // 4024
+
+      int score = 0;
+
+      // Check 1: flows reversed?
+      if (inlet < outlet) score++;
+
+      // Check 2: temperatuur inconsistent?
+      if (t_in < t_out) score++;
+
+      // Check 3: druk inconsistent?
+      if (p_in > p_out) score++;
+
+      // Check 4: extreme afwijking?
+      if (inlet < 20 && outlet > 50) score++;
+
+      if (score >= 3) {
+        return std::string("❌ Omgewisseld – wizard vereist");
+      } else if (score == 1 || score == 2) {
+        return std::string("⚠️ Mogelijk omgewisseld");
+      } else {
+        return std::string("OK");
+      }
+
+
 select:
   - id: brink_modbus_control_mode
     name: Modbus Control Mode
