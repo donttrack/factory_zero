@@ -50,8 +50,8 @@ substitutions:
   model_profile_1: Model Profile 1
   operating_mode: Operating mode
   set_tank_water_temperature: Set tank water temperature
-  hc_thermostat_target_temperature_zone_1: H/C thermostat target temperature
-  hc_thermostat_target_temperature_zone_2: H/C thermostat target temperature Z2
+  hc_thermostat_target_temperature_zone_1: H⁄C thermostat target temperature
+  hc_thermostat_target_temperature_zone_2: H⁄C thermostat target temperature Z2
   thermostat_target_temperature_zone_1: Thermostat target temperature
   thermostat_target_temperature_zone_2: Thermostat target temperature Z2
   relay: Relay
@@ -61,8 +61,8 @@ substitutions:
   cooling_on_prohibit_zone_1: Cooling on prohibit
   cooling_on_prohibit_zone_2: Cooling on prohibit Z2
   system_on_off: System on/off
-  ac_mode_zone_1: A/C mode
-  ac_mode_zone_2: A/C mode Z2
+  ac_mode_zone_1: A⁄C mode
+  ac_mode_zone_2: A⁄C mode Z2
   hc_control_type: HC control type
   auto: Auto
   initialize: Initialize
