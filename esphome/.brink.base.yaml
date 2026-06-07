@@ -303,7 +303,7 @@ sensor:
     skip_updates: 100            # apparaattype verandert nooit — zelden ophalen
 
   - id: brink_bypass_position
-    name: ${brink_bypass_position}
+    name: Brink bypass positie
     platform: modbus_controller
     modbus_controller_id: brink
     register_type: read
