@@ -1075,7 +1075,7 @@ switch:
   set_holiday: Set holiday mode
   cooling_on_prohibit_zone_1: Cooling on prohibit
   cooling_on_prohibit_zone_2: Cooling on prohibit Z2
-  system_on_off: System on/off
+  system_on_off: System on⁄off
   ac_mode_zone_1: A⁄C mode
   ac_mode_zone_2: A⁄C mode Z2
   hc_control_type: HC control type
