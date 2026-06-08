@@ -9,7 +9,7 @@ ap:
   password: !secret ap_password
   ap_timeout: 15s
 
-captive_portal:
+captive_portal: false
 
 text_sensor:
   - platform: wifi_info
