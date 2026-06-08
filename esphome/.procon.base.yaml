@@ -1025,6 +1025,20 @@ switch:
       ${cooling}: 1
     entity_category: config
 
+  - platform: modbus_controller
+    modbus_controller_id: Ecodan
+    id: ac_mode_zone_1
+    name: "${name} ${ac_mode_zone_1}"
+    address: 28
+    optionsmap:
+      ${heating_room}: 0
+      ${heating_flow}: 1
+      ${heating_curve}: 2
+      ${cooling_room}: 3
+      ${cooling_flow}: 4
+      ${floor_dryup}: 5
+    entity_category: config
+
     ## System ONsubstitutions:
   in1_thermostat: IN1 Thermostat
   booster_heater: Booster heater
@@ -1237,17 +1251,3 @@ select:
   cooling_room: Cooling room
   cooling_flow: Cooling flow
   floor_dryup: Floor DryupC mode – Zone 1 (FC6: 28, 40029)
-  - platform: modbus_controller
-    modbus_controller_id: Ecodan
-    id: ac_mode_zone_1
-    name: "${name} ${ac_mode_zone_1}"
-    address: 28
-    optionsmap:
-      ${heating_room}: 0
-      ${heating_flow}: 1
-      ${heating_curve}: 2
-      ${cooling_room}: 3
-      ${cooling_flow}: 4
-      ${floor_dryup}: 5
-    entity_category: config
-
