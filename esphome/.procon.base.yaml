@@ -130,7 +130,7 @@ sensor:
     filters:
       - multiply: 0.01
 
-     ## Legionella Temperature Setpoint (signed) (FC4: 48, MA: 30049)
+    ## Legionella Temperature Setpoint (signed) (FC4: 48, MA: 30049)
   - platform: modbus_controller
     modbus_controller_id: Ecodan
     id: legionella_temperature_setpoint
@@ -547,6 +547,7 @@ sensor:
   - platform: template
     id: energy_produced_dhw
     name: "${name} ${energy_produced_dhw}"
+    icon: mdi:water
     device_class: energy
     state_class: total_increasing
     unit_of_measurement: "kWh"
@@ -563,7 +564,11 @@ sensor:
     unit_of_measurement: " "
     accuracy_decimals: 2
     lambda: |-
-      return (id(produced_heating_kwh).state + (id(produced_heating_wh).state/100)) / (id(heating_kwh).state + (id(heating_wh).state/100));
+      float consumed = id(heating_kwh).state + (id(heating_wh).state/100);
+      if (consumed > 0) {
+        return (id(produced_heating_kwh).state + (id(produced_heating_wh).state/100)) / consumed;
+      }
+      return 0.0;
     update_interval: 60s    
 
     ## COP Cooling (template)
@@ -574,7 +579,11 @@ sensor:
     unit_of_measurement: " "
     accuracy_decimals: 2
     lambda: |-
-      return (id(produced_cooling_kwh).state + (id(produced_cooling_wh).state/100)) / (id(cooling_kwh).state + (id(cooling_wh).state/100));
+      float consumed = id(cooling_kwh).state + (id(cooling_wh).state/100);
+      if (consumed > 0) {
+        return (id(produced_cooling_kwh).state + (id(produced_cooling_wh).state/100)) / consumed;
+      }
+      return 0.0;
     update_interval: 60s  
 
     ## COP DHW (template)
@@ -585,7 +594,11 @@ sensor:
     unit_of_measurement: " "
     accuracy_decimals: 2
     lambda: |-
-      return (id(produced_dhw_kwh).state + (id(produced_dhw_wh).state/100)) / (id(dhw_kwh).state + (id(dhw_wh).state/100));
+      float consumed = id(dhw_kwh).state + (id(dhw_wh).state/100);
+      if (consumed > 0) {
+        return (id(produced_dhw_kwh).state + (id(produced_dhw_wh).state/100)) / consumed;
+      }
+      return 0.0;
     update_interval: 60s  
 
     ## Last Measured Total Energy Produced – kWh (FC4: 172, MA: 30173)
@@ -998,256 +1011,3 @@ switch:
     id: set_holiday
     name: "${name} ${set_holiday}"
     register_type: holding
-    icon: mdi:briefcase
-    address: 38
-    bitmask: 1
-
-  ## Cooling On Prohibit – Zone 1 (FC6: 41, MA: 40042)
-  - platform: modbus_controller
-    modbus_controller_id: Ecodan
-    id: cooling_on_prohibit_zone_1
-    name: "${name} ${cooling_on_prohibit_zone_1}"
-    register_type: holding
-    icon: mdi:block-helper
-    address: 41
-    bitmask: 1
-    entity_category: config
-
-  ## HC Control Type (FC6: 58, MA: 40059)
-  - platform: modbus_controller
-    modbus_controller_id: Ecodan
-    id: hc_control_type
-    name: "${name} ${hc_control_type}"
-    address: 58
-    optionsmap:
-      ${heating}: 0
-      ${cooling}: 1
-    entity_category: config
-
-  ## AC Mode Zone 1
-  - platform: modbus_controller
-    modbus_controller_id: Ecodan
-    id: ac_mode_zone_1
-    name: "${name} ${ac_mode_zone_1}"
-    address: 28
-    optionsmap:
-      ${heating_room}: 0
-      ${heating_flow}: 1
-      ${heating_curve}: 2
-      ${cooling_room}: 3
-      ${cooling_flow}: 4
-      ${floor_dryup}: 5
-    entity_category: config
-
-    ## System ONsubstitutions:
-  in1_thermostat: IN1 Thermostat
-  booster_heater: Booster heater
-  immersion_heater: Immersion heater
-  water_pump: Water pump
-  three_way_valve: 3 way valve
-  procon_version: MelcoBEMS MINI fw version
-  heat_pump_frequency_master: Heat pump frequency – Master  
-  temperature_setpoint_zone_1: Temperature setpoint
-  temperature_setpoint_zone_2: Temperature setpoint Z2
-  flow_temperature_setpoint_zone_1: Flow temperature setpoint
-  flow_temperature_setpoint_zone_2: Flow temperature setpoint Z2
-  legionella_temperature_setpoint: Legionella temperature setpoint
-  DHW_temperature_drop: DHW temperature drop
-  room_temperature_zone_1: Room temperature
-  room_temperature_zone_2: Room temperature Z2
-  refrigerant_liquid_temperature: Refrigerant liquid temperature
-  outdoor_ambient_temperature: Outdoor ambient temperature
-  flow_temperature: Flow temperature
-  return_temperature: Return temperature
-  tank_water_temperature: Tank water temperature
-  return_temperature_setpoint_zone_1: Return temperature setpoint
-  return_temperature_setpoint_zone_2: Return temperature setpoint Z2
-  boiler_flow_temperature: Boiler flow temperature
-  boiler_return_temperature: Boiler return temperature
-  heat_pump_run_time: Heat pump run time
-  energy_used_heating: Energy used heating
-  energy_used_cooling: Energy used cooling
-  energy_used_dhw: Energy used DHW
-  last_measured_total_energy_consumption: Last measured total energy consumption
-  energy_produced_heating: Energy produced heating
-  energy_produced_cooling: Energy produced cooling
-  energy_produced_dhw: Energy produced DHW
-  cop_heating: COP heating
-  cop_cooling: COP cooling
-  cop_dhw: COP DHW
-  last_measured_total_energy_produced: Last measured total energy produced
-  flow_rate: Flow rate
-  consumed_electric_power: Consumed electric power
-  produced_power: Produced power
-  esp_home_version: Esphome Version
-  fault_code: Fault code
-  system_type_detected: System type detected
-  defrost: Defrost
-  residual_heat_removal: Residual heat removal
-  refrigerant_error_info: Refrigerant error info
-  seven_segment_display_error_code_digit_1: 7-Segment display error code digit 1
-  seven_segment_display_error_code_digit_2: 7-Segment display error code digit 2
-  heat_source_status: Heat source status
-  model_profile_1: Model Profile 1
-  operating_mode: Operating mode
-  set_tank_water_temperature: Set tank water temperature
-  hc_thermostat_target_temperature_zone_1: H⁄C thermostat target temperature
-  hc_thermostat_target_temperature_zone_2: H⁄C thermostat target temperature Z2
-  thermostat_target_temperature_zone_1: Thermostat target temperature
-  thermostat_target_temperature_zone_2: Thermostat target temperature Z2
-  relay: Relay
-  operating_mode_dhw: DHW eco mode
-  force_dhw: Set force DHW
-  set_holiday: Set holiday mode
-  cooling_on_prohibit_zone_1: Cooling on prohibit
-  cooling_on_prohibit_zone_2: Cooling on prohibit Z2
-  system_on_off: System on⁄off
-  ac_mode_zone_1: A⁄C mode
-  ac_mode_zone_2: A⁄C mode Z2
-  hc_control_type: HC control type
-  auto: Auto
-  initialize: Initialize
-  unknown: Unknown
-  hours: hours
-  days: days
-  no_error: No Error
-  bad_communication_between_a1m_and_unit: Bad Communication Between A1M And Unit
-  ata_unit_connected: ATA unit connected
-  atw_system_connected: ATW system connected
-  lossnay_system_connected: Lossnay system connected
-  standby: Standby
-  waiting_restart: Waiting restart
-  normal: Normal
-  prepared: Prepared
-  error_system: Error (System)
-  error_startup: Error (Startup)
-  maintenance_error: Maintenance Error
-  heatpump: Heatpump
-  screw_in_heater: Screw-in heater
-  electric_heater: Electric heater
-  screw_in_heater_and_electric_heater: Screw-in heater and electric heater
-  dhw_boiler: DHW boiler
-  stop: Stop
-  none: "Off"
-  hot_water: Hot Water
-  heating: Heating
-  cooling: Cooling
-  freeze_stat: Freeze Stat
-  legionella: Legionella
-  heating_room: Heating room
-  heating_flow: Heating flow
-  heating_curve: Heating curve
-  cooling_room: Cooling room
-  cooling_flow: Cooling flow
-  floor_dryup: Floor DryupOFF (FC1: 1, MA: 00002)
-  - platform: modbus_controller
-    modbus_controller_id: Ecodan
-    id: system_on_off
-    name: "${name} ${system_on_off}"
-    register_type: coil
-    address: 1
-    bitmask: 0
-    icon: mdi:power
-
-select:
-    ## ecodan Asubstitutions:
-  in1_thermostat: IN1 Thermostat
-  booster_heater: Booster heater
-  immersion_heater: Immersion heater
-  water_pump: Water pump
-  three_way_valve: 3 way valve
-  procon_version: MelcoBEMS MINI fw version
-  heat_pump_frequency_master: Heat pump frequency – Master  
-  temperature_setpoint_zone_1: Temperature setpoint
-  temperature_setpoint_zone_2: Temperature setpoint Z2
-  flow_temperature_setpoint_zone_1: Flow temperature setpoint
-  flow_temperature_setpoint_zone_2: Flow temperature setpoint Z2
-  legionella_temperature_setpoint: Legionella temperature setpoint
-  DHW_temperature_drop: DHW temperature drop
-  room_temperature_zone_1: Room temperature
-  room_temperature_zone_2: Room temperature Z2
-  refrigerant_liquid_temperature: Refrigerant liquid temperature
-  outdoor_ambient_temperature: Outdoor ambient temperature
-  flow_temperature: Flow temperature
-  return_temperature: Return temperature
-  tank_water_temperature: Tank water temperature
-  return_temperature_setpoint_zone_1: Return temperature setpoint
-  return_temperature_setpoint_zone_2: Return temperature setpoint Z2
-  boiler_flow_temperature: Boiler flow temperature
-  boiler_return_temperature: Boiler return temperature
-  heat_pump_run_time: Heat pump run time
-  energy_used_heating: Energy used heating
-  energy_used_cooling: Energy used cooling
-  energy_used_dhw: Energy used DHW
-  last_measured_total_energy_consumption: Last measured total energy consumption
-  energy_produced_heating: Energy produced heating
-  energy_produced_cooling: Energy produced cooling
-  energy_produced_dhw: Energy produced DHW
-  cop_heating: COP heating
-  cop_cooling: COP cooling
-  cop_dhw: COP DHW
-  last_measured_total_energy_produced: Last measured total energy produced
-  flow_rate: Flow rate
-  consumed_electric_power: Consumed electric power
-  produced_power: Produced power
-  esp_home_version: Esphome Version
-  fault_code: Fault code
-  system_type_detected: System type detected
-  defrost: Defrost
-  residual_heat_removal: Residual heat removal
-  refrigerant_error_info: Refrigerant error info
-  seven_segment_display_error_code_digit_1: 7-Segment display error code digit 1
-  seven_segment_display_error_code_digit_2: 7-Segment display error code digit 2
-  heat_source_status: Heat source status
-  model_profile_1: Model Profile 1
-  operating_mode: Operating mode
-  set_tank_water_temperature: Set tank water temperature
-  hc_thermostat_target_temperature_zone_1: H⁄C thermostat target temperature
-  hc_thermostat_target_temperature_zone_2: H⁄C thermostat target temperature Z2
-  thermostat_target_temperature_zone_1: Thermostat target temperature
-  thermostat_target_temperature_zone_2: Thermostat target temperature Z2
-  relay: Relay
-  operating_mode_dhw: DHW eco mode
-  force_dhw: Set force DHW
-  set_holiday: Set holiday mode
-  cooling_on_prohibit_zone_1: Cooling on prohibit
-  cooling_on_prohibit_zone_2: Cooling on prohibit Z2
-  system_on_off: System on/off
-  ac_mode_zone_1: A⁄C mode
-  ac_mode_zone_2: A⁄C mode Z2
-  hc_control_type: HC control type
-  auto: Auto
-  initialize: Initialize
-  unknown: Unknown
-  hours: hours
-  days: days
-  no_error: No Error
-  bad_communication_between_a1m_and_unit: Bad Communication Between A1M And Unit
-  ata_unit_connected: ATA unit connected
-  atw_system_connected: ATW system connected
-  lossnay_system_connected: Lossnay system connected
-  standby: Standby
-  waiting_restart: Waiting restart
-  normal: Normal
-  prepared: Prepared
-  error_system: Error (System)
-  error_startup: Error (Startup)
-  maintenance_error: Maintenance Error
-  heatpump: Heatpump
-  screw_in_heater: Screw-in heater
-  electric_heater: Electric heater
-  screw_in_heater_and_electric_heater: Screw-in heater and electric heater
-  dhw_boiler: DHW boiler
-  stop: Stop
-  none: "Off"
-  hot_water: Hot Water
-  heating: Heating
-  cooling: Cooling
-  freeze_stat: Freeze Stat
-  legionella: Legionella
-  heating_room: Heating room
-  heating_flow: Heating flow
-  heating_curve: Heating curve
-  cooling_room: Cooling room
-  cooling_flow: Cooling flow
-  floor_dryup: Floor DryupC mode – Zone 1 (FC6: 28, 40029)
