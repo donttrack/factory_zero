@@ -25,10 +25,10 @@ modbus_controller:
     ## Procon Modbus slaveaddress 1
     address: 1
     modbus_id: modbus1
-    command_throttle: 500ms
+    command_throttle: 50ms
     setup_priority: -10
-    update_interval: 60s
-    offline_skip_updates: 3
+    update_interval: 30s
+    offline_skip_updates: 2
 
 binary_sensor:
   - platform: modbus_controller
@@ -130,7 +130,7 @@ sensor:
     filters:
       - multiply: 0.01
 
-    ## Legionella Temperature Setpoint (signed) (FC4: 48, MA: 30049)
+     ## Legionella Temperature Setpoint (signed) (FC4: 48, MA: 30049)
   - platform: modbus_controller
     modbus_controller_id: Ecodan
     id: legionella_temperature_setpoint
@@ -547,7 +547,6 @@ sensor:
   - platform: template
     id: energy_produced_dhw
     name: "${name} ${energy_produced_dhw}"
-    icon: mdi:water
     device_class: energy
     state_class: total_increasing
     unit_of_measurement: "kWh"
@@ -564,11 +563,7 @@ sensor:
     unit_of_measurement: " "
     accuracy_decimals: 2
     lambda: |-
-      float consumed = id(heating_kwh).state + (id(heating_wh).state/100);
-      if (consumed > 0) {
-        return (id(produced_heating_kwh).state + (id(produced_heating_wh).state/100)) / consumed;
-      }
-      return 0.0;
+      return (id(produced_heating_kwh).state + (id(produced_heating_wh).state/100)) / (id(heating_kwh).state + (id(heating_wh).state/100));
     update_interval: 60s    
 
     ## COP Cooling (template)
@@ -579,11 +574,7 @@ sensor:
     unit_of_measurement: " "
     accuracy_decimals: 2
     lambda: |-
-      float consumed = id(cooling_kwh).state + (id(cooling_wh).state/100);
-      if (consumed > 0) {
-        return (id(produced_cooling_kwh).state + (id(produced_cooling_wh).state/100)) / consumed;
-      }
-      return 0.0;
+      return (id(produced_cooling_kwh).state + (id(produced_cooling_wh).state/100)) / (id(cooling_kwh).state + (id(cooling_wh).state/100));
     update_interval: 60s  
 
     ## COP DHW (template)
@@ -594,11 +585,7 @@ sensor:
     unit_of_measurement: " "
     accuracy_decimals: 2
     lambda: |-
-      float consumed = id(dhw_kwh).state + (id(dhw_wh).state/100);
-      if (consumed > 0) {
-        return (id(produced_dhw_kwh).state + (id(produced_dhw_wh).state/100)) / consumed;
-      }
-      return 0.0;
+      return (id(produced_dhw_kwh).state + (id(produced_dhw_wh).state/100)) / (id(dhw_kwh).state + (id(dhw_wh).state/100));
     update_interval: 60s  
 
     ## Last Measured Total Energy Produced – kWh (FC4: 172, MA: 30173)
@@ -698,7 +685,7 @@ text_sensor:
     entity_category: diagnostic
     raw_encode: HEXBYTES
     lambda: |-
-      uint16_t value = modbus::helpers::word_from_hex_str(x, 0);
+      uint16_t value = modbus_controller::word_from_hex_str(x, 0);
       switch (value) {
         case 8000: return std::string("${no_error}");
         case 6999: return std::string("${bad_communication_between_a1m_and_unit}");
@@ -717,7 +704,7 @@ text_sensor:
     entity_category: diagnostic
     raw_encode: HEXBYTES
     lambda: |-
-      uint16_t value = modbus::helpers::word_from_hex_str(x, 0);
+      uint16_t value = modbus_controller::word_from_hex_str(x, 0);
       switch (value) {
         case 0: return std::string("${ata_unit_connected}");
         case 1: return std::string("${atw_system_connected}");
@@ -737,7 +724,7 @@ text_sensor:
     bitmask: 0
     raw_encode: HEXBYTES
     lambda: |-
-      uint16_t value = modbus::helpers::word_from_hex_str(x, 0);
+      uint16_t value = modbus_controller::word_from_hex_str(x, 0);
       switch (value) {
         case 0: return std::string("${none}");
         case 1: return std::string("${standby}");
@@ -757,7 +744,7 @@ text_sensor:
     register_type: read
     raw_encode: HEXBYTES
     lambda: |-
-      uint16_t value = modbus::helpers::word_from_hex_str(x, 0);
+      uint16_t value = modbus_controller::word_from_hex_str(x, 0);
       switch (value) {
         case 0: return std::string("${normal}");
         case 1: return std::string("${prepared}");
@@ -777,7 +764,7 @@ text_sensor:
     register_type: read
     raw_encode: HEXBYTES
     lambda: |-
-      uint16_t value = modbus::helpers::word_from_hex_str(x, 0);
+      uint16_t value = modbus_controller::word_from_hex_str(x, 0);
       switch (value) {
         case 0: return std::string("${normal}");
         case 1: return std::string("${error_system}");
@@ -798,7 +785,7 @@ text_sensor:
     register_type: read
     raw_encode: HEXBYTES
     lambda: |-
-      uint16_t value = modbus::helpers::word_from_hex_str(x, 0);
+      uint16_t value = modbus_controller::word_from_hex_str(x, 0);
       switch (value) {
         case 0: return std::string("A");
         case 1: return std::string("b");
@@ -823,7 +810,7 @@ text_sensor:
     register_type: read
     raw_encode: HEXBYTES
     lambda: |-
-      uint16_t value = modbus::helpers::word_from_hex_str(x, 0);
+      uint16_t value = modbus_controller::word_from_hex_str(x, 0);
       switch (value) {
         case 1: return std::string("1");
         case 2: return std::string("2");
@@ -860,7 +847,7 @@ text_sensor:
     register_type: read
     raw_encode: HEXBYTES
     lambda: |-
-      uint16_t value = modbus::helpers::word_from_hex_str(x, 0);
+      uint16_t value = modbus_controller::word_from_hex_str(x, 0);
       switch (value) {
         case 0: return std::string("${heatpump}");
         case 1: return std::string("${screw_in_heater}");
@@ -882,7 +869,7 @@ text_sensor:
     register_type: read
     raw_encode: HEXBYTES
     lambda: |-
-      uint16_t value = modbus::helpers::word_from_hex_str(x, 0);
+      uint16_t value = modbus_controller::word_from_hex_str(x, 0);
       switch (value) {
         case 0: return std::string("FTC2B");
         case 1: return std::string("FTC4");
@@ -914,7 +901,7 @@ text_sensor:
     bitmask: 0
     raw_encode: HEXBYTES
     lambda: |-
-      uint16_t value = modbus::helpers::word_from_hex_str(x, 0);
+      uint16_t value = modbus_controller::word_from_hex_str(x, 0);
       switch (value) {
         case 0: return std::string("${stop}");
         case 1: return std::string("${hot_water}");
@@ -946,7 +933,7 @@ number:
     multiply: 100
     entity_category: config
 
-    ## H⁄C Thermostat Target Temperature – Zone 1 (signed) (FC6: 32, MA: 40033)
+    ## H/C Thermostat Target Temperature – Zone 1 (signed) (FC6: 32, MA: 40033)
   - platform: modbus_controller
     modbus_controller_id: Ecodan
     id: hc_thermostat_target_temperature_zone_1
@@ -966,6 +953,7 @@ number:
     #      id: ${name}_climate
     #      target_temperature: !lambda "return x;"
 
+
     ## Thermostat Target Temperature – Zone 1 (signed) (FC6: 54, MA: 40055)
   - platform: modbus_controller
     modbus_controller_id: Ecodan
@@ -981,10 +969,10 @@ number:
     max_value: 36
     step: 0.5
     multiply: 100
-    entity_category: config
+
 
 switch:
-  ## Operating Mode (DHW) (FC6: 27, MA: 40028)
+    ## Operating Mode (DHW) (FC6: 27, MA: 40028)
   - platform: modbus_controller
     modbus_controller_id: Ecodan
     id: operating_mode_dhw
@@ -995,7 +983,7 @@ switch:
     bitmask: 1
     entity_category: config
 
-  ## Force DHW (FC6: 37, MA: 40038)
+    ## Force DHW (FC6: 37, MA: 40038)
   - platform: modbus_controller
     modbus_controller_id: Ecodan
     id: force_dhw
@@ -1005,9 +993,61 @@ switch:
     address: 37
     bitmask: 1
 
-  ## Holiday (FC6: 38, MA: 40039)
+    ## Holiday (FC6: 38, MA: 40039)
   - platform: modbus_controller
     modbus_controller_id: Ecodan
     id: set_holiday
     name: "${name} ${set_holiday}"
     register_type: holding
+    icon: mdi:briefcase
+    address: 38
+    bitmask: 1
+
+    ## Cooling On Prohibit – Zone 1 (FC6: 41, MA: 40042)
+  - platform: modbus_controller
+    modbus_controller_id: Ecodan
+    id: cooling_on_prohibit_zone_1
+    name: "${name} ${cooling_on_prohibit_zone_1}"
+    register_type: holding
+    icon: mdi:block-helper
+    address: 41
+    bitmask: 1
+    entity_category: config
+
+
+    ## System ON/OFF (FC1: 1, MA: 00002)
+  - platform: modbus_controller
+    modbus_controller_id: Ecodan
+    id: system_on_off
+    name: "${name} ${system_on_off}"
+    register_type: coil
+    address: 1
+    bitmask: 0
+    icon: mdi:power
+
+select:
+    ## A/C mode – Zone 1 (FC6: 28, 40029)
+  - platform: modbus_controller
+    modbus_controller_id: Ecodan
+    id: ac_mode_zone_1
+    name: "${name} ${ac_mode_zone_1}"
+    address: 28
+    optionsmap:
+      ${heating_room}: 0
+      ${heating_flow}: 1
+      ${heating_curve}: 2
+      ${cooling_room}: 3
+      ${cooling_flow}: 4
+      ${floor_dryup}: 5
+    entity_category: config
+
+    ## HC Control Type (FC6: 58, 40059)
+  - platform: modbus_controller
+    modbus_controller_id: Ecodan
+    id: hc_control_type
+    name: "${name} ${hc_control_type}"
+    address: 58
+    optionsmap:
+      ${heating}: 0
+      ${cooling}: 1
+    entity_category: config
