@@ -1013,6 +1013,18 @@ switch:
     bitmask: 1
     entity_category: config
 
+
+    ## HC Control Type (FC6: 58, 40059)
+  - platform: modbus_controller
+    modbus_controller_id: Ecodan
+    id: hc_control_type
+    name: "${name} ${hc_control_type}"
+    address: 58
+    optionsmap:
+      ${heating}: 0
+      ${cooling}: 1
+    entity_category: config
+
     ## System ONsubstitutions:
   in1_thermostat: IN1 Thermostat
   booster_heater: Booster heater
@@ -1239,13 +1251,3 @@ select:
       ${floor_dryup}: 5
     entity_category: config
 
-    ## HC Control Type (FC6: 58, 40059)
-  - platform: modbus_controller
-    modbus_controller_id: Ecodan
-    id: hc_control_type
-    name: "${name} ${hc_control_type}"
-    address: 58
-    optionsmap:
-      ${heating}: 0
-      ${cooling}: 1
-    entity_category: config
