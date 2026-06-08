@@ -704,7 +704,7 @@ text_sensor:
     entity_category: diagnostic
     raw_encode: HEXBYTES
     lambda: |-
-      uint16_t value = modbus_controller::word_from_hex_str(x, 0);
+      uint16_t value = modbus::helpers::word_from_hex_str(x, 0);
       switch (value) {
         case 0: return std::string("${ata_unit_connected}");
         case 1: return std::string("${atw_system_connected}");
@@ -724,7 +724,7 @@ text_sensor:
     bitmask: 0
     raw_encode: HEXBYTES
     lambda: |-
-      uint16_t value = modbus_controller::word_from_hex_str(x, 0);
+      uint16_t value = modbus::helpers::word_from_hex_str(x, 0);
       switch (value) {
         case 0: return std::string("${none}");
         case 1: return std::string("${standby}");
@@ -744,7 +744,7 @@ text_sensor:
     register_type: read
     raw_encode: HEXBYTES
     lambda: |-
-      uint16_t value = modbus_controller::word_from_hex_str(x, 0);
+      uint16_t value = modbus::helpers::word_from_hex_str(x, 0);
       switch (value) {
         case 0: return std::string("${normal}");
         case 1: return std::string("${prepared}");
@@ -764,7 +764,7 @@ text_sensor:
     register_type: read
     raw_encode: HEXBYTES
     lambda: |-
-      uint16_t value = modbus_controller::word_from_hex_str(x, 0);
+      uint16_t value = modbus::helpers::word_from_hex_str(x, 0);
       switch (value) {
         case 0: return std::string("${normal}");
         case 1: return std::string("${error_system}");
@@ -785,7 +785,7 @@ text_sensor:
     register_type: read
     raw_encode: HEXBYTES
     lambda: |-
-      uint16_t value = modbus_controller::word_from_hex_str(x, 0);
+      uint16_t value = modbus::helpers::word_from_hex_str(x, 0);
       switch (value) {
         case 0: return std::string("A");
         case 1: return std::string("b");
@@ -810,7 +810,7 @@ text_sensor:
     register_type: read
     raw_encode: HEXBYTES
     lambda: |-
-      uint16_t value = modbus_controller::word_from_hex_str(x, 0);
+      uint16_t value = modbus::helpers::word_from_hex_str(x, 0);
       switch (value) {
         case 1: return std::string("1");
         case 2: return std::string("2");
@@ -847,7 +847,7 @@ text_sensor:
     register_type: read
     raw_encode: HEXBYTES
     lambda: |-
-      uint16_t value = modbus_controller::word_from_hex_str(x, 0);
+      uint16_t value = modbus::helpers::word_from_hex_str(x, 0);
       switch (value) {
         case 0: return std::string("${heatpump}");
         case 1: return std::string("${screw_in_heater}");
@@ -869,7 +869,7 @@ text_sensor:
     register_type: read
     raw_encode: HEXBYTES
     lambda: |-
-      uint16_t value = modbus_controller::word_from_hex_str(x, 0);
+      uint16_t value = mmodbus::helpers::word_from_hex_str(x, 0);
       switch (value) {
         case 0: return std::string("FTC2B");
         case 1: return std::string("FTC4");
@@ -901,7 +901,7 @@ text_sensor:
     bitmask: 0
     raw_encode: HEXBYTES
     lambda: |-
-      uint16_t value = modbus_controller::word_from_hex_str(x, 0);
+      uint16_t value = modbus::helpers::word_from_hex_str(x, 0);
       switch (value) {
         case 0: return std::string("${stop}");
         case 1: return std::string("${hot_water}");
@@ -953,7 +953,6 @@ number:
     #      id: ${name}_climate
     #      target_temperature: !lambda "return x;"
 
-
     ## Thermostat Target Temperature – Zone 1 (signed) (FC6: 54, MA: 40055)
   - platform: modbus_controller
     modbus_controller_id: Ecodan
@@ -969,7 +968,6 @@ number:
     max_value: 36
     step: 0.5
     multiply: 100
-
 
 switch:
     ## Operating Mode (DHW) (FC6: 27, MA: 40028)
@@ -1013,7 +1011,6 @@ switch:
     address: 41
     bitmask: 1
     entity_category: config
-
 
     ## System ON/OFF (FC1: 1, MA: 00002)
   - platform: modbus_controller
