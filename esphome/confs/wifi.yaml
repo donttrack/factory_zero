@@ -3,13 +3,14 @@ wifi:
   password: !secret wifi_password
   fast_connect: true
   power_save_mode: light
-# indien een fall back noodzakelijk is verwijder de #
-ap:
-  ssid: "${name}_fallback"
-  password: !secret ap_password
-  ap_timeout: 15s
 
-# captive_portal: false
+  # indien een fall back noodzakelijk is verwijder de #
+  ap:
+    ssid: "${name}_fallback"
+    password: !secret ap_password
+    ap_timeout: 15s
+
+captive_portal:
 
 text_sensor:
   - platform: wifi_info
